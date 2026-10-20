@@ -25,6 +25,12 @@ assert.ok(readFileSync('cloud.css','utf8').includes('padding-top:max(env(safe-ar
 assert.ok(cloud.includes("signInWithOAuth({provider:'google'"),'Falta Google OAuth');
 assert.ok(cloud.includes('data-action="cloud-google"'),'Falta el botón Google');
 assert.ok(readFileSync('cloud.css','utf8').includes('.cloud-google-button'),'Falta el estilo Google');
+assert.ok(cloud.includes("from('slovo_profiles')"),'Falta sincronizar el perfil');
+assert.ok(cloud.includes("from('slovo-avatars')"),'Falta avatar privado');
+assert.ok(cloud.includes('cloud-home-entry'),'Falta entrada de perfil');
+assert.ok(cloud.includes('slovo-profile-form'),'Falta formulario de perfil');
+assert.ok(cloud.includes('slovo-celebration'),'Falta celebrar avances');
+assert.ok(readFileSync('cloud.css','utf8').includes('.slovo-profile-thumb'),'Faltan estilos de avatar');
 const config=readFileSync('supabase-config.js','utf8');
 assert.ok(config.includes('sb_publishable_'),'Falta clave pública de Supabase');
 assert.ok(!config.includes('sb_secret_')&&!config.includes('service_role'),'No subas credenciales privadas');
