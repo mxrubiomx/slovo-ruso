@@ -15,6 +15,8 @@ assert.ok(index.includes('return renderHomeTimePicker()+renderDailyHome()+render
 assert.ok(index.includes('¿Cuánto te queda hoy?'),'Falta selector de tiempo');
 assert.ok(index.includes('OBJETIVO DIARIO · ~2–3 MIN'),'Falta meta diaria explícita');
 assert.ok(index.includes('dailyCompletedCount(record)'),'El contador debe leer progreso del día');
+assert.ok(!index.includes('body::before{'),'No debe existir capa fixed decorativa delante del contenido táctil en iOS');
+assert.ok(index.includes('touch-action:manipulation'),'Falta optimización de interacción táctil');
 const cloud=readFileSync('cloud.js','utf8');
 assert.ok(cloud.includes("signInWithOAuth({provider:'google'"),'Falta Google OAuth');
 assert.ok(cloud.includes('data-action="cloud-google"'),'Falta el botón Google');
