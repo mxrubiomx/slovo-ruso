@@ -855,6 +855,23 @@ body{
 #app .main-content{position:relative;z-index:1}
 #app .main-content button,#app .topbar button{pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:rgba(136,245,202,.20)}
 #app .mobile-nav{z-index:30}
+
+/* СЛОВО 4.6 · Safe areas iPhone / Dynamic Island */
+/* viewport-fit=cover no aparta automáticamente el encabezado de la isla.
+   Safari web utiliza el inset calculado; las PWA standalone tienen un mínimo
+   seguro incluso cuando WebKit comunica temporalmente inset 0. */
+@media (max-width:850px){
+  html{background:#07111d}
+  body{padding-top:env(safe-area-inset-top,0px)}
+  #app .topbar{position:relative;z-index:3;min-height:66px;height:auto;gap:12px;padding:12px 20px;background:#0b1423}
+  #app .mobile-brand{flex:0 0 auto;min-height:44px;display:flex;align-items:center;white-space:nowrap}
+  #app .topbar-metrics{margin-left:auto;justify-content:flex-end;align-items:center;min-width:0;gap:0}
+  #app .topbar-metrics>span{display:none}
+  #app .topbar-metrics .cloud-trigger{margin:0;min-height:46px;min-width:122px;padding:10px 13px;font-size:13px;line-height:1.2;white-space:nowrap;border-radius:13px}
+}
+@media (display-mode:standalone) and (max-width:850px){
+  body{padding-top:max(env(safe-area-inset-top,0px),54px)}
+}
 </style>
 <script>
 (function(){
