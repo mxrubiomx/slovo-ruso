@@ -11,6 +11,10 @@ for(const f of ['cloud.js','supabase-config.js','sw.js'])new vm.Script(readFileS
 const manifest=JSON.parse(readFileSync('manifest.webmanifest','utf8'));
 assert.equal(manifest.display,'standalone');
 assert.ok(manifest.icons?.every(icon=>existsSync(icon.src)));
+const cloud=readFileSync('cloud.js','utf8');
+assert.ok(cloud.includes("signInWithOAuth({provider:'google'"),'Falta Google OAuth');
+assert.ok(cloud.includes('data-action="cloud-google"'),'Falta el botón Google');
+assert.ok(readFileSync('cloud.css','utf8').includes('.cloud-google-button'),'Falta el estilo Google');
 const config=readFileSync('supabase-config.js','utf8');
 assert.ok(config.includes('sb_publishable_'),'Falta clave pública de Supabase');
 assert.ok(!config.includes('sb_secret_')&&!config.includes('service_role'),'No subas credenciales privadas');
