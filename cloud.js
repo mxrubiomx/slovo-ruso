@@ -80,7 +80,7 @@ function authModal(){
  if(!modal)return '';
  return '<div class="cloud-overlay" data-action="cloud-backdrop"><section class="cloud-modal" role="dialog" aria-modal="true" aria-label="Cuenta СЛОВО"><button class="cloud-close" data-action="cloud-close">×</button><span class="eyebrow">СЛОВО · CUENTAS</span><h2>'+(account?'Mi cuenta':'Tu ruso en todos tus dispositivos')+'</h2>'+
  (account?'<p>Sesión: <b>'+esc(email)+'</b></p><p class="cloud-status">'+esc(status)+'</p>'+(conflict?'<div class="cloud-warning"><strong>Hay dos progresos distintos.</strong><p>Guarda una copia JSON antes de elegir.</p><div class="cloud-actions"><button class="btn btn-outline" data-action="cloud-use-cloud">Usar nube</button><button class="btn btn-outline" data-action="cloud-use-local">Usar dispositivo</button></div></div>':'')+'<div class="cloud-actions"><button class="btn btn-primary" data-action="cloud-sync">Sincronizar</button><button class="btn btn-outline" data-action="cloud-migrate">Importar progreso de invitado</button><button class="btn btn-outline" data-action="export">Exportar JSON</button><button class="btn btn-outline" data-action="cloud-signout">Cerrar sesión</button></div>':
- '<div class="cloud-tab-bar"><button data-action="cloud-tab" data-tab="login" class="'+(tab==='login'?'active':'')+'">Iniciar sesión</button><button data-action="cloud-tab" data-tab="signup" class="'+(tab==='signup'?'active':'')+'">Crear cuenta</button></div><form class="cloud-form" id="cloud-auth"><label>Correo</label><input type="email" name="email" autocomplete="email" required maxlength="254"><label>Contraseña</label><input type="password" name="password" minlength="6" required><button class="btn btn-primary" type="submit">'+(tab==='login'?'Entrar':'Registrarme')+'</button></form><div class="cloud-actions"><button class="btn btn-outline" data-action="cloud-recover">Recuperar contraseña</button></div><p class="cloud-note">Confirma tu correo si recibes un enlace de verificación. Las contraseñas las gestiona Supabase.</p>')+
+ '<div class="cloud-google-auth"><button type="button" class="cloud-google-button" data-action="cloud-google"><span class="cloud-google-g" aria-hidden="true">G</span><span>Continuar con Google</span></button><div class="cloud-auth-divider"><span>o usa tu correo</span></div></div><div class="cloud-tab-bar"><button data-action="cloud-tab" data-tab="login" class="'+(tab==='login'?'active':'')+'">Iniciar sesión</button><button data-action="cloud-tab" data-tab="signup" class="'+(tab==='signup'?'active':'')+'">Crear cuenta</button></div><form class="cloud-form" id="cloud-auth"><label>Correo</label><input type="email" name="email" autocomplete="email" required maxlength="254"><label>Contraseña</label><input type="password" name="password" minlength="6" required><button class="btn btn-primary" type="submit">'+(tab==='login'?'Entrar':'Registrarme')+'</button></form><div class="cloud-actions"><button class="btn btn-outline" data-action="cloud-recover">Recuperar contraseña</button></div><p class="cloud-note">Confirma tu correo si recibes un enlace de verificación. Las contraseñas las gestiona Supabase.</p>')+
  (notice?'<p class="cloud-status">'+esc(notice)+'</p>':'')+(error?'<p class="cloud-warning">'+esc(error)+'</p>':'')+'</section></div>'
 }
 render=function(){
@@ -96,6 +96,14 @@ APP.addEventListener('click',async e=>{
  const el=e.target.closest('[data-action]');if(!el)return;
  const a=el.dataset.action;
  if(a==='cloud-open'){modal=true;notice='';error='';updated()}
+ else if(a==='cloud-google'){
+  if(!client){error='Supabase no está disponible. Comprueba la conexión e inténtalo de nuevo.';updated();return}
+  error='';notice='Redirigiendo a Google…';updated();
+  try{
+   const {error:oauthError}=await client.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname}});
+   if(oauthError)throw oauthError;
+  }catch(oauthError){error='No se pudo abrir el inicio de sesión de Google: '+(oauthError?.message||'error desconocido');notice='';updated()}
+ }
  else if(a==='cloud-close'||(a==='cloud-backdrop'&&e.target===el)){modal=false;updated()}
  else if(a==='cloud-tab'){tab=el.dataset.tab;error='';notice='';updated()}
  else if(a==='cloud-sync'){await sync();updated()}
