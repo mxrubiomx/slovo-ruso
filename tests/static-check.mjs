@@ -17,7 +17,11 @@ assert.ok(index.includes('OBJETIVO DIARIO · ~2–3 MIN'),'Falta meta diaria exp
 assert.ok(index.includes('dailyCompletedCount(record)'),'El contador debe leer progreso del día');
 assert.ok(!index.includes('body::before{'),'No debe existir capa fixed decorativa delante del contenido táctil en iOS');
 assert.ok(index.includes('touch-action:manipulation'),'Falta optimización de interacción táctil');
+assert.ok(index.includes('padding-top:max(env(safe-area-inset-top,0px),54px)'),'iOS instalado: debe respetar zona segura sobre la Dynamic Island');
+assert.ok(index.includes('.topbar-metrics>span{display:none}'),'iPhone: deja espacio para botón de cuenta en el encabezado');
 const cloud=readFileSync('cloud.js','utf8');
+assert.ok(cloud.includes('cloud-home-entry'),'Falta acceso a la cuenta desde la portada móvil');
+assert.ok(readFileSync('cloud.css','utf8').includes('padding-top:max(env(safe-area-inset-top,0px),58px)'),'El diálogo debe respetar la zona segura iOS');
 assert.ok(cloud.includes("signInWithOAuth({provider:'google'"),'Falta Google OAuth');
 assert.ok(cloud.includes('data-action="cloud-google"'),'Falta el botón Google');
 assert.ok(readFileSync('cloud.css','utf8').includes('.cloud-google-button'),'Falta el estilo Google');
