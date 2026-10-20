@@ -1,0 +1,1 @@
+window.SLOVO_SUPABASE_CONFIG={url:"https://tqikpiqyxyjzndhbsary.supabase.co",publishableKey:"sb_publishable_i27622XRMVMJWNQql2VgoA_yc5lnaQi"};
