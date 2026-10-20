@@ -1,0 +1,17 @@
+import {readFileSync, existsSync} from 'node:fs';
+import vm from 'node:vm';
+import assert from 'node:assert/strict';
+const required=['index.html','cloud.js','cloud.css','supabase-config.js','manifest.webmanifest','sw.js','icon.svg'];
+for(const f of required)assert.ok(existsSync(f),`Falta ${f}`);
+const index=readFileSync('index.html','utf8');
+for(const f of ['cloud.js','cloud.css','supabase-config.js','manifest.webmanifest','sw.js']) assert.ok(index.includes(f)||f==='sw.js',`Recurso ${f} no está enlazado`);
+const scripts=[...index.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)];
+for(const [i,m] of scripts.entries()) if(m[1].trim())new vm.Script(m[1],{filename:`inline-script-${i}.js`});
+for(const f of ['cloud.js','supabase-config.js','sw.js'])new vm.Script(readFileSync(f,'utf8'),{filename:f});
+const manifest=JSON.parse(readFileSync('manifest.webmanifest','utf8'));
+assert.equal(manifest.display,'standalone');
+assert.ok(manifest.icons?.every(icon=>existsSync(icon.src)));
+const config=readFileSync('supabase-config.js','utf8');
+assert.ok(config.includes('sb_publishable_'),'Falta clave pública de Supabase');
+assert.ok(!config.includes('sb_secret_')&&!config.includes('service_role'),'No subas credenciales privadas');
+console.log('✓ СЛОВО: comprobación estática terminada');
