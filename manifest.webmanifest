@@ -1,0 +1,19 @@
+{
+  "name": "СЛОВО — Ruso útil desde cero",
+  "short_name": "СЛОВО",
+  "description": "Ruso útil, desafíos y diálogos breves",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#07111d",
+  "theme_color": "#0b1020",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
