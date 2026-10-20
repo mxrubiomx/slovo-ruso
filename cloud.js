@@ -17,6 +17,8 @@ let prefs=read(profilePrefsKey(null))||{celebrations:true,sound:true};
 const safeName=s=>String(s||'').replace(/[<>&"'\x00-\x1f]/g,'').trim().slice(0,40);
 const preferredName=()=>safeName(profile?.display_name)||safeName(email.split('@')[0])||'explorador';
 const initials=()=>[...preferredName()].slice(0,2).join('').toUpperCase();
+function personalAchievement(){const lessons=Object.values(state.lessons||{}).filter(x=>x?.completed).length;const dialogs=Object.keys(state.dialogues?.completed||{}).length;const xp=state.xp||0;if(lessons>=3)return '🏅 '+lessons+' lecciones superadas';if(dialogs>=1)return '💬 Primer diálogo completado';if(xp>=100)return '✨ Ya alcanzaste 100 XP';if(xp>=10)return '🌱 Has empezado a crecer';return '🎯 Tu próxima conquista comienza hoy'}
+
 const avatarMark=(extra='')=>avatarUrl?'<img class="slovo-avatar-img" src="'+avatarUrl+'" alt="Tu foto de perfil" '+extra+'>':'<span class="slovo-avatar-fallback" aria-hidden="true">'+esc(initials())+'</span>';
 function setPrefs(k,value){prefs={...prefs,[k]:!!value};put(profilePrefsKey(account),prefs);updated()}
 async function loadProfile(id){
@@ -171,7 +173,7 @@ render=function(){
  if(main&&page==='settings')main.insertAdjacentHTML('beforeend','<section class="settings-panel"><h2>Cuenta y nube</h2><p>'+esc(status)+'</p><button class="btn btn-primary" data-action="cloud-open">Administrar cuenta</button></section>');
  if(account&&main){
   const hero=main.querySelector('.time-first-title');
-  if(page==='home'&&hero)hero.insertAdjacentHTML('afterbegin','<div class="slovo-welcome"><button class="slovo-profile-thumb" type="button" data-action="profile-open" aria-label="Personalizar perfil">'+avatarMark()+'</button><div><span class="eyebrow">ТВОЙ ПУТЬ · TU CAMINO</span><strong>¡Привет, '+esc(preferredName())+'!</strong><small>'+((state.xp||0)>0?'Ya llevas '+(state.xp||0)+' XP. Sigue a tu ritmo.':'Tu primera frase en ruso te espera.')+'</small></div><button class="slovo-edit-profile" data-action="profile-open" type="button">Editar</button></div>');
+  if(page==='home'&&hero)hero.insertAdjacentHTML('afterbegin','<div class="slovo-welcome"><button class="slovo-profile-thumb" type="button" data-action="profile-open" aria-label="Personalizar perfil">'+avatarMark()+'</button><div><span class="eyebrow">ТВОЙ ПУТЬ · TU CAMINO</span><strong>¡Привет, '+esc(preferredName())+'!</strong><small>'+((state.xp||0)>0?'Ya llevas '+(state.xp||0)+' XP. Sigue a tu ritmo.':'Tu primera frase en ruso te espera.')+' · '+esc(personalAchievement())+'</small></div><button class="slovo-edit-profile" data-action="profile-open" type="button">Editar</button></div>');
   if(page==='settings')main.insertAdjacentHTML('beforeend','<section class="settings-panel slovo-personal-settings"><h2>Tu experiencia</h2><p>Personaliza tu perfil y elige cómo celebrar tus avances.</p><button type="button" class="btn btn-outline" data-action="profile-open">Editar nombre y fotografía</button><label class="slovo-setting-row"><span>Celebraciones animadas</span><input type="checkbox" data-action="profile-celebrations" '+(prefs.celebrations?'checked':'')+'></label><label class="slovo-setting-row"><span>Sonido de recompensas</span><input type="checkbox" data-action="profile-sound" '+(prefs.sound?'checked':'')+'></label></section>');
  }
  if(account&&modal){const box=APP.querySelector('.cloud-modal .cloud-actions');if(box)box.insertAdjacentHTML('afterbegin','<button type="button" class="btn btn-primary" data-action="profile-open">Personalizar perfil</button>')}
