@@ -11,6 +11,10 @@ for(const f of ['cloud.js','supabase-config.js','sw.js'])new vm.Script(readFileS
 const manifest=JSON.parse(readFileSync('manifest.webmanifest','utf8'));
 assert.equal(manifest.display,'standalone');
 assert.ok(manifest.icons?.every(icon=>existsSync(icon.src)));
+assert.ok(index.includes('return renderHomeTimePicker()+renderDailyHome()+renderDialogueSpotlight()+renderHomeMomentum()'),'El selector de tiempo debe abrir la portada');
+assert.ok(index.includes('¿Cuánto te queda hoy?'),'Falta selector de tiempo');
+assert.ok(index.includes('OBJETIVO DIARIO · ~2–3 MIN'),'Falta meta diaria explícita');
+assert.ok(index.includes('dailyCompletedCount(record)'),'El contador debe leer progreso del día');
 const cloud=readFileSync('cloud.js','utf8');
 assert.ok(cloud.includes("signInWithOAuth({provider:'google'"),'Falta Google OAuth');
 assert.ok(cloud.includes('data-action="cloud-google"'),'Falta el botón Google');
