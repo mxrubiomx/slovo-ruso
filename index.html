@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content="Aprende ruso desde cero con retos diarios, diálogos, audio y cuentas opcionales sincronizadas entre iPhone y PC." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Slovo" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="stylesheet" href="./cloud.css" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png" />
+  <link rel="apple-touch-icon" href="./icon-192.png" />
+  
+  
+  
+  <style>
+:root{color-scheme:dark;--bg:#0b1020;--sidebar:#0b1020;--panel:#151d30;--panel2:#192337;--line:#2b374c;--text:#f5f6fa;--muted:#a6b2c5;--soft:#788ba4;--mint:#8febc2;--mintDark:#12372e;--purple:#b8a8fe;--orange:#f7bf92;--danger:#ed969c;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-size:15px;min-height:100vh}button{font:inherit;color:inherit;cursor:pointer}button:focus-visible{outline:2px solid var(--mint);outline-offset:3px}button:disabled{cursor:not-allowed}p,h1,h2,h3{margin:0}p{line-height:1.65}svg{flex:none}.layout{min-height:100vh;display:flex}.sidebar{position:sticky;top:0;width:260px;height:100vh;flex:none;padding:29px 20px;border-right:1px solid #233047;display:flex;flex-direction:column;gap:12px;background:#0e1423;z-index:5}.brand{border:0;background:none;display:flex;align-items:center;gap:12px;text-align:left;padding:8px 6px 27px;width:100%}.brand-symbol,.mobile-brand span{display:grid;place-items:center;width:43px;height:43px;background:var(--mint);color:#0c1b22;border-radius:14px;font-family:Georgia,serif;font-size:27px;font-weight:900}.brand-word{font-size:21px;font-weight:850;letter-spacing:1.5px;line-height:1}.brand-dot{color:var(--mint)}.brand-word small{display:block;font-size:8px;letter-spacing:2px;color:var(--soft);margin-top:7px;font-weight:750}.side-caption{padding:12px 13px 3px;color:#73859e;font-size:10px;letter-spacing:1.8px;font-weight:800}.side-caption.second{padding-top:25px}.side-nav{display:grid;gap:4px}.nav-item{border:0;background:transparent;color:#9caac0;border-radius:12px;padding:14px 15px;display:flex;align-items:center;gap:15px;text-align:left;font-size:13px;font-weight:680;transition:background .15s,color .15s}.nav-item:hover{background:#18233a;color:#fff}.nav-item.active{background:#1d3b39;color:var(--mint)}.sidebar-bottom{margin-top:auto;background:#172033;border:1px solid #2a3950;padding:18px;border-radius:16px}.sidebar-progress-top{display:flex;align-items:center;justify-content:space-between;font-size:12px;margin-bottom:11px}.sidebar-progress-top b{color:var(--mint)}.sidebar-bottom small{display:block;color:var(--soft);font-size:11px;margin-top:9px}.progress-track{height:7px;background:#304158;border-radius:99px;overflow:hidden}.progress-track>div{height:100%;background:var(--mint);border-radius:99px;transition:width .2s}.main-shell{min-width:0;flex:1}.topbar{height:75px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #202c40;padding:0 54px}.topbar-caption{font-weight:800;letter-spacing:2px;font-size:10px;color:#7689a4}.topbar-metrics{display:flex;gap:16px}.topbar-metrics>span{display:flex;gap:7px;align-items:center;border:1px solid #304057;background:#152037;padding:9px 12px;border-radius:9px;color:#e8edf4;font-size:12px;font-weight:760}.topbar-metrics>span:first-child svg{color:var(--orange)}.topbar-metrics>span:last-child svg{color:var(--mint)}.mobile-brand{display:none}.main-content{width:min(1190px,100%);padding:37px 52px 84px;margin:0 auto}.hero{position:relative;min-height:320px;background:radial-gradient(circle at 90% 42%,#335b64 0%,transparent 39%),linear-gradient(118deg,#1b3441 1%,#143137 58%,#152b3b 100%);border:1px solid #37575e;border-radius:24px;overflow:hidden;display:flex;align-items:center;padding:40px 50px}.hero-copy{max-width:570px;z-index:1;position:relative}.eyebrow{font-size:10px;letter-spacing:2.2px;font-weight:850;color:var(--mint);text-transform:uppercase}.hero h1{font-size:clamp(38px,4vw,58px);line-height:1.07;font-weight:840;letter-spacing:-2.3px;margin:14px 0}.hero h1 em{color:var(--mint);font-style:normal}.hero-copy>p{font-size:14px;color:#c7d8d7;max-width:370px}.hero-actions{display:flex;align-items:center;gap:12px;margin-top:25px;flex-wrap:wrap}.btn{display:inline-flex;gap:11px;align-items:center;justify-content:center;border-radius:11px;padding:13px 19px;min-height:45px;font-size:13px;font-weight:800;border:1px solid transparent;transition:transform .15s,background .15s}.btn:hover{transform:translateY(-1px)}.btn-primary{background:var(--mint);color:#10251f}.btn-primary:hover{background:#a6f9d7}.btn-outline{border-color:#4a6870;background:#ffffff0a;color:#eaf7ef}.btn-outline:hover{background:#ffffff16}.btn-danger{border-color:#ae5360;color:#ffbac1;background:#512b34}.hero-art{position:absolute;right:9%;top:5px;height:315px;width:300px;display:grid;place-items:center}.hero-big{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:208px;line-height:1;color:#a8f6cf;text-shadow:0 18px 43px #040d1599;transform:rotate(-8deg)}.hero-little{position:absolute;top:37px;right:14px;color:#e4eee1;font-family:Georgia,serif;font-size:37px;transform:rotate(15deg)}.hero-ribbon{position:absolute;bottom:40px;right:-15px;transform:rotate(-8deg);padding:10px 18px;border:1px solid #76989d;border-radius:12px;background:#09242bdc;color:#c5f5db;white-space:nowrap;font-size:10px;letter-spacing:2px;font-weight:850}.hero-orbit{position:absolute;inset:27px 0;border:1px solid #b6f3d52c;border-radius:50%;transform:rotate(28deg)}.orbit-b{inset:5px 45px;transform:rotate(-24deg)}.stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-top:19px}.stat-card{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:20px 22px;min-height:168px}.stat-icon{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;margin-bottom:14px}.stat-icon.mint{color:var(--mint);background:#214139}.stat-icon.peach{color:var(--orange);background:#3e2e35}.stat-icon.lilac{color:var(--purple);background:#33304b}.stat-card>span{display:block;color:#94a5bb;font-weight:820;font-size:10px;letter-spacing:1.6px}.stat-card strong{display:block;font-size:30px;letter-spacing:-1px;margin:4px 0}.stat-card strong small{font-size:14px;font-weight:680;color:#8294aa}.stat-card p{font-size:12px;color:#8e9db4}.home-columns{display:grid;grid-template-columns:1.15fr .85fr;gap:29px;margin-top:38px}.section-heading{min-height:64px;display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}.section-heading h2,.unit-head h2{font-size:21px;letter-spacing:-.6px;margin-top:7px}.text-link{display:flex;gap:7px;align-items:center;white-space:nowrap;color:var(--mint);font-size:12px;font-weight:800;border:0;background:transparent}.next-lesson{min-height:194px;display:flex;gap:18px;align-items:center;border:1px solid #314356;background:linear-gradient(110deg,#1d2b3f,#172236);border-radius:16px;padding:22px}.lesson-art{height:115px;width:114px;flex:none;display:grid;place-items:center;color:var(--mint);background:#244e48;border-radius:13px;font-family:Georgia,serif;font-size:44px;font-weight:bold}.next-description{flex:1;min-width:0}.soft-label{color:#8294ad;font-size:10px;letter-spacing:1.4px;font-weight:830}.next-description h3,.course-main h3{font-size:18px;margin:10px 0 7px;letter-spacing:-.4px}.next-description p{color:#98a8b9;font-size:12px}.mini-meta{display:flex;align-items:center;gap:8px;font-size:11px;color:#a9dbc8;margin-top:11px}.round-arrow{display:grid;place-items:center;background:var(--mint);color:#11231c;border:0;width:36px;height:36px;border-radius:50%;flex:none}.daily-plan{border:1px solid #2e3c52;background:var(--panel);border-radius:16px;padding:18px 19px}.plan-line{display:flex;gap:13px;align-items:center;padding:12px 0;border-bottom:1px solid #28364c}.plan-line:first-child{padding-top:0}.plan-line>b{font-size:18px;color:var(--mint);font-weight:830}.plan-line>div{flex:1}.plan-line strong{font-size:13px;display:block}.plan-line span{color:#8e9db2;font-size:11px}.plan-line>span{white-space:nowrap}.plan-footer{color:#92a6bb;font-size:11px;padding-top:15px}.tip-banner{margin-top:26px;background:#132c2d;border:1px solid #2e5550;padding:18px 20px;border-radius:15px;display:flex;gap:15px;color:#d0e8db}.tip-banner>span{flex:none;color:var(--mint)}.tip-banner strong{font-size:13px}.tip-banner p{font-size:12px;color:#aacac0;margin-top:4px}.page-heading{padding:10px 0 28px}.page-heading h1{font-size:clamp(29px,3.5vw,43px);letter-spacing:-1.5px;margin:10px 0 8px}.page-heading p{color:#9daac0;max-width:650px;font-size:14px}.course-intro,.alphabet-count{display:flex;align-items:center;gap:11px;color:#a9cdbd;font-size:12px;border:1px solid #34544a;background:#183129;border-radius:13px;padding:15px 18px;margin:0 0 28px}.unit{margin-top:30px}.unit-head{display:flex;align-items:center;gap:14px;padding:5px 0 17px}.unit-mark{border-radius:13px;width:50px;height:50px;display:grid;place-items:center;font-weight:850;font-size:22px;color:#0b1f1a;background:var(--mint);flex:none}.unit-mark.violet{background:#a8a0f0}.unit-mark.orange{background:#ffca99}.unit-head>div:nth-child(2){flex:1}.unit-head p{font-size:12px;color:#91a1b7;margin-top:4px}.unit-count{color:#8094ac;font-size:12px;font-weight:700}.lesson-list{display:grid;gap:10px}.course-card{width:100%;text-align:left;display:flex;align-items:center;gap:19px;border:1px solid #2e3d52;border-radius:14px;padding:20px;background:#151e30;transition:background .15s,transform .15s}.course-card:not(:disabled):hover{background:#1d2d42;transform:translateX(2px)}.course-card.done{border-color:#2d5948}.course-card.locked{opacity:.48}.course-number{height:48px;width:48px;flex:none;display:grid;place-items:center;color:var(--mint);font-size:17px;font-weight:880;border:1px solid #42695d;background:#1c3d36;border-radius:13px}.course-card.locked .course-number{color:#9ca8be;background:#243049;border-color:#364459}.course-main{flex:1}.course-main h3{margin:5px 0 3px;font-size:15px}.course-main p{font-size:12px;color:#94a4b9}.course-state{font-size:11px;color:var(--mint);font-weight:760;display:flex;align-items:center;gap:10px}.course-card.locked .course-state{color:#a5afc0}.back-link{display:inline-flex;gap:7px;align-items:center;background:transparent;border:0;color:#a9b6c7;font-size:12px;font-weight:700;padding:9px 0 26px}.lesson-wrap{max-width:800px;margin:0 auto}.lesson-top{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px}.lesson-top h1{font-size:30px;letter-spacing:-1.2px;margin-top:8px}.lesson-top>span{font-size:12px;color:#9ba9b9;white-space:nowrap;padding-bottom:3px}.lesson-wrap>.progress-track{height:7px;margin-bottom:26px}.study-card,.quiz-card,.review-card{background:radial-gradient(circle at 50% -40%,#263e4d 2%,transparent 48%),#182237;border:1px solid #33475a;border-radius:20px;padding:37px 45px;min-height:405px;text-align:center}.study-overline,.quiz-type{font-size:10px;color:#92bbaa;letter-spacing:2.1px;font-weight:880}.study-ru{font-family:Georgia,'Times New Roman',serif;font-size:clamp(38px,5.5vw,69px);line-height:1.25;font-weight:600;margin:25px 0 13px;overflow-wrap:anywhere}.study-ru.big-glyph{font-size:clamp(55px,7vw,91px);letter-spacing:5px}.listen-btn,.sound-inline{display:inline-flex;gap:9px;align-items:center;justify-content:center;border:1px solid #457261;background:#254a3f;color:var(--mint);padding:11px 18px;border-radius:10px;font-size:12px;font-weight:800}.listen-btn:hover{background:#2a5b4a}.study-divider{height:1px;background:#33485b;margin:30px auto 26px;width:75%}.study-es{font-size:25px;font-weight:780}.study-hint{font-size:13px;color:#a8b5c8;margin:10px auto 0;max-width:470px}.study-example{margin:20px auto 0;background:#233247;border:1px solid #33475b;border-radius:9px;padding:13px;font-size:13px;color:#d4dee8;max-width:420px}.study-example span{display:block;font-size:9px;letter-spacing:1.5px;color:#91a2b5;font-weight:850;margin-bottom:7px}.lesson-bottom{display:flex;justify-content:space-between;align-items:center;gap:13px;margin-top:20px}.foot-note{display:flex;align-items:center;gap:9px;max-width:320px;font-size:11px;color:#9caac0}.foot-note svg{color:var(--mint)}.quiz-prompt{font-size:13px;color:#a8b7c7;margin-top:18px}.quiz-stimulus{font-size:clamp(23px,4vw,38px);margin:9px auto 17px;max-width:660px;font-weight:760}.sound-inline{background:none;border:0;color:var(--mint);padding:6px 13px}.options{margin-top:23px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.option{border:1px solid #46576e;background:#202e43;border-radius:11px;text-align:left;padding:15px;min-height:72px;display:flex;gap:12px;align-items:center;font-size:14px;font-weight:680}.option:not(:disabled):hover{border-color:var(--mint);background:#283e47}.option-letter{display:grid;place-items:center;flex:none;width:29px;height:29px;border:1px solid #53667b;border-radius:8px;font-size:11px;color:#b1c3d1;font-weight:880}.option>span:nth-child(2){flex:1}.option.correct{border-color:#65cba1;background:#16483f;color:#b5f9d9}.option.incorrect{border-color:#e3929e;background:#482b37;color:#ffc5cd}.option.muted{opacity:.44}.feedback{margin-top:17px;padding:13px;border-radius:10px;text-align:left;font-size:12px}.feedback p{font-size:12px;margin-top:3px}.feedback.good{background:#16453a;color:#acf2cb}.feedback.bad{background:#44303a;color:#f8bcc7}.result-card{text-align:center;border:1px solid #334c57;background:radial-gradient(circle at 50% 0,#24483f,transparent 45%),#182335;border-radius:20px;padding:53px 34px}.result-icon{width:74px;height:74px;display:grid;place-items:center;margin:0 auto 19px;border-radius:19px}.result-icon.success{color:var(--mint);background:#24483f}.result-icon.retry{color:var(--orange);background:#483b34}.result-card h1{font-size:36px;letter-spacing:-1.3px;margin:8px 0 11px}.result-card>p{font-size:14px;color:#acc0c6;max-width:430px;margin:0 auto}.result-score{display:flex;flex-direction:column;align-items:center;gap:3px;margin:32px 0}.result-score strong{font-size:58px;letter-spacing:-2px;color:var(--mint)}.result-score span{font-size:12px;color:#a2b4c5}.result-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.review-overview{display:grid;grid-template-columns:1.35fr .75fr;gap:18px}.review-summary{border:1px solid #345e57;background:linear-gradient(120deg,#184238,#1a3039);border-radius:20px;padding:38px}.mega-count{font-size:68px;letter-spacing:-3px;font-weight:840;margin:8px 0}.mega-count small{font-size:17px;color:#b0d5c8;letter-spacing:0}.review-summary>p{font-size:13px;color:#b3d0c6}.review-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.review-stats{display:flex;flex-direction:column;gap:1px;overflow:hidden;border:1px solid #304055;background:#304055;border-radius:17px}.review-stats>div{display:flex;flex-direction:column;justify-content:center;flex:1;background:#172337;padding:20px 24px}.review-stats span{font-size:12px;color:#92a6bb}.review-stats strong{font-size:25px;margin-top:5px}.tip-banner.spaced{margin-top:22px}.empty-note{margin-top:20px;font-size:13px;color:#a8b9cc}.review-card{margin-top:8px;padding:45px 40px;min-height:340px}.review-question{font-size:clamp(25px,4vw,43px);margin:17px auto;max-width:600px;overflow-wrap:anywhere}.review-card>p{color:#9badbf;font-size:13px;margin-bottom:26px}.reveal{padding:24px 10px;border-top:1px solid #364b5c}.reveal-word{font-size:clamp(29px,4vw,44px);font-family:Georgia,serif;color:var(--mint);margin-bottom:17px}.reveal p{font-size:12px;color:#aabdc2;margin-top:13px}.rate-title{font-size:12px;color:#b8c8d8;padding:9px}.rating-buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.rating{display:flex;flex-direction:column;gap:5px;align-items:center;justify-content:center;min-height:70px;border-radius:10px;border:1px solid #536077;background:#263349}.rating b{font-size:12px}.rating small{font-size:10px;color:#acbaca}.rating.again{border-color:#a65d6b;color:#ffbbc2}.rating.hard{border-color:#a98d56;color:#ffd49b}.rating.easy{border-color:#438c70;color:#adf5ce}.alphabet-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:11px}.alpha-tile{display:flex;flex-direction:column;align-items:center;gap:7px;justify-content:center;border:1px solid #324257;background:#192438;border-radius:13px;min-height:112px;padding:12px 4px}.alpha-tile:hover,.alpha-tile.selected{border-color:#7fdfb5;background:#214337}.alpha-tile strong{font-family:Georgia,serif;font-size:38px;font-weight:650;line-height:1.2}.alpha-tile strong small{font-size:20px;color:#9aaec1;margin-left:3px}.alpha-tile>span{font-size:11px;color:#98acc0}.alpha-detail{position:relative;display:grid;grid-template-columns:180px 1fr;gap:30px;margin-top:20px;border:1px solid #4a7969;background:#1a3437;padding:25px;border-radius:17px}.alpha-large{min-height:160px;background:#25544c;border-radius:13px;font-family:Georgia,serif;display:grid;place-items:center;font-size:51px;color:var(--mint)}.alpha-detail h2{font-size:23px;margin:8px 0}.alpha-detail p{font-size:13px;color:#b1cfc6;padding-right:30px}.alpha-example{margin-top:13px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}.alpha-example strong{font-family:Georgia,serif;font-size:25px}.alpha-example>span{font-size:12px;color:#b9cfc8}.alpha-example button{display:flex;align-items:center;gap:6px;border:0;background:#315d50;border-radius:9px;color:#c9f9de;padding:9px 10px;font-size:11px}.alpha-close{position:absolute;right:16px;top:13px;border:0;background:transparent}.stats-summary{display:flex;align-items:center;gap:34px;border:1px solid #334e50;background:linear-gradient(105deg,#182f37,#192338);padding:32px;border-radius:20px}.stats-ring{width:170px;height:170px;flex:none;background:conic-gradient(var(--mint) var(--pct),#35465a var(--pct));border-radius:50%;padding:14px;display:grid;place-items:center}.stats-ring>div{width:100%;height:100%;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#15232f}.stats-ring b{font-size:37px}.stats-ring span{font-size:10px;color:#a2b0c0;font-weight:790;letter-spacing:1px}.stats-main h2{font-size:25px;margin:9px 0}.stats-main p{font-size:13px;color:#9bafbd;margin-bottom:17px;max-width:460px}.stats-deep{margin-top:18px}.review-stats.wide{display:grid;grid-template-columns:repeat(3,1fr);gap:1px}.review-stats.wide>div{min-height:100px}.settings-panel{border:1px solid #314257;background:#182337;border-radius:16px;padding:24px;margin-bottom:15px}.settings-panel h2{font-size:19px;margin-bottom:7px}.settings-panel p{font-size:13px;color:#a4b4c8;max-width:700px}.goal-picker,.settings-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.goal-choice{min-width:76px;border:1px solid #43546c;background:#253147;border-radius:9px;padding:11px 13px;font-weight:790;font-size:12px}.goal-choice.active{background:#24513f;border-color:var(--mint);color:var(--mint)}.settings-panel>.listen-btn{margin-top:16px}.settings-panel.danger{border-color:#5f3845}.settings-panel.danger .btn{margin-top:16px}.toast{position:fixed;right:22px;bottom:24px;z-index:100;background:#ecfaf3;color:#0c261a;border:1px solid #9acbb4;box-shadow:0 10px 40px #0008;border-radius:12px;padding:13px 18px;font-size:12px;font-weight:750;opacity:0;pointer-events:none;transform:translateY(14px);transition:opacity .2s,transform .2s;max-width:300px}.toast.show{opacity:1;transform:translateY(0)}.mobile-nav{display:none}
+@media(max-width:1140px){.sidebar{width:226px;padding-inline:14px}.main-content{padding:32px 29px 85px}.topbar{padding:0 29px}.hero{padding-left:34px}.hero-art{right:2%;transform:scale(.84)}.hero-copy{max-width:530px}.lesson-art{width:85px;height:99px;font-size:35px}.next-lesson{padding:15px}.home-columns{gap:15px}}
+@media(max-width:850px){.sidebar{display:none}.topbar{padding:0 23px;height:64px}.mobile-brand{display:flex;align-items:center;gap:9px;background:none;border:0;font-weight:870;font-size:17px;letter-spacing:1px}.mobile-brand span{width:31px;height:31px;border-radius:10px;font-size:21px;letter-spacing:0}.topbar-caption{display:none}.main-content{padding:24px 20px 100px}.mobile-nav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;background:#10182a;border-top:1px solid #334054;padding:9px 12px calc(9px + env(safe-area-inset-bottom));justify-content:space-around}.mobile-nav .nav-item{padding:7px 8px;border-radius:11px;flex-direction:column;gap:5px;justify-content:center;min-width:62px;font-size:9px;letter-spacing:.1px}.mobile-nav .nav-item svg{height:20px}.hero-art{right:-2%;opacity:.7}.hero-copy{z-index:2}.home-columns{grid-template-columns:1fr 1fr}.toast{bottom:92px}}
+@media(max-width:650px){.topbar-metrics{gap:6px}.topbar-metrics>span{font-size:11px;padding:7px 8px}.hero{min-height:340px;padding:28px 24px;align-items:flex-start}.hero h1{font-size:42px;margin:13px 0;letter-spacing:-1.9px}.hero-copy>p{font-size:13px;max-width:245px}.hero-art{right:-85px;top:64px;transform:scale(.67);opacity:.43}.hero-ribbon{display:none}.hero-actions{margin-top:26px;gap:8px}.hero-actions .btn{padding:12px 13px;font-size:11px}.stat-grid{gap:9px}.stat-card{padding:15px 12px;min-height:143px}.stat-card>span{letter-spacing:.8px;font-size:9px}.stat-card strong{font-size:27px}.stat-card p{font-size:10px;line-height:1.35}.stat-icon{width:31px;height:31px;margin-bottom:12px}.home-columns{display:block;margin-top:26px}.home-columns>div+div{margin-top:24px}.section-heading h2{font-size:19px}.next-lesson{padding:15px;min-height:150px;gap:11px}.lesson-art{height:92px;width:72px;font-size:30px}.next-description h3{font-size:15px;margin:6px 0}.next-description p{line-height:1.45;font-size:11px}.round-arrow{width:31px;height:31px}.mini-meta{font-size:10px}.page-heading{padding:3px 0 22px}.page-heading h1{font-size:34px}.page-heading p{font-size:13px}.course-card{padding:14px 12px;gap:11px}.course-number{height:39px;width:39px;border-radius:10px}.course-main h3{font-size:14px}.course-main p{font-size:11px}.course-state{font-size:0}.course-state svg{width:18px}.unit-mark{height:42px;width:42px}.unit-head h2{font-size:19px}.unit-head p{font-size:11px}.lesson-top h1{font-size:24px}.study-card,.quiz-card,.review-card{padding:27px 18px;min-height:350px}.study-ru{font-size:44px}.study-ru.big-glyph{font-size:66px}.study-divider{margin:24px auto 19px}.study-es{font-size:22px}.study-hint{font-size:12px}.lesson-bottom{align-items:stretch;flex-direction:column-reverse;gap:13px}.lesson-bottom .btn{width:100%}.foot-note{max-width:100%;margin:0 auto}.quiz-stimulus{font-size:25px}.options{grid-template-columns:1fr;gap:9px}.option{min-height:54px;padding:10px 12px;font-size:13px}.review-overview{grid-template-columns:1fr}.review-summary{padding:27px}.mega-count{font-size:54px}.review-stats{display:grid;grid-template-columns:repeat(3,1fr)}.review-stats>div{padding:14px 10px}.review-stats span{font-size:10px}.review-stats strong{font-size:23px}.review-card{min-height:300px}.rating-buttons{gap:5px}.rating{padding:8px 3px}.rating b{font-size:10px}.rating small{font-size:9px}.alphabet-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.alpha-tile{min-height:95px;padding:7px 2px}.alpha-tile strong{font-size:33px}.alpha-tile strong small{font-size:15px}.alpha-tile>span{font-size:10px}.alpha-detail{grid-template-columns:1fr;gap:16px}.alpha-large{min-height:94px;font-size:42px}.alpha-detail p{padding-right:0}.stats-summary{gap:18px;padding:20px}.stats-ring{height:110px;width:110px;padding:9px}.stats-ring b{font-size:28px}.stats-ring span{font-size:8px}.stats-main h2{font-size:19px}.stats-main p{font-size:11px}.stats-main .btn{padding:10px;font-size:11px}.review-stats.wide>div{min-height:80px}.result-card{padding:39px 20px}}
+@media(max-width:355px){.hero h1{font-size:36px}.topbar-metrics>span{gap:4px}.stat-card strong{font-size:23px}.mobile-nav .nav-item{min-width:51px;padding:7px 4px}.option{font-size:12px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+.dialogue-box{border:1px solid #3e645a;background:#1c3938;border-radius:12px;margin:5px auto 27px;max-width:450px;padding:18px 24px;text-align:left}.dialogue-box p{font-size:12px;color:#a7c5bb;margin:8px 0 15px}.dialogue-box>div{color:#d9f7e7;font-size:14px;line-height:1.7;border-top:1px solid #ffffff14;padding:7px 0}.dialogue-box>div:last-child{padding-bottom:0}
+
+/* СЛОВО v2 · Diseño amable, con un acceso directo a 60 segundos */
+.momentum-hero{min-height:368px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;border:1px solid #4d7367;border-radius:25px;background:radial-gradient(circle at 93% 43%,#285f53,#193a3a 48%,#132b33 72%);padding:42px 46px;margin-bottom:13px}
+.momentum-content{z-index:2;max-width:550px}.momentum-kicker{font-size:10px;font-weight:800;letter-spacing:2.1px;color:#a8b9c1;margin-top:17px}.momentum-content h1{font-size:clamp(44px,5.3vw,72px);line-height:1.02;letter-spacing:-3.4px;margin:9px 0 18px}.momentum-content h1 em{font-style:normal;color:#b6f6cd}.momentum-content p{font-size:14px;color:#bbd6d1;line-height:1.7;max-width:400px}.momentum-hero-actions{display:flex;align-items:center;gap:15px;flex-wrap:wrap;margin-top:24px}.momentum-caption{font-size:11px;color:#acc7bf}.momentum-glyph{width:220px;height:220px;border:1px solid #ffffff35;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(8deg);border-radius:40px;background:linear-gradient(135deg,#adf8d0,#73bcb0);box-shadow:0 35px 50px #07172055;color:#173a35;flex:none;margin-right:30px}.momentum-glyph span{font-family:Georgia,serif;font-size:125px;line-height:1}.momentum-glyph i{font-family:Georgia,serif;font-size:24px;font-style:normal}.momentum-glyph b{font-size:10px;text-transform:uppercase;letter-spacing:1.1px;margin-top:8px}
+.momentum-welcome{display:flex;gap:12px;align-items:center;color:#b7ccde;background:#18263a;padding:14px 20px;border:1px solid #2f415a;border-radius:12px;font-size:12px}.welcome-icon{font-size:19px;color:#a4f0c6}
+.momentum-heading{display:flex;align-items:end;justify-content:space-between;margin:31px 0 16px;gap:15px}.momentum-heading h2{font-size:26px;margin:4px 0 0}.momentum-hint{font-size:12px;color:#91a9be}
+.mode-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.mode-card{text-align:left;display:flex;min-height:247px;flex-direction:column;border:1px solid #3b4f60;border-radius:18px;padding:20px;background:#19273c;transition:transform .14s,border-color .14s;cursor:pointer;color:#f4f8ff}.mode-card:hover{transform:translateY(-3px);border-color:#a4e7ce}.mode-card:focus-visible{outline:3px solid #c4edda;outline-offset:2px}.mode-card.recommended{background:linear-gradient(152deg,#285044,#1b3442 70%);border-color:#7db7a0}.mode-card.lilac{background:linear-gradient(153deg,#322f50,#1b293d 74%)}.mode-card.peach{background:linear-gradient(153deg,#44352e,#1b293a 74%)}.mode-card-top{display:flex;justify-content:space-between;align-items:center;gap:3px;min-height:19px;color:#aabcc9;font-size:10px;font-weight:790;letter-spacing:.7px}.micro-pill{font-size:8px;padding:5px 6px;color:#17382b;background:#aaf2c5;border-radius:50px;font-weight:900;letter-spacing:0}.mode-number{margin-top:10px;font-size:61px;font-weight:840;line-height:1;letter-spacing:-4px}.mode-number small{font-size:17px;letter-spacing:0;color:#c9d6e6;margin-left:9px;font-weight:500}.mode-card>strong{font-size:17px;margin-top:8px}.mode-card p{font-size:11px;color:#aebfd0;margin:7px 0 18px}.mode-card-footer{border-top:1px solid #ffffff25;padding-top:13px;margin-top:auto;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:#bed0db}.mode-card-footer>span{color:#c1f7d7}
+.momentum-lower{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,1fr);gap:17px;margin-top:27px}.momentum-progress-panel,.momentum-side-panel{background:#172338;border:1px solid #314257;border-radius:18px;padding:25px}.momentum-section-head h2{font-size:22px;margin:5px 0 12px}.weekly-line{display:flex;justify-content:space-between;align-items:end;gap:15px}.weekly-line strong{font-size:33px;letter-spacing:-1px}.weekly-line strong small{font-size:13px;color:#a6b9ca;letter-spacing:0;font-weight:500}.weekly-line>span{color:#aabed0;font-size:11px;max-width:150px;text-align:right}.weekly-progress{height:10px;background:#2d4150;border-radius:15px;overflow:hidden;margin:16px 0 10px}.weekly-progress>span{height:100%;display:block;background:#a5f1c7;border-radius:15px}.momentum-progress-panel>p,.momentum-side-panel>p{font-size:12px;color:#a4b8c8;line-height:1.65}.micro-metrics{display:grid;grid-template-columns:repeat(3,1fr);margin-top:18px;border-top:1px solid #31495c;padding-top:17px;gap:8px}.micro-metrics>div{display:flex;flex-direction:column;gap:6px}.micro-metrics b{font-size:24px}.micro-metrics span{font-size:10px;line-height:1.45;color:#aabccc}.momentum-side-panel{background:linear-gradient(140deg,#262d4a,#172338)}.momentum-side-panel h2{font-size:21px;margin:7px 0}.teaser-glyph{width:82px;height:84px;border-radius:18px;background:#7c7bbc40;border:1px solid #c3b9ec59;display:grid;place-items:center;color:#e7dafa;font-size:52px;font-family:Georgia,serif;margin:15px 0}.momentum-side-panel .btn{margin-top:13px}
+.momentum-bridge{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:20px;background:#18283c;border:1px solid #344c5e;border-radius:18px;padding:20px 25px}.momentum-bridge h3{font-size:17px;margin:6px 0}.momentum-bridge p{max-width:560px;font-size:12px;line-height:1.6;color:#a4b9cb}.bridge-actions{display:flex;flex-wrap:wrap;gap:8px}.bridge-actions .btn{white-space:nowrap}
+.mini-session-wrap{max-width:740px;margin:0 auto}.mini-session-head{display:flex;justify-content:space-between;gap:15px;align-items:center;padding:0 0 20px}.mini-session-head>span{font-size:12px;color:#aabdcf}.mini-stage-heading h1{font-size:clamp(27px,4vw,43px);margin:8px 0}.mini-stage-heading p{font-size:13px;color:#a5b7c8;line-height:1.6}.mini-progress{height:6px;background:#2c3c4d;border-radius:10px;margin:24px 0;overflow:hidden}.mini-progress span{display:block;height:100%;background:linear-gradient(90deg,#89dec1,#b8ffe0);transition:width .2s}.mini-learning-card,.mini-quiz{border:1px solid #3a5262;background:#1a283a;border-radius:22px;min-height:325px;padding:35px;display:flex;flex-direction:column;align-items:center;text-align:center}.mini-type{font-size:10px;font-weight:850;color:#b1c8c6;letter-spacing:1.7px}.mini-word{font-size:clamp(43px,7vw,71px);font-family:Georgia,serif;margin:15px 0 10px;overflow-wrap:anywhere}.mini-sound{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid #599888;background:#28584e;color:#d3ffec;border-radius:10px;padding:12px 17px;font-size:12px}.mini-divider{width:80px;height:1px;background:#456270;margin:22px 0}.mini-meaning{font-size:25px;font-weight:750}.mini-learning-card p{color:#aec0c9;font-size:13px;margin-top:12px;max-width:450px;line-height:1.5}.mini-footer{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-top:19px}.mini-footer>span{font-size:12px;color:#95abbe}.mini-quiz-label{color:#a8bccf;font-size:13px;margin-top:35px}.mini-quiz h2{font-size:clamp(25px,5vw,42px);font-family:Georgia,serif;margin:10px 0 28px;overflow-wrap:anywhere}.mini-answer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;gap:10px;margin-top:4px}.mini-choice{border:1px solid #42526a;border-radius:12px;background:#26354a;padding:14px 12px;text-align:left;min-height:60px;color:#f1f7ff;font-size:14px;display:flex;align-items:center;gap:11px}.mini-choice:not(:disabled):hover{background:#334968;border-color:#b4d7c9}.mini-choice.right{background:#254c43;border-color:#8eebba;color:#e6fff1}.mini-choice.wrong{background:#53323d;border-color:#e29d99}.mini-choice.dim{opacity:.57}.choice-index{font-size:11px;color:#a7b9c9;border:1px solid #5c7087;width:24px;height:24px;display:grid;place-items:center;border-radius:7px;flex-shrink:0}.mini-feedback{margin-top:18px;background:#224239;border:1px solid #568973;border-radius:10px;width:100%;padding:13px;text-align:left}.mini-feedback.is-wrong{background:#49343e;border-color:#a1747e}.mini-feedback strong{font-size:13px}.mini-feedback p{color:#d5e7de;font-size:12px;margin:8px 0}.mini-feedback button{margin-top:8px}.mini-select-note{font-size:12px;color:#9fb8c8}.mini-result{text-align:center;border:1px solid #376153;background:linear-gradient(145deg,#204439,#192a3b 60%,#17243b);border-radius:24px;padding:43px 35px}.mini-result-star{height:72px;width:72px;margin:0 auto 15px;display:grid;place-items:center;background:#baf6d2;color:#215342;font-size:37px;border-radius:20px}.mini-result h1{font-size:clamp(27px,4.5vw,45px);margin:11px 0}.mini-result>p{color:#afcbca;font-size:14px;max-width:480px;margin:auto;line-height:1.6}.mini-result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:30px}.mini-result-grid>div{border:1px solid #ffffff30;border-radius:12px;background:#ffffff0d;padding:16px 8px;display:flex;align-items:center;flex-direction:column;gap:6px}.mini-result-grid strong{font-size:29px}.mini-result-grid span{color:#bbd3d0;font-size:11px}.mini-congrats{color:#9fcfbd;font-size:12px;margin:24px 0}.mini-result-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.micro-stats-section{margin:25px 0}.micro-stats-section .section-heading{margin-bottom:15px}.micro-stats-box{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.micro-stats-box>div{background:#1a293c;border:1px solid #304354;border-radius:15px;padding:20px;display:flex;flex-direction:column;gap:7px}.micro-stats-box b{font-size:32px}.micro-stats-box span,.micro-stats-help{font-size:12px;color:#a6bdca}.micro-stats-help{margin:17px 0 28px;line-height:1.7}.micro-stats-section h3{font-size:17px;margin-bottom:12px}.micro-log{border:1px solid #34485a;border-radius:12px;overflow:hidden}.micro-log>div{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid #34485a;background:#19283b;padding:13px 16px;font-size:12px}.micro-log>div:last-child{border-bottom:0}.micro-log span{color:#a4b7c8}.micro-log b{color:#d5ece4;font-weight:600}
+@media(max-width:1050px){.momentum-glyph{width:160px;height:165px;margin-right:0;border-radius:25px}.momentum-glyph span{font-size:88px}.momentum-glyph i{font-size:18px}.momentum-hero{padding:33px}.momentum-caption{max-width:180px}}
+@media(max-width:650px){.momentum-hero{min-height:328px;padding:26px 22px}.momentum-content{position:relative;z-index:2}.momentum-content h1{font-size:47px;letter-spacing:-2.3px}.momentum-content p{font-size:12px;max-width:260px}.momentum-kicker{font-size:9px;letter-spacing:1.1px}.momentum-glyph{position:absolute;right:-62px;top:65px;opacity:.25;width:170px;height:170px}.momentum-hero-actions{margin-top:18px;gap:8px}.momentum-hero-actions .btn{font-size:11px;padding:13px 12px}.momentum-caption{font-size:10px;max-width:280px}.momentum-welcome{padding:12px 14px;line-height:1.5}.momentum-heading{align-items:start;margin-top:26px}.momentum-heading h2{font-size:20px}.momentum-hint{font-size:10px;max-width:90px;text-align:right}.mode-grid{grid-template-columns:1fr;gap:10px}.mode-card{min-height:155px;padding:15px 18px;position:relative}.mode-card-top{font-size:10px}.mode-number{font-size:45px;position:absolute;top:42px;right:18px;margin:0}.mode-card>strong{margin-top:13px;font-size:16px}.mode-card>p{margin-bottom:14px}.mode-card-footer{padding-top:11px}.momentum-lower{grid-template-columns:1fr;gap:12px;margin-top:20px}.momentum-progress-panel,.momentum-side-panel{padding:22px}.momentum-side-panel{position:relative}.teaser-glyph{position:absolute;right:25px;top:46px;opacity:.35}.momentum-side-panel>p{max-width:220px}.momentum-bridge{flex-direction:column;align-items:start;padding:20px}.bridge-actions .btn{font-size:11px}.mini-session-head{align-items:start}.mini-session-head>span{font-size:11px;text-align:right}.mini-learning-card,.mini-quiz{padding:28px 17px;min-height:330px}.mini-quiz h2{margin:8px 0 25px}.mini-answer-grid{grid-template-columns:1fr}.mini-choice{min-height:53px;font-size:12px}.mini-footer{flex-direction:column-reverse;align-items:stretch}.mini-footer .btn{width:100%}.mini-footer>span{text-align:center}.mini-result{padding:35px 18px}.mini-result-grid{gap:6px}.mini-result-grid strong{font-size:24px}.mini-result-grid span{font-size:10px}.micro-stats-box{gap:7px}.micro-stats-box>div{padding:14px 10px}.micro-stats-box b{font-size:24px}.micro-stats-box span{font-size:10px}.micro-log>div{flex-direction:column;align-items:flex-start}}
+
+/* СЛОВО 3 · Retos diarios para escuchar, hablar y recordar */
+.quest-head{padding:28px 32px;background:radial-gradient(circle at 94% 14%,#394b6e 0%,transparent 30%),linear-gradient(115deg,#252c48,#183b39);border:1px solid #46655e;border-radius:24px;margin-bottom:27px}
+.quest-head-top,.quest-head-copy,.quest-goal-line,.quest-section-title,.daily-back,.daily-panel-top{display:flex;justify-content:space-between;align-items:center;gap:15px}
+.quest-tag{font-size:10px;color:#b3ffda;letter-spacing:1.6px;font-weight:850}
+.quest-streak{display:flex;align-items:center;gap:7px;background:#152d32;color:#ffd2ad;border:1px solid #655b55;padding:8px 11px;border-radius:100px;font-weight:700;font-size:11px}
+.quest-head-copy{margin:15px 0 20px;align-items:end}
+.quest-head-copy>div:first-child{max-width:610px}
+.quest-head h1{white-space:pre-line;font-size:clamp(26px,3.1vw,43px);letter-spacing:-1.5px;line-height:1.13}
+.quest-head p{font-size:13px;color:#c5d2d5;margin-top:12px;max-width:505px}
+.quest-score{text-align:center;min-width:112px;background:#0b2331aa;border:1px solid #5d8076;border-radius:18px;padding:16px 12px}
+.quest-score strong{font-size:39px;line-height:1;color:#b9ffda}
+.quest-score small{font-size:19px;color:#c8d2e0}.quest-score span{display:block;font-size:9px;font-weight:750;letter-spacing:1px;color:#aac1bd;margin-top:8px}
+.quest-track{height:9px;background:#405466;border-radius:100px;overflow:hidden}.quest-track div{height:100%;background:linear-gradient(90deg,#8febc2,#d4ffd4);transition:width .3s}
+.quest-goal-line{font-size:11px;color:#a8bdc7;margin-top:12px}
+.quest-section{margin-bottom:31px}.quest-section-title{margin:0 0 13px}.quest-section-title h2{font-size:22px;margin-top:7px}.quest-date{font-size:12px;color:#91a6bb;text-transform:capitalize}
+.quest-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.quest-card{background:#1b283a;border:1px solid #36485d;border-radius:16px;min-height:147px;padding:17px;display:flex;flex-direction:column;gap:12px;text-align:left;transition:background .2s,transform .15s}.quest-card:hover{background:#23354a;transform:translateY(-2px)}.quest-card-icon{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:11px;color:#b8ffda;background:#25483e}.quest-card-text b{font-size:16px}.quest-card-text small{display:block;color:#a8b7c8;line-height:1.45;font-size:11px;margin-top:6px}.quest-card-status{align-self:flex-end;margin-top:auto;color:#a3edc6;font-weight:820;font-size:11px}.quest-done{border-color:#487963;background:#1a3537}.quest-done .quest-card-status{color:#b0ffc9}
+.quest-phrase-teaser{display:flex;align-items:flex-start;gap:16px;background:#172338;border:1px solid #2f4452;padding:15px 20px;border-radius:13px;margin-top:13px;flex-wrap:wrap}.quest-phrase-teaser>span{display:flex;gap:8px;align-items:center;color:#9ff2d5;font-weight:820;font-size:10px;letter-spacing:1px}.quest-phrase-teaser>p{font-size:12px;color:#a8bccb;flex:1;min-width:180px}.quest-today-phrase{display:flex;align-items:center;gap:12px;width:100%;border-top:1px solid #ffffff18;padding-top:12px;flex-wrap:wrap}.quest-today-phrase strong{font-size:24px}.quest-today-phrase span{color:#b9c8cf;font-size:12px}.quest-today-phrase button{margin-left:auto;color:#b6fddd;background:#1c493d;border:1px solid #3b6859;border-radius:9px;padding:9px 12px;display:flex;gap:6px;align-items:center;font-size:12px}
+.daily-page{max-width:770px;margin:5px auto}.daily-back{font-size:11px;color:#91abc0;margin-bottom:20px}.daily-panel{padding:32px;border:1px solid #3a555f;border-radius:24px;background:radial-gradient(circle at 80% 5%,#263e45,transparent 34%),#172639;text-align:center}.daily-panel-top{font-size:10px;color:#a8dfce;letter-spacing:1px;font-weight:800}.daily-panel-top>span:first-child{display:flex;align-items:center;gap:7px}.daily-panel>h1{font-size:clamp(31px,5vw,47px);margin:28px 0 10px;letter-spacing:-1.2px}.daily-intro{font-size:13px;color:#b0c3cc;max-width:460px;margin:0 auto 29px}.daily-content{display:flex;align-items:center;flex-direction:column;gap:13px}.daily-step{font-size:10px;letter-spacing:1.3px;font-weight:800;color:#b9d7d0}.daily-audio-glyph{width:94px;height:94px;border:1px solid #5a8e79;border-radius:30px;background:#285c51;display:grid;place-items:center;color:#b9ffe2;margin:5px 0}.daily-main-audio{display:flex;align-items:center;justify-content:center;gap:9px;border:1px solid #73a88c;color:#defde8;background:#285345;border-radius:10px;padding:14px 18px;font-weight:740;font-size:13px}.daily-reveal{border:0;background:none;color:#9bbdcd;text-decoration:underline;font-size:12px;line-height:1.5}.daily-question{font-size:13px;color:#c3d7df;font-weight:780;margin:14px 0 5px}.daily-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%}.daily-option{border:1px solid #485c6b;background:#26394b;border-radius:11px;padding:13px;text-align:left;min-height:64px;font-size:14px}.daily-option:not(:disabled):hover{background:#354b59}.daily-option.good{border-color:#75bda1;background:#285045}.daily-option.bad{border-color:#d7979b;background:#4b3543}.daily-option.muted{opacity:.5}.daily-visible-result,.daily-big-ru{font-size:clamp(30px,5vw,46px);font-family:Georgia,serif;line-height:1.25;word-break:break-word}.daily-recall-title{font-size:29px;font-weight:760;margin:8px auto}.daily-translation{color:#c2d9d0;font-size:16px}.daily-record-group{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:15px}.daily-record-btn,.daily-play-btn{background:#213853;border:1px solid #607489;border-radius:9px;color:#dce7f1;font-size:12px;padding:12px 13px}.daily-record-caption{color:#91a8b9;font-size:11px}.daily-speech-choices{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.daily-feedback{text-align:left;background:#203e3a;border:1px solid #5d9780;border-radius:13px;margin-top:26px;padding:18px}.daily-feedback.needs-practice{background:#3e323b;border-color:#79636f}.daily-feedback strong{font-size:15px}.daily-feedback p{font-size:13px;color:#c6d6d5;margin:9px 0 15px}.daily-feedback .btn{width:100%}.daily-privacy{text-align:center;color:#859cae;font-size:11px;margin:15px auto;max-width:590px}
+@media(max-width:850px){.quest-cards{grid-template-columns:1fr}.quest-card{min-height:90px;display:grid;grid-template-columns:38px 1fr auto;align-items:center;gap:12px}.quest-card-status{align-self:center}.quest-head{padding:22px 19px}.quest-head h1{font-size:30px}.quest-head-copy{align-items:center}}
+@media(max-width:650px){.quest-head h1{font-size:28px}.quest-head p{font-size:11px}.quest-head-top{flex-wrap:wrap}.quest-head-copy{gap:7px}.quest-score{min-width:76px;padding:14px 8px}.quest-score strong{font-size:31px}.quest-score small{font-size:14px}.quest-score span{font-size:8px}.quest-goal-line{flex-wrap:wrap}.quest-card{padding:12px}.quest-card-text b{font-size:14px}.quest-card-text small{font-size:10px}.quest-section-title{align-items:start}.quest-date{max-width:90px;text-align:right;font-size:10px}.quest-phrase-teaser{gap:7px;padding:15px}.daily-panel{padding:22px 13px}.daily-panel-top{font-size:9px}.daily-choices{grid-template-columns:1fr}.daily-option{min-height:52px}.daily-panel>h1{font-size:32px}.daily-recall-title{font-size:25px}}
+
+</style>
+  <title>СЛОВО — Aprende ruso desde cero</title>
+</head>
+<body>
+  <div id="app"></div>
+  <noscript>Activa JavaScript para usar la aplicación.</noscript>
+  <script>
+// Contenido original, diseñado para hispanohablantes que comienzan desde cero.
+// Las aproximaciones fonéticas NO sustituyen escuchar a hablantes nativos.
+const ALPHABET = [
+  ['А','а','/a/','мама','mamá','Como la «a» en español.'],
+  ['М','м','/m/','мама','mamá','Se parece a nuestra «m».'],
+  ['О','о','/o/','кот','gato','Cuando no lleva acento puede sonar cercana a «a».'],
+  ['К','к','/k/','кот','gato','Como la «c» de «casa».'],
+  ['Т','т','/t/','там','allí','Como «t», sin aspiración fuerte.'],
+  ['Е','е','/ye/ o /e/','еда','comida','Puede sonar «ye» al principio; tras consonante suele suavizarla.'],
+  ['Н','н','/n/','нет','no','Aunque parece H latina, suena «n».'],
+  ['Р','р','/r/','рука','mano','Aunque parece P latina, suena «r».'],
+  ['С','с','/s/','сок','jugo','Aunque parece C latina, suena «s».'],
+  ['В','в','/v/','вода','agua','Aunque parece B latina, suena «v».'],
+  ['Б','б','/b/','банк','banco','Similar a nuestra «b».'],
+  ['Д','д','/d/','дом','casa','Similar a nuestra «d».'],
+  ['Л','л','/l/','лампа','lámpara','Similar a nuestra «l».'],
+  ['И','и','/i/','мир','paz / mundo','Como «i» en español.'],
+  ['П','п','/p/','папа','papá','Como «p» en español.'],
+  ['Г','г','/g/','город','ciudad','Como «g» en «gato».'],
+  ['З','з','/z/','зима','invierno','Una «s» sonora, como en inglés «zoo».'],
+  ['У','у','/u/','утро','mañana','Como «u» en español.'],
+  ['Ф','ф','/f/','фото','foto','Como «f» en español.'],
+  ['Х','х','/j/ fuerte','хлеб','pan','Parecida a la «j» española.'],
+  ['Ж','ж','/zh/','жук','escarabajo','Como «sh» pero con vibración de voz.'],
+  ['Ц','ц','/ts/','цирк','circo','Une «t» y «s» rápidamente.'],
+  ['Ч','ч','/ch/','чай','té','Parecida a la «ch» española.'],
+  ['Ш','ш','/sh/','школа','escuela','Como «sh» del inglés.'],
+  ['Щ','щ','/sh/ suave','щи','sopa de col','Sonido suave y largo; no es igual a Ш.'],
+  ['Й','й','/y/ breve','йогурт','yogur','Semivocal breve, parecida a la «y» de «hoy».'],
+  ['Ы','ы','vocal posterior','сыр','queso','No existe exactamente en español. Escucha y practica.'],
+  ['Э','э','/e/','это','esto','Una «e» clara sin sonido de «y».'],
+  ['Ю','ю','/yu/','юг','sur','Al inicio suele sonar «yu».'],
+  ['Я','я','/ya/','яблоко','manzana','Al inicio suele sonar «ya».'],
+  ['Ь','ь','signo suave','день','día','No tiene sonido propio: suaviza la consonante anterior.'],
+  ['Ъ','ъ','signo duro','объект','objeto','No tiene sonido propio: separa una consonante y una vocal.'],
+  // The 33rd Russian letter, Ё, is often printed without its dots in ordinary text.
+  ['Ё','ё','/yo/','ёлка','abeto','Suena «yo» al inicio; a menudo se escribe Е en textos cotidianos.']
+].map(([upper,lower,sound,example,meaning,note],idx) => ({
+  id:'letter-'+idx,upper,lower,sound,example,meaning,note,
+  ru:upper+' '+lower, es:'Sonido '+sound, hint:note,
+  sample:example+' — '+meaning, speak:example, kind:'letter'
+}));
+
+const V = (id,ru,es,hint,sample='') => ({id,ru,es,hint,sample,speak:ru,kind:'phrase'});
+const LESSONS = [
+  {id:'l1',unit:0,number:1,title:'Tus primeras 5 letras',subtitle:'А · М · О · К · Т',minutes:8,description:'Empieza leyendo palabras reales desde el primer día.',items:ALPHABET.slice(0,5),tip:'Identifica las letras por su sonido, no por su parecido visual con el español.',dialogue:['мама — mamá','кот — gato','там — allí']},
+  {id:'l2',unit:0,number:2,title:'Las letras que engañan',subtitle:'Е · Н · Р · С · В',minutes:9,description:'Descifra letras familiares con sonidos distintos.',items:ALPHABET.slice(5,10),tip:'Н no es h, Р no es p, С no es c, В no es b. Lee en voz alta.',dialogue:['нет — no','сок — jugo','вода — agua']},
+  {id:'l3',unit:0,number:3,title:'Leer empieza a ser fácil',subtitle:'Б · Д · Л · И · П',minutes:8,description:'Construye una base sólida de lectura.',items:ALPHABET.slice(10,15),tip:'No intentes leer a toda velocidad. Prioriza reconocer cada sonido.',dialogue:['дом — casa','мир — paz / mundo','папа — papá']},
+  {id:'l4',unit:0,number:4,title:'Más sonidos, más palabras',subtitle:'Г · З · У · Ф · Х',minutes:9,description:'Amplía el alfabeto con ejemplos útiles.',items:ALPHABET.slice(15,20),tip:'La Х rusa se parece a nuestra «j»; la Г suele sonar como «g» de gato.',dialogue:['город — ciudad','утро — mañana','хлеб — pan']},
+  {id:'l5',unit:0,number:5,title:'Consonantes nuevas',subtitle:'Ж · Ц · Ч · Ш · Щ',minutes:10,description:'Entrena el oído con sonidos desconocidos.',items:ALPHABET.slice(20,25),tip:'Escucha varias veces Ж, Ш y Щ: son tres sonidos diferentes.',dialogue:['чай — té','школа — escuela','щи — sopa de col']},
+  {id:'l6',unit:0,number:6,title:'¡Conoces el cirílico!',subtitle:'Й · Ы · Э · Ю · Я · Ь · Ъ · Ё',minutes:12,description:'Completa las 33 letras del alfabeto ruso.',items:ALPHABET.slice(25),tip:'Ь y Ъ no se pronuncian solos. Practica con las palabras de ejemplo.',dialogue:['сыр — queso','день — día','ёлка — abeto']},
+  {id:'l7',unit:1,number:7,title:'Saluda en ruso',subtitle:'La primera conversación',minutes:9,description:'Aprende a saludar según la situación.',items:[
+    V('p1','Привет','Hola (informal)','Con amigos y personas cercanas.'),
+    V('p2','Здравствуйте','Hola (formal)','A desconocidos o en una situación formal.'),
+    V('p3','Доброе утро','Buenos días (mañana)','Saludo al comenzar el día.'),
+    V('p4','Добрый день','Buen día / buenas tardes','Durante el día.'),
+    V('p5','Добрый вечер','Buenas tardes / noches','Saludo por la tarde-noche.'),
+    V('p6','Пока','Adiós (informal)','Despedida entre conocidos.')
+  ],tip:'Aprende frases enteras primero; la gramática llegará progresivamente.',dialogue:['А: Привет!','Б: Привет!','А: Пока!','Б: Пока!']},
+  {id:'l8',unit:1,number:8,title:'Cortesía imprescindible',subtitle:'Gracias, sí y no',minutes:9,description:'Responde con educación en situaciones cotidianas.',items:[
+    V('p7','Спасибо','Gracias','Una de las palabras más útiles.'),
+    V('p8','Пожалуйста','Por favor / de nada','El significado depende del contexto.'),
+    V('p9','Извините','Disculpe / perdón (formal)','Para pedir permiso o disculparte.'),
+    V('p10','Да','Sí','Una respuesta básica.'),
+    V('p11','Нет','No','Una respuesta básica.'),
+    V('p12','До свидания','Adiós (formal)','Una despedida cortés.')
+  ],tip:'Repite la secuencia «Спасибо — Пожалуйста» como un diálogo.',dialogue:['А: Спасибо!','Б: Пожалуйста!','А: До свидания!']},
+  {id:'l9',unit:1,number:9,title:'Preséntate',subtitle:'Yo, tú y tu nombre',minutes:10,description:'Di quién eres y pregunta el nombre de alguien.',items:[
+    V('p13','Я','Yo','Pronombre en primera persona.'),
+    V('p14','Ты','Tú (informal)','Para amigos y personas cercanas.'),
+    V('p15','Вы','Usted / ustedes','Tratamiento formal o plural.'),
+    V('p16','Меня зовут…','Me llamo…','Añade tu nombre: Меня зовут Алекс.'),
+    V('p17','Как тебя зовут?','¿Cómo te llamas?','Pregunta informal.'),
+    V('p18','Очень приятно','Mucho gusto','Se usa al conocer a alguien.')
+  ],tip:'Practica «Меня зовут...» diciendo tu propio nombre.',dialogue:['А: Как тебя зовут?','Б: Меня зовут Анна.','А: Очень приятно!']},
+  {id:'l10',unit:1,number:10,title:'¿Cómo estás?',subtitle:'Una charla breve',minutes:9,description:'Responde a una pregunta cotidiana.',items:[
+    V('p19','Как дела?','¿Cómo estás?','Literalmente: ¿cómo van las cosas?'),
+    V('p20','Хорошо','Bien','Respuesta positiva.'),
+    V('p21','Плохо','Mal','Respuesta negativa.'),
+    V('p22','Нормально','Normal / más o menos','Respuesta neutral.'),
+    V('p23','Отлично','Excelente','Respuesta muy positiva.'),
+    V('p24','А у тебя?','¿Y tú?','Devuelve la pregunta de manera informal.')
+  ],tip:'Dilo como diálogo: «Как дела? — Хорошо, спасибо! А у тебя?»',dialogue:['А: Привет! Как дела?','Б: Хорошо, спасибо! А у тебя?','А: Отлично!']},
+  {id:'l11',unit:2,number:11,title:'Habla de personas',subtitle:'Él, ella, nosotros',minutes:10,description:'Reconoce los pronombres de uso frecuente.',items:[
+    V('p25','Он','Él','Pronombre masculino.'),
+    V('p26','Она','Ella','Pronombre femenino.'),
+    V('p27','Мы','Nosotros','Primera persona plural.'),
+    V('p28','Они','Ellos / ellas','Tercera persona plural.'),
+    V('p29','Это','Esto / este es…','Útil para identificar cosas y personas.'),
+    V('p30','Кто это?','¿Quién es?','Pregunta por una persona.')
+  ],tip:'En ruso presente, «Это Анна» significa «Esta es Anna».',dialogue:['А: Кто это?','Б: Это Анна.','А: Очень приятно!']},
+  {id:'l12',unit:2,number:12,title:'Sobrevive en ruso',subtitle:'Preguntar y pedir ayuda',minutes:14,description:'Frases clave para una primera interacción real.',items:[
+    V('p31','Где?','¿Dónde?','Pregunta por ubicación.'),
+    V('p32','Что?','¿Qué?','Pregunta básica.'),
+    V('p33','Я не понимаю','No entiendo','Frase de supervivencia.'),
+    V('p34','Повторите, пожалуйста','Repita, por favor','Petición formal.'),
+    V('p35','Медленно','Despacio','Pide que hablen más lento.'),
+    V('p36','Вы говорите по-испански?','¿Habla español?','Pregunta cortés usando Вы.'),
+    V('p37','Я учу русский','Estoy aprendiendo ruso','Ideal para explicar por qué practicas.'),
+    V('p38','Говорите медленнее, пожалуйста','Hable más despacio, por favor','Una petición educada.'),
+    V('p39','Как это сказать по-русски?','¿Cómo se dice esto en ruso?','Pregunta muy útil durante el aprendizaje.'),
+    V('p40','Где туалет?','¿Dónde está el baño?','Para situaciones cotidianas.'),
+    V('p41','Сколько это стоит?','¿Cuánto cuesta esto?','Para preguntar el precio.'),
+    V('p42','Я немного говорю по-русски','Hablo un poco de ruso','Para iniciar conversaciones sin expectativas altas.'),
+    V('p43','Помогите, пожалуйста','Ayúdeme, por favor','Una petición de ayuda.'),
+    V('p44','Меню, пожалуйста','El menú, por favor','En un restaurante.'),
+    V('p45','Я из Мексики','Soy de México','Para presentarte.'),
+    V('p46','Я хочу воды','Quiero agua','Petición sencilla de bebida.')
+  ],tip:'Aprende «Я не понимаю» como una sola unidad; te servirá desde el inicio.',dialogue:['А: Вы говорите по-испански?','Б: Нет.','А: Повторите, пожалуйста. Медленно.']}
+];
+// Intercala letras y conversaciones: evita aplazar el uso práctico del idioma.
+const LEARNING_ORDER=[0,1,6,7,2,3,8,9,4,5,10,11];
+const originalLessons=[...LESSONS];
+LESSONS.splice(0,LESSONS.length,...LEARNING_ORDER.map((i,position)=>({
+  ...originalLessons[i], number:position+1, unit:Math.floor(position/4)
+})));
+const UNITS=[
+  {name:'01 · PRIMEROS PASOS',title:'Lee y saluda',desc:'10 letras, saludos y expresiones de cortesía',tone:'mint'},
+  {name:'02 · HAZLO TUYO',title:'Lee y conversa',desc:'Más cirílico, presentaciones y charlas básicas',tone:'violet'},
+  {name:'03 · AVANZA',title:'Completa y comunica',desc:'Termina el alfabeto y aprende frases prácticas',tone:'orange'}
+];
+
+</script>
+  <script>
+/* СЛОВО · Impulso: sesiones de 1/3/7 minutos. Sin dependencias ni métricas de presión. */
+const MICRO_MODES = {
+  tiny:{minutes:1, title:'Solo un minuto',subtitle:'Para los días en que no te nace',newCount:1,totalQuestions:2,marker:'01',color:'mint'},
+  normal:{minutes:3, title:'Un pequeño avance',subtitle:'El punto de equilibrio',newCount:2,totalQuestions:4,marker:'03',color:'lilac'},
+  focus:{minutes:7, title:'Me siento con ganas',subtitle:'Un poco más de inmersión',newCount:3,totalQuestions:7,marker:'07',color:'peach'}
+};
+let microSession=null;
+const MICRO_SEQUENCE = ['p1','p7','p19','p20','p8','p6','p16','p17','p18','p33','p34','p37','p38','p39','p40','p41','p45','p46','p10','p11','letter-0','letter-1','letter-2','letter-3','letter-4','letter-5'];
+function microPathItems(){
+  const lookup=new Map(allItems.map(i=>[i.id,i]));
+  const picked=MICRO_SEQUENCE.map(id=>lookup.get(id)).filter(Boolean);
+  const selected=new Set(picked.map(i=>i.id));
+  // Mantener variedad: alternar frases y letras todavía no exploradas.
+  const remaining=allItems.filter(i=>!selected.has(i.id));
+  const phrases=remaining.filter(i=>i.kind==='phrase');
+  const letters=remaining.filter(i=>i.kind==='letter');
+  while(phrases.length||letters.length){if(phrases.length)picked.push(phrases.shift());if(letters.length)picked.push(letters.shift());}
+  return picked;
+}
+function microIntroducedSet(){return new Set(lessonsIntroduced().map(i=>i.id));}
+function microNextItem(){const known=microIntroducedSet();return microPathItems().find(i=>!known.has(i.id));}
+function mondayOfWeek(date=new Date()){
+  const d=new Date(date.getFullYear(),date.getMonth(),date.getDate());
+  d.setDate(d.getDate()-((d.getDay()+6)%7));return today(d);
+}
+function weeklyDaysCount(){const monday=mondayOfWeek(),days=(state.microLog||[]).filter(x=>x.date>=monday&&x.date<=today()&&x.answered>0).map(x=>x.date);Object.entries(state.dailyTasks||{}).forEach(([date,entry])=>{if(date>=monday&&date<=today()&&Object.values(entry.tasks||{}).some(Boolean))days.push(date);});return new Set(days).size;}
+function lastMicroDate(){const arr=(state.microLog||[]).filter(x=>x.answered>0).map(x=>x.date);Object.entries(state.dailyTasks||{}).forEach(([date,entry])=>{if(Object.values(entry.tasks||{}).some(Boolean))arr.push(date);});return arr.length?arr.sort().at(-1):null;}
+function returnMessage(){
+  const last=lastMicroDate();if(!last)return 'No necesitas recuperar el tiempo perdido. Solo comenzar hoy.';
+  const days=Math.floor((new Date(today()+'T12:00:00')-new Date(last+'T12:00:00'))/86400000);
+  if(days>=3)return 'Qué gusto tenerte de vuelta. Aquí nadie te castiga por descansar.';
+  if(days===0)return 'Ya practicamos hoy. Si te apetece, un minuto extra también cuenta.';
+  return 'Un nuevo día, un paso ligero. Sin obligación de superar el de ayer.';
+}
+function renderHomeMomentum(){
+ const next=nextLesson(),goal=Math.max(1,state.weeklyGoal||3),week=weeklyDaysCount(),pct=Math.min(100,Math.round(week/goal*100)),intro=(state.microIntroduced||[]).length,rec=state.microRecall||{correct:0,total:0},due=dueCards().length,nextItem=microNextItem();
+ return `<section class="momentum-hero">
+   <div class="momentum-content">${eyebrow('СЛОВО · MODO IMPULSO')}<div class="momentum-kicker">NO MÁS «CUANDO TENGA TIEMPO»</div><h1>Hoy basta con<br/><em>un minuto.</em></h1>
+   <p>Haz un avance diminuto y real, incluso cuando tengas pocas ganas. Escucha, descubre y recuerda. Sin presión por cumplirlo todo.</p>
+   <div class="momentum-hero-actions">${button(`Empezar en 60 segundos ${icon('arrow',19)}`,'start-micro','btn-primary','data-mode="tiny"')}
+    <span class="momentum-caption">Sin registro · Sin anuncios · Puedes parar cuando quieras</span></div>
+   </div><div class="momentum-glyph" aria-hidden="true"><span>П</span><i>привет</i><b>una palabra nueva</b></div>
+ </section>
+ <div class="momentum-welcome"><span class="welcome-icon">✦</span><span>${esc(returnMessage())}</span></div>
+ <div class="momentum-heading"><div>${eyebrow('ELIGE SEGÚN TU ENERGÍA')}<h2>¿Cuánto te queda hoy?</h2></div><span class="momentum-hint">No hay opción incorrecta.</span></div>
+ <div class="mode-grid">${Object.entries(MICRO_MODES).map(([id,m])=>`<button class="mode-card ${m.color} ${id==='tiny'?'recommended':''}" data-action="start-micro" data-mode="${id}" aria-label="${m.title}, aproximadamente ${m.minutes} minutos"><span class="mode-card-top"><span>${id==='tiny'?'MÍNIMO VIABLE':id==='normal'?'POCO A POCO':'SI TENGO TIEMPO'}</span>${id==='tiny'?'<span class="micro-pill">RECOMENDADO</span>':''}</span><div class="mode-number">${m.marker}<small>min</small></div><strong>${m.title}</strong><p>${m.subtitle}</p><div class="mode-card-footer">${id==='tiny'?'1 novedad + 2 intentos':id==='normal'?'2 novedades + 4 intentos':'3 novedades + 7 intentos'}<span>${icon('arrow',18)}</span></div></button>`).join('')}</div>
+ <section class="momentum-lower"><div class="momentum-progress-panel"><div class="momentum-section-head">${eyebrow('CONSISTENCIA AMABLE')}<h2>Tu semana, a tu ritmo</h2></div>
+ <div class="weekly-line"><strong>${week} <small>/ ${goal} días</small></strong><span>${week>=goal?'¡Objetivo flexible alcanzado!':'No tienen que ser días consecutivos.'}</span></div>
+ <div class="weekly-progress" role="progressbar" aria-valuemin="0" aria-valuemax="${goal}" aria-valuenow="${Math.min(week,goal)}"><span style="width:${pct}%"></span></div>
+ <p>El objetivo es volver al ruso varias veces, no proteger una racha perfecta. Puedes cambiar esta meta en Ajustes.</p>
+ <div class="micro-metrics"><div><b>${intro}</b><span>Elementos explorados</span></div><div><b>${rec.correct||0}</b><span>Recuerdos acertados</span></div><div><b>${due}</b><span>Por repasar</span></div></div>
+ </div><div class="momentum-side-panel">${eyebrow('UNA PEQUEÑA SORPRESA')}<h2>${nextItem?'Tu próxima conquista':'¡Exploraste todas las tarjetas!'}</h2><div class="teaser-glyph">${nextItem?esc(nextItem.kind==='phrase'?'★':nextItem.upper):'✓'}</div><p>${nextItem?`En tu próxima misión vas a descubrir ${nextItem.kind==='phrase'?'una expresión útil para la vida real':'una letra más del cirílico'}.`:'Ahora toca reforzar lo que ya conoces.'}</p>
+ ${button(`Hacer una misión ${icon('arrow',16)}`,'start-micro','btn-outline','data-mode="tiny"')}</div></section>
+ <div class="momentum-bridge"><div><span class="eyebrow">PARA CUANDO TENGAS MÁS TIEMPO</span><h3>La ruta completa sigue aquí.</h3><p>Las micro-misiones son independientes y suman tarjetas para repasar. También puedes completar tus ${LESSONS.length} lecciones estructuradas.</p></div><div class="bridge-actions">${button(next?'Abrir siguiente lección':'Ver mi progreso',next?'next-lesson':'nav','btn-outline',next?'':'data-page="stats"')}${button('Mis repasos','nav','btn-outline','data-page="review"')}</div></div>`;
+}
+function sampleMicroQuestion(item,flip=false){
+ const same=allItems.filter(i=>i.kind===item.kind&&i.id!==item.id);
+ const correct=flip?item.ru:item.es;
+ const values=[...new Set(same.map(i=>flip?i.ru:i.es).filter(x=>x!==correct))];
+ const options=shuffle([correct,...shuffle(values).slice(0,3)]);
+ return {type:'quiz',item,flip,correct,options};
+}
+function startMicro(mode='tiny'){
+ const spec=MICRO_MODES[mode]||MICRO_MODES.tiny;
+ const known=microIntroducedSet();
+ const newOnes=microPathItems().filter(i=>!known.has(i.id)).slice(0,spec.newCount);
+ const steps=[];
+ // Pequeñas exposiciones, seguidas inmediatamente de una recuperación activa.
+ newOnes.forEach((item,i)=>{steps.push({type:'expose',item});steps.push(sampleMicroQuestion(item,i%2===0));});
+ const target=spec.totalQuestions-newOnes.length;
+ const reviewed=shuffle([...lessonsIntroduced(),...newOnes]);
+ for(let i=0;i<target;i++){
+   const pool=reviewed.length?reviewed:microPathItems().slice(0,1);
+   const item=pool[i%pool.length];
+   steps.push(sampleMicroQuestion(item,(i+newOnes.length)%2===1));
+ }
+ microSession={mode,steps,index:0,answered:false,choice:null,correct:0,attempts:0,newCount:0,finished:false};
+ page='micro';render();window.scrollTo(0,0);
+}
+function advanceMicroExposure(){if(!microSession)return;const step=microSession.steps[microSession.index];if(step?.type==='expose'){microSession.index++;render();}}
+function answerMicro(choice){
+ const s=microSession;if(!s||s.answered)return;
+ const q=s.steps[s.index];if(!q||q.type!=='quiz'||!q.options[choice])return;
+ const isRight=q.options[choice]===q.correct;
+ s.choice=choice;s.answered=true;s.attempts++;if(isRight)s.correct++;
+ // Descubierto significa visto + recuperado con una respuesta, NO dominado.
+ const prev=new Set(state.microIntroduced||[]);
+ const completedElsewhere=LESSONS.some(l=>state.lessons[l.id]?.completed&&l.items.some(i=>i.id===q.item.id));
+ if(!prev.has(q.item.id)&&!completedElsewhere){state.microIntroduced.push(q.item.id);s.newCount++;}
+ if(!state.microRecall||typeof state.microRecall!=='object')state.microRecall={total:0,correct:0};
+ state.microRecall.total++;if(isRight)state.microRecall.correct++;
+ const c=state.cards[q.item.id]||{stage:0,due:today(),reviews:0,correct:0};
+ // Una pregunta repetida dentro de la misma misión no debe inflar intervalos de memoria.
+ if(c.lastMicroReview!==today()){
+   const firstAttempt=!(c.reviews>0);c.reviews++;c.stage=isRight?(firstAttempt?0:Math.min(7,(c.stage||0)+1)):0;c.due=isRight?datePlus([1,3,7,14,30,60,90,120][c.stage]):today();
+   c.correct+=(isRight?1:0);c.lastMicroReview=today();
+ }
+ state.cards[q.item.id]=c;
+ // Registrar cada respuesta en el momento: cerrar la pestaña también conserva la sesión parcial.
+ if(!Array.isArray(state.microLog))state.microLog=[];
+ if(s.logIndex===undefined){
+   if(state.microLog.length>=750)state.microLog=state.microLog.slice(-749);
+   s.logIndex=state.microLog.length;
+   state.microLog.push({date:today(),mode:s.mode,answered:0,correct:0,newCount:0,early:true});
+ }
+ const log=state.microLog[s.logIndex];
+ if(log){log.answered=s.attempts;log.correct=s.correct;log.newCount=s.newCount;}
+ activity(isRight?3:1);save();render();
+}
+function advanceMicroQuestion(){if(!microSession||!microSession.answered)return;microSession.answered=false;microSession.choice=null;microSession.index++;
+ if(microSession.index>=microSession.steps.length)finishMicro(false);else render();}
+function finishMicro(early){
+ const s=microSession;if(!s||s.finished)return;
+ s.finished=true;
+ if(s.attempts>0&&s.logIndex!==undefined){
+   const log=state.microLog[s.logIndex];
+   if(log){log.early=!!early;log.answered=s.attempts;log.correct=s.correct;log.newCount=s.newCount;}
+   save();
+ }
+ s.early=!!early;s.phase='finish';page='micro';render();
+}
+function renderMicroSession(){
+ const s=microSession;if(!s)return renderHomeMomentum();const spec=MICRO_MODES[s.mode],totalQuestions=spec.totalQuestions;
+ if(s.phase==='finish')return `<div class="mini-session-wrap"><button class="back-link" data-action="nav" data-page="home">${icon('left',17)} Volver</button><div class="mini-result"><div class="mini-result-star">${s.attempts?'✦':'◌'}</div>${eyebrow(`MISIÓN ${s.early?'INTERRUMPIDA':'COMPLETADA'}`)}
+ <h1>${s.attempts?'Esto ya es avanzar.':'Está bien. Puedes volver luego.'}</h1><p>${s.attempts?'No necesitaste motivación perfecta. Practicaste y dejaste una huella real en tu memoria.':'La app seguirá aquí, sin penalizaciones.'}</p>
+ <div class="mini-result-grid"><div><strong>${s.newCount}</strong><span>${s.newCount===1?'elemento nuevo':'elementos nuevos'} explorados</span></div><div><strong>${s.correct}/${s.attempts}</strong><span>respuestas acertadas</span></div><div><strong>${weeklyDaysCount()}/${state.weeklyGoal||3}</strong><span>días de esta semana</span></div></div>
+ <div class="mini-congrats">${s.early?'Incluso una sesión incompleta cuenta si practicaste.':'Si mañana no puedes, no pasa nada. Retomaremos cuando vuelvas.'}</div>
+ <div class="mini-result-actions">${button(`Volver al inicio ${icon('arrow',17)}`,'nav','btn-primary','data-page="home"')}${button('Otra misión de 1 min','start-micro','btn-outline','data-mode="tiny"')}</div></div></div>`;
+ const step=s.steps[s.index];const completed=s.steps.slice(0,s.index).filter(x=>x.type==='quiz').length;
+ const currentQuestionIndex=completed+1;
+ const guide=`<div class="mini-session-head"><button class="back-link" data-action="micro-exit">${icon('left',16)} Guardar y salir</button><span>~${spec.minutes} min · ${s.mode==='tiny'?'modo mínimo':s.mode==='normal'?'modo impulso':'modo enfoque'}</span></div>
+ <div class="mini-stage-heading">${eyebrow('UN PASO A LA VEZ')}<h1>${step.type==='expose'?'Solo conoce esto.':'Ahora intenta recordarlo.'}</h1><p>${step.type==='expose'?'No hace falta memorizarlo perfecto. Escucha y mira.':'Inténtalo antes de escuchar la respuesta. Equivocarse también sirve.'}</p></div>
+ <div class="mini-progress"><span style="width:${Math.round(s.index/s.steps.length*100)}%"></span></div>`;
+ if(step.type==='expose')return `<div class="mini-session-wrap">${guide}<div class="mini-learning-card"><div class="mini-type">${step.item.kind==='letter'?'UNA LETRA NUEVA':'UNA FRASE PARA USAR'}</div><div class="mini-word" lang="ru">${esc(step.item.ru)}</div><button class="mini-sound" data-action="speak" data-value="${esc(step.item.speak)}">${icon('sound',19)} Oír en ruso</button><div class="mini-divider"></div><div class="mini-meaning">${esc(step.item.es)}</div><p>${esc(step.item.hint||'Prueba repetirlo en voz alta.')}</p></div><div class="mini-footer"><span>Sin presión. Una novedad basta.</span>${button(`Creo que lo tengo ${icon('arrow',17)}`,'micro-next')}</div></div>`;
+ const q=step;
+ return `<div class="mini-session-wrap">${guide}<div class="mini-quiz"><div class="mini-type">RECUERDO ${currentQuestionIndex} DE ${totalQuestions}</div><div class="mini-quiz-label">${q.flip?'¿Cómo se dice en ruso?':'¿Qué significa en español?'}</div><h2 lang="${q.flip?'es':'ru'}">${esc(q.flip?q.item.es:q.item.ru)}</h2><div class="mini-answer-grid">${q.options.map((opt,idx)=>`<button class="mini-choice ${s.answered?(opt===q.correct?'right':s.choice===idx?'wrong':'dim'):''}" data-action="micro-answer" data-choice="${idx}" ${s.answered?'disabled':''}><span class="choice-index">${idx+1}</span>${esc(opt)}</button>`).join('')}</div>
+ ${s.answered?`<div class="mini-feedback ${q.options[s.choice]===q.correct?'is-right':'is-wrong'}"><strong>${q.options[s.choice]===q.correct?'¡Sí, lo recordaste!':'Bien intentado. Esa es la oportunidad para aprender.'}</strong><p><span lang="ru">${esc(q.item.ru)}</span> significa ${esc(q.item.es)}.</p><button data-action="speak" data-value="${esc(q.item.speak)}" class="sound-inline">${icon('sound',16)} Escuchar</button></div>`:''}
+ </div><div class="mini-footer"><span>${s.attempts} ${s.attempts===1?'intento':'intentos'} en esta misión</span>${s.answered?button(s.index===s.steps.length-1?`Terminar ${icon('check',18)}`:`Siguiente ${icon('arrow',17)}`,'micro-advance'):'<span class="mini-select-note">Elige una respuesta</span>'}</div></div>`;
+}
+function renderMicroStats(){const recent=(state.microLog||[]).slice(-10).reverse(),r=state.microRecall||{total:0,correct:0};return `<section class="micro-stats-section"><div class="section-heading">${eyebrow('PROGRESO REAL · SIN RACHAS OBLIGATORIAS')}<h2>Tu hábito flexible</h2></div><div class="micro-stats-box"><div><b>${(state.microIntroduced||[]).length}</b><span>conceptos explorados</span></div><div><b>${r.total||0}</b><span>intentos de memoria</span></div><div><b>${weeklyDaysCount()}</b><span>días con misión esta semana</span></div></div><p class="micro-stats-help">«Explorado» no significa «dominado»: los repasos miden lo que recuerdas con el paso del tiempo. No medimos tu valor por una racha.</p>${recent.length?`<h3>Últimas misiones</h3><div class="micro-log">${recent.map(x=>`<div><span>${esc(x.date)} · ${MICRO_MODES[x.mode]?.minutes||1} min${x.early?' · parcial':''}</span><b>${x.newCount} novedades · ${x.correct}/${x.answered} aciertos</b></div>`).join('')}</div>`:''}</section>`;}
+function renderMicroSettings(){return `<section class="settings-panel"><h2>Tu meta semanal amable</h2><p>Elige cuántos días a la semana te gustaría realizar al menos una micro-misión. No requieren ser consecutivos. No hay castigos ni reinicios por ausencias.</p><div class="goal-picker">${[2,3,4,5].map(x=>`<button class="goal-choice ${x===(state.weeklyGoal||3)?'active':''}" data-action="set-week-goal" data-value="${x}">${x} días</button>`).join('')}</div></section><section class="settings-panel"><h2>Qué cuenta como progreso</h2><p>Escuchar una palabra es útil, pero los puntos de micro-misiones se obtienen al responder preguntas de recuperación activa. Una misión parcial también se guarda si respondiste al menos una pregunta.</p></section>`;}
+
+</script>
+  <script>
+/* СЛОВО 3.0 · Desafíos cotidianos de 2–3 min. Todos los datos, salvo el uso
+   de voces del propio navegador, permanecen en este dispositivo. */
+const DAILY_ESSENTIAL_IDS=[
+ 'p1','p7','p19','p20','p8','p6','p16','p17','p18','p33','p34',
+ 'p37','p38','p39','p40','p41','p45','p42','p43','p44','p46',
+ 'p2','p10','p11','p22','p23','p24','p36','p9','p12','p3','p4','p5'];
+const DAILY_CHALLENGES=[
+ {id:'listen',label:'Escucha',description:'Oye una expresión y descubre qué significa.',marker:'01',icon:'headphones',reward:8},
+ {id:'speak',label:'Habla',description:'Repítela en voz alta y, si quieres, grábate.',marker:'02',icon:'sound',reward:8},
+ {id:'recall',label:'Recuerda',description:'Recupera una frase que ya has visto.',marker:'03',icon:'review',reward:8}
+];
+let dailySession=null;
+let dailyRecorder=null,dailyMediaStream=null,dailySoundUrl=null,dailyRecording=false;
+function dailyLog(){return (state.dailyTasks&&typeof state.dailyTasks==='object')?state.dailyTasks:{};}
+function dailyCompletedCount(entry){return entry?DAILY_CHALLENGES.filter(t=>entry.tasks?.[t.id]).length:0;}
+function dailyFindItem(id){return allItems.find(i=>i.id===id&&i.kind==='phrase')||allItems.find(i=>i.id==='p1');}
+function dailyTarget(){
+ const saved=dailyLog()[today()];if(saved&&saved.targetId)return dailyFindItem(saved.targetId);
+ const introduced=new Set(state.dailyIntroduced||[]);
+ const next=DAILY_ESSENTIAL_IDS.find(id=>!introduced.has(id));
+ if(next)return dailyFindItem(next);
+ return dailyFindItem(DAILY_ESSENTIAL_IDS[Math.floor(Date.now()/86400000)%DAILY_ESSENTIAL_IDS.length]);
+}
+function dailyEntry(){
+ if(!state.dailyTasks||typeof state.dailyTasks!=='object')state.dailyTasks={};
+ if(!Array.isArray(state.dailyIntroduced))state.dailyIntroduced=[];
+ if(!state.dailyTasks[today()]){
+   const keys=Object.keys(state.dailyTasks).sort();
+   if(keys.length>390)keys.slice(0,keys.length-390).forEach(key=>delete state.dailyTasks[key]);
+   state.dailyTasks[today()]={targetId:dailyTarget().id,tasks:{},accuracy:{}};
+   save();
+ }
+ return state.dailyTasks[today()];
+}
+function dailyPreviousPhrase(){
+ const dates=Object.keys(dailyLog()).filter(k=>k<today()&&dailyLog()[k].tasks&&Object.values(dailyLog()[k].tasks).some(Boolean)).sort().reverse();
+ if(dates.length)return dailyFindItem(dailyLog()[dates[0]].targetId);
+ const phrases=lessonsIntroduced().filter(i=>i.kind==='phrase'&&i.id!==dailyTarget().id);
+ return phrases.length?phrases[0]:dailyTarget();
+}
+function dailyItemForTask(task){return task==='recall'?dailyPreviousPhrase():dailyTarget();}
+function dailyOptions(item,reverse){
+ const correct=reverse?item.ru:item.es;
+ const pool=allItems.filter(i=>i.kind==='phrase'&&i.id!==item.id).map(i=>reverse?i.ru:i.es);
+ const distinct=[...new Set(pool.filter(v=>v!==correct))];
+ return shuffle([correct,...shuffle(distinct).slice(0,3)]);
+}
+function renderDailyHome(){
+ const record=dailyLog()[today()]||null;
+ const complete=dailyCompletedCount(record), total=DAILY_CHALLENGES.length;
+ const target=dailyTarget();
+ return `<section class="quest-head">
+  <div class="quest-head-top"><span class="quest-tag">✦ DESAFÍO DEL DÍA</span><span class="quest-streak">${icon('fire',17)} ${streak()} ${streak()===1?'día':'días'} de racha en СЛОВО</span></div>
+  <div class="quest-head-copy"><div><h1>${complete===total?'¡Tu desafío está completo!':'Tres pequeños logros.\nUna frase que sí usarás.'}</h1><p>Como en tu rutina de Duolingo: entra, cumple desafíos breves y avanza. Hoy vas a entrenar el oído, hablar y recordar.</p></div><div class="quest-score"><strong>${complete}<small>/ ${total}</small></strong><span>RETOS DE HOY</span></div></div>
+  <div class="quest-track" role="progressbar" aria-label="Desafíos del día" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${complete}"><div style="width:${Math.round(complete/total*100)}%"></div></div>
+  <div class="quest-goal-line"><span>~2–3 min en total · una frase útil al día</span><span>${complete===total?'✓ ¡Objetivo conseguido!':`${total-complete} ${total-complete===1?'reto restante':'retos restantes'}`}</span></div>
+ </section>
+ <section class="quest-section"><div class="quest-section-title"><div>${eyebrow('ESCUCHA · HABLA · RECUERDA')}<h2>Tu lista de hoy</h2></div><span class="quest-date">${new Date().toLocaleDateString('es-MX',{weekday:'long',day:'numeric',month:'long'})}</span></div>
+ <div class="quest-cards">${DAILY_CHALLENGES.map(task=>{
+   const done=!!record?.tasks?.[task.id];
+   return `<button class="quest-card ${done?'quest-done':''}" data-action="daily-start" data-task="${task.id}">
+    <span class="quest-card-icon">${icon(task.icon,24)}</span><span class="quest-card-text"><b>${task.label}</b><small>${task.description}</small></span><span class="quest-card-status">${done?icon('check',21):`+${task.reward} XP`}</span></button>`;
+ }).join('')}</div>
+ <div class="quest-phrase-teaser"><span>${icon('spark',18)} UNA FRASE REAL, NO UNA BICICLETA PERDIDA</span><p>Hoy vas a trabajar una expresión que podrías utilizar conversando. ${complete?'Puedes escucharla otra vez cuando quieras.':'Descúbrela en tu primer desafío.'}</p>${complete?`<div class="quest-today-phrase"><strong lang="ru">${esc(target.ru)}</strong><span>${esc(target.es)}</span><button data-action="speak" data-value="${esc(target.speak)}">${icon('sound',18)} Escuchar</button></div>`:''}</div>
+ </section>`;
+}
+function startDaily(task){
+ endDailyRecording();
+ if(dailySoundUrl){URL.revokeObjectURL(dailySoundUrl);dailySoundUrl=null;}
+ if(!DAILY_CHALLENGES.some(t=>t.id===task))return;
+ const entry=dailyEntry(),item=dailyItemForTask(task);
+ dailySession={task,item,correct:null,choice:null,answered:false,revealed:false,wasAlreadyDone:!!entry.tasks[task],options:task==='speak'?[]:dailyOptions(item,task==='recall')};
+ page='daily';render();window.scrollTo(0,0);
+}
+function dailyMarkDone(task,item,correct=null){
+ const entry=dailyEntry();
+ if(!entry.tasks[task]){
+  entry.tasks[task]=true;entry.accuracy[task]=correct;
+  if(task==='listen'&&!state.dailyIntroduced.includes(item.id))state.dailyIntroduced.push(item.id);
+  if(item&&!state.microIntroduced.includes(item.id)&&!LESSONS.some(l=>state.lessons[l.id]?.completed&&l.items.some(i=>i.id===item.id))){state.microIntroduced.push(item.id);}
+  // La prueba de memoria se registra por separado de exposición / práctica oral.
+  if(correct!==null){
+   if(!state.microRecall||typeof state.microRecall!=='object')state.microRecall={total:0,correct:0};
+   state.microRecall.total++;if(correct)state.microRecall.correct++;
+   const card=state.cards[item.id]||{stage:0,due:today(),reviews:0,correct:0};
+   if(card.lastDailyReview!==today()){
+     card.reviews++;card.correct+=correct?1:0;
+     card.stage=correct?Math.min(7,(card.stage||0)+1):0;
+     card.due=datePlus(correct?[1,3,7,14,30,60,90,120][card.stage]:0);
+     card.lastDailyReview=today();state.cards[item.id]=card;
+   }
+  }
+  const reward=DAILY_CHALLENGES.find(c=>c.id===task).reward;
+  activity(reward);
+ }
+ save();
+}
+function answerDaily(choice){
+ const s=dailySession;if(!s||s.answered||s.task==='speak')return;
+ const value=s.options[choice];if(value===undefined)return;
+ s.choice=choice;s.correct=value===(s.task==='recall'?s.item.ru:s.item.es);s.answered=true;
+ dailyMarkDone(s.task,s.item,s.correct);
+ render();
+}
+function revealDaily(){if(dailySession&&!dailySession.answered){dailySession.revealed=true;render();}}
+function finishDailySpeech(grade){
+ endDailyRecording();
+ const s=dailySession;if(!s||s.task!=='speak'||s.answered)return;
+ if(!['comfortable','hard'].includes(grade))return;
+ s.answered=true;s.selfGrade=grade;
+ dailyMarkDone('speak',s.item,null);
+ render();
+}
+function nextDaily(){
+ const entry=dailyEntry();const next=DAILY_CHALLENGES.find(t=>!entry.tasks[t.id]);
+ if(next)startDaily(next.id);else{dailySession=null;page='home';render();window.scrollTo(0,0);}
+}
+function renderDailySession(){
+ const s=dailySession;if(!s)return renderDailyHome();
+ const entry=dailyLog()[today()],complete=dailyCompletedCount(entry);
+ const taskInfo=DAILY_CHALLENGES.find(t=>t.id===s.task);
+ const heading=s.task==='listen'?'Escucha y entiende':s.task==='speak'?'Ahora te toca hablar':'Recuerda sin mirar';
+ const note=s.task==='listen'?'Primero escucha. Después elige qué significa en español.':s.task==='speak'?'Escucha el ejemplo, repítelo y valora tú mismo cómo te fue.':'Volvemos a una expresión anterior. ¿La reconoces sin verla traducida?';
+ return `<div class="daily-page"><div class="daily-back"><button class="back-link" data-action="nav" data-page="home">${icon('left',18)} Volver a mis desafíos</button><span>RETO ${taskInfo.marker} / 03</span></div>
+  <div class="daily-panel"><div class="daily-panel-top"><span>${icon(taskInfo.icon,18)} ${taskInfo.label.toUpperCase()} · 30–60 SEGUNDOS</span><span>${complete}/3 completados</span></div>
+  <h1>${heading}</h1><p class="daily-intro">${note}</p>
+  ${s.task==='listen'?renderDailyListen(s):s.task==='speak'?renderDailySpeak(s):renderDailyRecall(s)}
+  ${s.answered?`<div class="daily-feedback ${s.correct===false?'needs-practice':''}"><strong>${s.task==='speak'?'¡Desafío de pronunciación registrado!':s.correct?'¡Lo identificaste!':'Buen intento. Repasar ayuda a consolidarlo.'}</strong><p>${s.task==='speak'?'No calificamos automáticamente tu acento. Escuchar y producir la frase cuenta como práctica, y puedes repetirla.':`<span lang="ru">${esc(s.item.ru)}</span> significa <b>${esc(s.item.es)}</b>.`}</p>${button(dailyCompletedCount(entry)===3?`¡Desafíos completos! ${icon('check',17)}`:`Ir al siguiente reto ${icon('arrow',17)}`,'daily-next','btn-primary')}</div>`:''}
+ </div><p class="daily-privacy">${s.task==='speak'?'La grabación es opcional, se conserva temporalmente en este navegador y no se sube a СЛОВО.':'Una respuesta equivocada no rompe tu racha. Lo importante es practicar.'}</p></div>`;
+}
+function renderDailyListen(s){
+ return `<div class="daily-content"><span class="daily-step">ESCUCHA ANTES DE LEER</span><div class="daily-audio-glyph">${icon('headphones',47)}</div>
+ <button class="daily-main-audio" data-action="speak" data-value="${esc(s.item.speak)}">${icon('sound',21)} Escuchar en ruso</button>
+ ${!s.answered?`<button class="daily-reveal" data-action="daily-reveal">${s.revealed?'Texto en ruso: '+esc(s.item.ru):'¿No hay audio? Mostrar texto ruso'}</button><div class="daily-question">¿Qué significa?</div>${dailyChoices(s)}`:`<div class="daily-visible-result" lang="ru">${esc(s.item.ru)}</div>`}</div>`;
+}
+function renderDailyRecall(s){
+ return `<div class="daily-content"><span class="daily-step">REPASA ALGO QUE YA VISTE</span><div class="daily-recall-title">${esc(s.item.es)}</div><div class="daily-question">¿Cómo se dice en ruso?</div>${!s.answered?dailyChoices(s):`<div class="daily-visible-result" lang="ru">${esc(s.item.ru)}</div><button class="daily-main-audio" data-action="speak" data-value="${esc(s.item.speak)}">${icon('sound',18)} Escuchar la respuesta</button>`}</div>`;
+}
+function dailyChoices(s){return `<div class="daily-choices">${s.options.map((x,i)=>`<button class="daily-option ${s.answered?(x===(s.task==='recall'?s.item.ru:s.item.es)?'good':s.choice===i?'bad':'muted'):''}" data-action="daily-answer" data-choice="${i}" ${s.answered?'disabled':''}>${esc(x)}</button>`).join('')}</div>`;}
+function renderDailySpeak(s){
+ return `<div class="daily-content"><span class="daily-step">REPÍTELA COMO SI HABLARAS CON ALGUIEN</span><div class="daily-big-ru" lang="ru">${esc(s.item.ru)}</div><div class="daily-translation">${esc(s.item.es)}</div>
+ <button class="daily-main-audio" data-action="speak" data-value="${esc(s.item.speak)}">${icon('sound',18)} Escuchar y repetir</button>
+ ${!s.answered?`<div class="daily-record-group"><button data-action="daily-record" class="daily-record-btn">${dailyRecording?'■ Detener grabación':'● Grabar mi voz (opcional)'}</button>${dailySoundUrl?`<button data-action="daily-play" class="daily-play-btn">▶ Escuchar mi voz</button>`:''}</div><p class="daily-record-caption">No evaluamos tu voz automáticamente; la grabación es para que te compares tú mismo.</p>
+ <div class="daily-question">¿Cómo te sentiste al decirla?</div><div class="daily-speech-choices"><button class="btn btn-primary" data-action="daily-speech" data-grade="comfortable">La dije bien</button><button class="btn btn-outline" data-action="daily-speech" data-grade="hard">Me costó, la repetiré</button></div>`:''}</div>`;
+}
+function dailyStopStream(){if(dailyMediaStream){dailyMediaStream.getTracks().forEach(t=>t.stop());dailyMediaStream=null;}}
+function endDailyRecording(){if(dailyRecording&&dailyRecorder?.state==='recording')dailyRecorder.stop();dailyRecording=false;dailyStopStream();}
+async function toggleDailyRecording(){
+ if(!dailySession||dailySession.task!=='speak')return;
+ if(dailyRecording){dailyRecorder?.stop();dailyRecording=false;dailyStopStream();render();return;}
+ if(!window.MediaRecorder||!navigator.mediaDevices?.getUserMedia){toast('La grabadora no está disponible aquí. Puedes practicar en voz alta.');return;}
+ try{
+  const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+  if(!dailySession||dailySession.task!=='speak'){stream.getTracks().forEach(t=>t.stop());return;}
+  dailyMediaStream=stream;
+  const chunks=[];const recorder=new MediaRecorder(stream);dailyRecorder=recorder;
+  recorder.ondataavailable=e=>{if(e.data.size)chunks.push(e.data);};
+  recorder.onstop=()=>{
+    if(dailySoundUrl)URL.revokeObjectURL(dailySoundUrl);
+    if(chunks.length&&page==='daily'&&dailySession?.task==='speak'&&!dailySession.answered){dailySoundUrl=URL.createObjectURL(new Blob(chunks,{type:recorder.mimeType||'audio/webm'}));}
+    dailyStopStream();if(page==='daily'&&dailySession?.task==='speak')render();
+  };
+  recorder.start();dailyRecording=true;render();
+ }catch(e){dailyStopStream();toast('No se pudo acceder al micrófono. Prueba con HTTPS o practica sin grabar.');}
+}
+function playDailyRecording(){if(dailySoundUrl){const audio=new Audio(dailySoundUrl);audio.play().catch(()=>toast('No se pudo reproducir la grabación.'));}}
+
+function renderDailyStats(){
+ const days=Object.values(dailyLog());const active=days.filter(x=>Object.values(x.tasks||{}).some(Boolean)).length;
+ const finished=days.filter(x=>DAILY_CHALLENGES.every(t=>x.tasks?.[t.id])).length;
+ const heard=days.filter(x=>x.tasks?.listen).length;
+ return `<section class="daily-stats-section"><div class="section-heading"><div>${eyebrow('DESAFÍOS COTIDIANOS')}<h2>Lo que vas construyendo</h2></div></div><div class="daily-stats-grid"><div><b>${streak()}</b><span>Días seguidos en СЛОВО</span></div><div><b>${active}</b><span>Días con retos hechos</span></div><div><b>${finished}</b><span>Días con los tres retos</span></div><div><b>${heard}</b><span>Prácticas de escucha</span></div></div><p>La racha empieza en СЛОВО: no se importa automáticamente desde Duolingo. Acertar o equivocarte en un reto cuenta como práctica, pero no como dominio de la frase.</p></section>`;
+}
+function renderDailySettings(){return `<section class="settings-panel"><h2>Desafíos diarios y racha</h2><p>En СЛОВО tienes 3 retos cada día: escuchar, decir en voz alta y recuperar de memoria una frase útil. Cuenta la práctica incluso cuando te equivocas. Tu racha de СЛОВО es independiente de tu racha de Duolingo.</p><p>Al grabar tu voz, la app te pide permiso. El audio queda temporalmente en memoria y desaparece al cerrar o recargar la página. No se envía a nuestros servidores.</p></section>`;}
+
+</script>
+  <script>
+/* СЛОВО — Russian from zero. No third-party libraries or paid API. */
+const STORAGE_KEY='slovo_progress_v1';
+const INTERVALS=[1,3,7,14,30,60,90,120];
+const APP=document.getElementById('app');
+const esc = x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const today = (d=new Date())=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const datePlus = days=>{const d=new Date();d.setDate(d.getDate()+days);return today(d);};
+const shuffle = list=>[...list].sort(()=>Math.random()-.5);
+const allItems = LESSONS.flatMap(l=>l.items);
+const alphabetOrder='АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
+const sortedAlphabet=[...ALPHABET].sort((a,b)=>alphabetOrder.indexOf(a.upper)-alphabetOrder.indexOf(b.upper));
+const defaultState=()=>({version:1,lessons:{},cards:{},activityDates:[],xp:0,dailyGoal:12,weeklyGoal:3,microIntroduced:[],microLog:[],microRecall:{total:0,correct:0},dailyTasks:{},dailyIntroduced:[]});
+function loadState(){try{const v=JSON.parse(localStorage.getItem(STORAGE_KEY));if(v&&v.version===1&&v.lessons&&v.cards&&Array.isArray(v.activityDates))return {...defaultState(),...v};}catch(e){}return defaultState();}
+let state=loadState();
+let page='home',lessonSession=null,reviewSession=null,expandedAlpha=null,toastMessage='';
+function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}catch(e){toast('No se pudo guardar. Revisa el almacenamiento del navegador.');}}
+function activity(xp=0){const d=today();if(!state.activityDates.includes(d))state.activityDates.push(d);state.xp+=xp;save();}
+function streak(){let count=0;const dates=new Set(state.activityDates);const d=new Date();if(!dates.has(today(d)))d.setDate(d.getDate()-1);while(dates.has(today(d))){count++;d.setDate(d.getDate()-1);}return count;}
+function completedCount(){return LESSONS.filter(l=>state.lessons[l.id]?.completed).length;}
+function nextLesson(){return LESSONS.find(l=>!state.lessons[l.id]?.completed)||null;}
+function lessonsIntroduced(){const completed=LESSONS.filter(l=>state.lessons[l.id]?.completed).flatMap(l=>l.items);const mini=(state.microIntroduced||[]).map(id=>allItems.find(i=>i.id===id)).filter(Boolean);return [...new Map([...completed,...mini].map(i=>[i.id,i])).values()];}
+function dueCards(){const now=today();return lessonsIntroduced().filter(i=>state.cards[i.id]&&(state.cards[i.id].due<=now));}
+function masteredCount(){return Object.values(state.cards).filter(c=>c.stage>=3).length;}
+function toast(m){toastMessage=m; const el=document.getElementById('toast');if(el){el.textContent=m;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2800);}}
+const svg={
+  home:'<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',
+  course:'<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/>',
+  review:'<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/>',
+  alphabet:'<path d="M4 18V6a2 2 0 0 1 2-2h14v16H6a2 2 0 0 1-2-2zm0 0a2 2 0 0 1 2-2h14M8 9h8M8 12h6"/>',
+  stats:'<path d="M4 20V9M10 20V4M16 20v-7M22 20V7M2 20h22"/>',
+  settings:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.05.05-1.9 1.9-.05-.05A1.7 1.7 0 0 0 16 18.45a1.7 1.7 0 0 0-1.05 1.55V21h-2.7v-1A1.7 1.7 0 0 0 11.2 18.45a1.7 1.7 0 0 0-1.88.34l-.05.05-1.9-1.9.05-.05A1.7 1.7 0 0 0 7.75 15a1.7 1.7 0 0 0-1.55-1.05H5v-2.7h1.2A1.7 1.7 0 0 0 7.75 10.2a1.7 1.7 0 0 0-.34-1.88l-.05-.05 1.9-1.9.05.05A1.7 1.7 0 0 0 11.2 6.75 1.7 1.7 0 0 0 12.25 5.2V4h2.7v1.2A1.7 1.7 0 0 0 16 6.75a1.7 1.7 0 0 0 1.88-.34l.05-.05 1.9 1.9-.05.05a1.7 1.7 0 0 0-.34 1.88 1.7 1.7 0 0 0 1.56 1.05H22v2.7h-1a1.7 1.7 0 0 0-1.6 1.05z"/>',
+  sound:'<path d="M11 5 6 9H3v6h3l5 4zM15 9a5 5 0 0 1 0 6m3-9a9 9 0 0 1 0 12"/>',
+  arrow:'<path d="M5 12h14m-7-7 7 7-7 7"/>',
+  left:'<path d="m15 18-6-6 6-6"/>',
+  check:'<path d="m5 12 4 4L19 6"/>',
+  lock:'<rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>',
+  fire:'<path d="M12 22c4.8 0 7-3.1 7-7 0-3.1-1.6-5.3-4-7-.2 2.8-1.6 3.8-1.6 3.8S15 5.8 10 2C10 7.5 5 9.4 5 15c0 3.9 2.2 7 7 7Z"/>',
+  spark:'<path d="m12 2 1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9zM20 17v5M17.5 19.5h5"/>',
+  info:'<circle cx="12" cy="12" r="10"/><path d="M12 11v6M12 7h.01"/>',
+  down:'<path d="m6 9 6 6 6-6"/>',
+  download:'<path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/>',
+  upload:'<path d="M12 16V4m-5 5 5-5 5 5M4 16v5h16v-5"/>',
+  trophy:'<path d="M8 21h8m-4-4v4M7 4h10v7a5 5 0 0 1-10 0zM7 6H4v3c0 2 2 3 4 3m9-6h3v3c0 2-2 3-4 3"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2"/>',
+  book:'<path d="M12 5c-3-2-6-2-9-1v15c3-1 6-1 9 1 3-2 6-2 9-1V4c-3-1-6-1-9 1zM12 5v15"/>',
+  headphones:'<path d="M3 14v-3a9 9 0 0 1 18 0v3M3 14h4v7H5a2 2 0 0 1-2-2zm18 0h-4v7h2a2 2 0 0 0 2-2z"/>',
+  close:'<path d="M5 5l14 14M19 5 5 19"/>'
+};
+function icon(name,size=20){return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${svg[name]||svg.spark}</svg>`;}
+function button(label,action,cls='btn-primary',extra=''){return `<button type="button" class="btn ${cls}" data-action="${esc(action)}" ${extra}>${label}</button>`;}
+function navButton(id,label,iconName){return `<button type="button" class="nav-item ${page===id?'active':''}" data-action="nav" data-page="${id}" aria-label="${label}">${icon(iconName,20)}<span>${label}</span></button>`;}
+function shell(content){const n=completedCount(),p=Math.round(n/LESSONS.length*100);return `<div class="layout">
+  <aside class="sidebar">
+    <button class="brand" data-action="nav" data-page="home"><span class="brand-symbol">С</span><span class="brand-word">СЛОВО<span class="brand-dot">.</span><small>RUSO A TU RITMO</small></span></button>
+    <div class="side-caption">APRENDIZAJE</div>
+    <nav class="side-nav">${navButton('home','Inicio','home')}${navButton('course','Lecciones','course')}${navButton('review','Repasar','review')}${navButton('alphabet','Alfabeto','alphabet')}</nav>
+    <div class="side-caption second">TU ESPACIO</div>
+    <nav class="side-nav">${navButton('stats','Mi progreso','stats')}${navButton('settings','Ajustes','settings')}</nav>
+    <div class="sidebar-bottom"><div class="sidebar-progress-top"><span>Ruta principiante</span><b>${p}%</b></div><div class="progress-track"><div style="width:${p}%"></div></div><small>${n} de ${LESSONS.length} lecciones</small></div>
+  </aside>
+  <div class="main-shell"><header class="topbar"><button class="mobile-brand" data-action="nav" data-page="home"><span>С</span> СЛОВО.</button><span class="topbar-caption">ТВОЙ ПУТЬ · TU CAMINO</span><div class="topbar-metrics"><span>${icon('fire',16)} ${streak()} días СЛОВО</span><span>${icon('spark',16)} ${state.xp} XP</span></div></header><main class="main-content">${content}</main></div>
+  <nav class="mobile-nav" aria-label="Menú principal">${navButton('home','Inicio','home')}${navButton('course','Cursos','course')}${navButton('review','Repasar','review')}${navButton('alphabet','Letras','alphabet')}${navButton('stats','Progreso','stats')}</nav>
+  <div id="toast" role="status" aria-live="polite" class="toast">${esc(toastMessage)}</div>
+</div>`;}
+function eyebrow(s){return `<span class="eyebrow">${esc(s)}</span>`;}
+function progressBar(percent){return `<div class="progress-track"><div style="width:${Math.min(100,Math.max(0,percent))}%"></div></div>`;}
+function oldRenderHome(){const next=nextLesson(),due=dueCards().length,n=completedCount();return `<section class="hero">
+  <div class="hero-copy">${eyebrow('EMPIEZA DESDE CERO')}<h1>El ruso empieza<br/><em>contigo.</em></h1><p>Aprende a leer, escuchar y conversar con sesiones pequeñas que realmente puedes mantener cada día.</p>
+  <div class="hero-actions">${next?button(`Continuar: lección ${next.number} ${icon('arrow',18)}`,'next-lesson'):button(`Ruta completada ${icon('check',17)}`,'nav','btn-primary','data-page="stats"')}${button('Ver mi ruta','nav','btn-outline','data-page="course"')}</div>
+  </div><div class="hero-art" aria-hidden="true"><div class="hero-orbit orbit-a"></div><div class="hero-orbit orbit-b"></div><span class="hero-big">Я</span><span class="hero-little">Аа</span><span class="hero-ribbon">HELLO → ПРИВЕТ</span></div>
+  </section>
+  <div class="stat-grid"><div class="stat-card"><div class="stat-icon mint">${icon('book',20)}</div><span>LECCIONES</span><strong>${n}<small> / ${LESSONS.length}</small></strong><p>Pasos completados</p></div><div class="stat-card"><div class="stat-icon peach">${icon('fire',20)}</div><span>RACHA ACTUAL</span><strong>${streak()} <small>días</small></strong><p>Cuenta cada sesión</p></div><div class="stat-card"><div class="stat-icon lilac">${icon('review',20)}</div><span>POR REPASAR</span><strong>${due}</strong><p>Palabras listas para recordar</p></div></div>
+  <section class="home-columns"><div><div class="section-heading"><div>${eyebrow('TU SIGUIENTE PASO')}<h2>${next?'Sigue construyendo':'¡Ruta completada!'}</h2></div><button class="text-link" data-action="nav" data-page="course">Ver ruta ${icon('arrow',16)}</button></div>
+  ${next?`<div class="next-lesson"><div class="lesson-art">${next.unit===0?'Аа':next.unit===1?'Привет':'Я'}</div><div class="next-description"><span class="soft-label">LECCIÓN ${next.number} · ${next.minutes} MIN</span><h3>${esc(next.title)}</h3><p>${esc(next.description)}</p><div class="mini-meta">${icon('headphones',15)} Audio · ${icon('spark',15)} Práctica activa</div></div><button class="round-arrow" data-action="next-lesson" aria-label="Empezar la siguiente lección">${icon('arrow',21)}</button></div>`:`<div class="next-lesson completed-next"><div class="lesson-art">✓</div><div><h3>Has completado la ruta inicial</h3><p>Consolida lo aprendido repasando tus tarjetas.</p></div></div>`}
+  </div><div><div class="section-heading">${eyebrow('CADA DÍA CUENTA')}<h2>Tu plan diario</h2></div><div class="daily-plan"><div class="plan-line"><b>01</b><div><strong>Recordar</strong><span>Repasa lo que está por vencer</span></div><span>3 min</span></div><div class="plan-line"><b>02</b><div><strong>Descubrir</strong><span>Una lección a tu propio ritmo</span></div><span>6 min</span></div><div class="plan-line"><b>03</b><div><strong>Decirlo</strong><span>Escucha y repite en voz alta</span></div><span>3 min</span></div><div class="plan-footer">Meta flexible: ${state.dailyGoal} minutos al día.</div></div></div></section>
+  <section class="tip-banner"><span>${icon('info',20)}</span><div><strong>Una regla para progresar</strong><p>Primero intenta recordar. Después mira la respuesta. Los errores son información útil, no un castigo.</p></div></section>`;}
+function renderHome(){return renderDailyHome()+renderHomeMomentum();}
+function lessonCard(l){const status=state.lessons[l.id],done=!!status?.completed,available=done||l===nextLesson();return `<button class="course-card ${done?'done':''} ${!available?'locked':''}" data-action="open-lesson" data-id="${l.id}" ${!available?'disabled':''}>
+ <div class="course-number">${done?icon('check',20):available?String(l.number).padStart(2,'0'):icon('lock',17)}</div><div class="course-main"><span class="soft-label">LECCIÓN ${String(l.number).padStart(2,'0')} · ${l.minutes} MIN</span><h3>${esc(l.title)}</h3><p>${esc(l.subtitle)}</p></div><span class="course-state">${done?'Completada':available?'Comenzar':'Bloqueada'} ${available?icon('arrow',18):''}</span></button>`;}
+function renderCourse(){return `<div class="page-heading">${eyebrow('PLAN DE ESTUDIO · A0')}<h1>Tu camino al ruso</h1><p>12 lecciones iniciales, de las 33 letras a tus primeras conversaciones. Las siguientes se abren al completar cada paso.</p></div>
+<div class="course-intro"><span>${icon('info',19)}</span> No hay prisa: repite una lección cuando lo necesites. Para avanzar, apunta a 70% o más en la práctica final.</div>
+${UNITS.map((unit,unitIndex)=>`<section class="unit"><div class="unit-head"><div class="unit-mark ${unit.tone}">${unitIndex+1}</div><div><span class="eyebrow">${unit.name}</span><h2>${unit.title}</h2><p>${unit.desc}</p></div><span class="unit-count">${LESSONS.filter(l=>l.unit===unitIndex&&state.lessons[l.id]?.completed).length} / ${LESSONS.filter(l=>l.unit===unitIndex).length}</span></div><div class="lesson-list">${LESSONS.filter(l=>l.unit===unitIndex).map(lessonCard).join('')}</div></section>`).join('')}`;}
+function startLesson(id){const lesson=LESSONS.find(l=>l.id===id);if(!lesson)return;const available=state.lessons[id]?.completed||lesson===nextLesson();if(!available)return;lessonSession={id,phase:'study',index:0,questions:[],quizIndex:0,correct:0,answered:false,choice:null,wrong:[]};page='lesson';render();}
+function buildQuestions(l){return shuffle(l.items).slice(0,Math.min(6,l.items.length)).map((item,index)=>{const reverse=index%2===1;const answer=reverse?item.ru:item.es;const pool=l.items.filter(x=>x.id!==item.id).map(x=>reverse?x.ru:x.es).filter(x=>x!==answer);const options=shuffle([answer,...shuffle([...new Set(pool)]).slice(0,3)]);return {item,reverse,answer,options};});}
+function nextStudy(){if(!lessonSession)return;const l=LESSONS.find(x=>x.id===lessonSession.id);if(lessonSession.index<l.items.length-1)lessonSession.index++;else{lessonSession.phase='quiz';lessonSession.questions=buildQuestions(l);}render();}
+function answerQuiz(value){const s=lessonSession;if(!s||s.phase!=='quiz'||s.answered)return;const q=s.questions[s.quizIndex];s.answered=true;s.choice=value;if(value===q.answer)s.correct++;else s.wrong.push(q.item.id);activity(2);render();}
+function quizAdvance(){const s=lessonSession;if(!s||!s.answered)return;s.answered=false;s.choice=null;s.quizIndex++;if(s.quizIndex>=s.questions.length){s.phase='result';const success=s.correct/s.questions.length>=.7;const prev=state.lessons[s.id]||{bestScore:0,attempts:0};state.lessons[s.id]={completed:!!prev.completed||success,bestScore:Math.max(prev.bestScore||0,Math.round(s.correct/s.questions.length*100)),attempts:(prev.attempts||0)+1};if(success){const l=LESSONS.find(x=>x.id===s.id);for(const item of l.items){if(!state.cards[item.id])state.cards[item.id]={stage:0,due:datePlus(1),reviews:0,correct:0};}activity(40);}save();}render();}
+function renderLesson(){const s=lessonSession;if(!s)return renderCourse();const l=LESSONS.find(x=>x.id===s.id);if(!l)return renderCourse();const back=`<button class="back-link" data-action="nav" data-page="course">${icon('left',18)} Volver a la ruta</button>`;
+if(s.phase==='study'){const item=l.items[s.index],percent=Math.round((s.index+1)/(l.items.length+1)*100);return `<div class="lesson-wrap">${back}<div class="lesson-top"><div>${eyebrow('FASE 1 · DESCUBRE')}<h1>${esc(l.title)}</h1></div><span>${s.index+1} / ${l.items.length} tarjetas</span></div>${progressBar(percent)}
+<div class="study-card"><div class="study-overline">${item.kind==='letter'?'NUEVA LETRA':'NUEVA EXPRESIÓN'}</div><div class="study-ru ${item.kind==='letter'?'big-glyph':''}">${esc(item.ru)}</div><button class="listen-btn" data-action="speak" data-value="${esc(item.speak)}">${icon('sound',19)} Escuchar en ruso</button><div class="study-divider"></div><div class="study-es">${esc(item.es)}</div><p class="study-hint">${esc(item.hint)}</p>${item.sample?`<div class="study-example"><span>EN CONTEXTO</span>${esc(item.sample)}</div>`:''}</div>
+<div class="lesson-bottom"><div class="foot-note">${icon('headphones',19)} Escúchalo y repítelo en voz alta al menos dos veces.</div>${button(s.index===l.items.length-1?`Ir a la práctica ${icon('arrow',19)}`:`Siguiente tarjeta ${icon('arrow',19)}`,'next-study')}</div></div>`;}
+if(s.phase==='quiz'){const q=s.questions[s.quizIndex],last=s.quizIndex===s.questions.length-1,answered=s.answered;return `<div class="lesson-wrap">${back}<div class="lesson-top"><div>${eyebrow('FASE 2 · RECUERDA')}<h1>Ahora sin pistas</h1></div><span>Pregunta ${s.quizIndex+1} de ${s.questions.length}</span></div>${progressBar(s.quizIndex/s.questions.length*100)}<div class="quiz-card"><div class="quiz-type">${q.reverse?'ESPAÑOL → RUSO':'RUSO → ESPAÑOL'}</div><p class="quiz-prompt">${q.reverse?'¿Cómo se dice en ruso?':'¿Qué significa?'} </p><h2 class="quiz-stimulus">${esc(q.reverse?q.item.es:q.item.ru)}</h2>${!q.reverse?`<button data-action="speak" data-value="${esc(q.item.speak)}" class="sound-inline">${icon('sound',18)} Escuchar</button>`:''}
+<div class="options">${q.options.map((o,i)=>`<button class="option ${answered?(o===q.answer?'correct':o===s.choice?'incorrect':'muted'):''}" data-action="answer" data-value="${esc(o)}" ${answered?'disabled':''}><span class="option-letter">${'ABCD'[i]}</span><span>${esc(o)}</span>${answered&&o===q.answer?icon('check',18):''}</button>`).join('')}</div>
+${answered?`<div class="feedback ${s.choice===q.answer?'good':'bad'}"><strong>${s.choice===q.answer?'¡Muy bien!':'Casi. Así se recuerda mejor.'}</strong><p>${esc(q.item.ru)} = ${esc(q.item.es)}</p></div>`:''}</div><div class="lesson-bottom"><div class="foot-note">${icon('info',18)} Elegir antes de mirar es parte del aprendizaje.</div>${answered?button(last?`Ver resultado ${icon('arrow',18)}`:`Continuar ${icon('arrow',18)}`,'quiz-advance'):'<span class="soft-label">Selecciona una respuesta</span>'}</div></div>`;}
+const score=Math.round(s.correct/s.questions.length*100),success=score>=70;return `<div class="lesson-wrap">${back}<div class="result-card"><div class="result-icon ${success?'success':'retry'}">${icon(success?'trophy':'review',34)}</div>${eyebrow(success?'¡LECCIÓN SUPERADA!':'UN INTENTO MÁS')}<h1>${success?'¡Gran comienzo!':'Estás aprendiendo.'}</h1><p>${success?'Has desbloqueado el siguiente paso. Estas tarjetas aparecerán en tus próximos repasos.':'Revisa las respuestas y vuelve a intentarlo. La práctica cuenta aunque te equivoques.'}</p><div class="result-score"><strong>${score}%</strong><span>${s.correct} de ${s.questions.length} respuestas correctas</span></div>${success?`<div class="dialogue-box"><span class="eyebrow">ÚSALO EN CONTEXTO</span><p>Lee estos ejemplos en voz alta. No necesitas entender cada detalle todavía.</p>${l.dialogue.map(line=>`<div>${esc(line)}</div>`).join('')}</div>`:''}<div class="result-buttons">${button(success?`Siguiente lección ${icon('arrow',18)}`:`Volver a intentar ${icon('review',18)}`,success?'next-lesson':'retry-lesson')}${button('Ver mi ruta','nav','btn-outline','data-page="course"')}</div></div></div>`;}
+function startReview(free=false){let items=free?lessonsIntroduced():dueCards();if(!items.length){page='review';reviewSession=null;render();return;}reviewSession={queue:shuffle(items),index:0,revealed:false,initial:items.length,graded:0};page='review-session';render();}
+function gradeCard(rating){const s=reviewSession;if(!s||!s.revealed||!s.queue.length)return;const item=s.queue.shift();const c=state.cards[item.id]||{stage:0,due:today(),reviews:0,correct:0};c.reviews++;if(rating==='again'){c.stage=0;c.due=today();if(!s.queue.some(x=>x.id===item.id)&&s.queue.length<25)s.queue.push(item);}else if(rating==='hard'){c.stage=Math.max(0,c.stage);c.due=datePlus(1);c.correct++;}else{c.stage=Math.min(INTERVALS.length-1,(c.stage||0)+(rating==='easy'?2:1));c.due=datePlus(INTERVALS[c.stage]);c.correct++;}state.cards[item.id]=c;s.revealed=false;s.graded++;activity(rating==='again'?1:4);render();}
+function renderReview(){const due=dueCards().length,introduced=lessonsIntroduced().length,mastered=masteredCount();return `<div class="page-heading">${eyebrow('MEMORIA A LARGO PLAZO')}<h1>Recordar es aprender.</h1><p>Tarjetas que vuelven cuando tu memoria necesita practicar. Revela la respuesta solo después de intentarlo.</p></div><div class="review-overview"><div class="review-summary"><span class="eyebrow">PENDIENTES HOY</span><div class="mega-count">${due}<small> tarjetas</small></div><p>${due?'Tienes material listo para reforzar.':'¡Estás al día! Puedes hacer una práctica libre.'}</p><div class="review-actions">${button(due?`Repasar ahora ${icon('arrow',18)}`:'Práctica libre','start-review','btn-primary',due?'':'data-free="1"')}${due&&introduced?button('Práctica libre','start-review','btn-outline','data-free="1"'):''}</div></div><div class="review-stats"><div><span>Tarjetas conocidas</span><strong>${introduced}</strong></div><div><span>Tarjetas en nivel avanzado</span><strong>${mastered}</strong></div><div><span>Próxima revisión</span><strong>${due?'Hoy':introduced?'Después':'—'}</strong></div></div></div><div class="tip-banner spaced">${icon('info',20)}<div><strong>Cómo funciona</strong><p>Si una respuesta fue fácil, tardará más días en volver. Si costó trabajo, reaparecerá antes. Son intervalos orientativos, no una predicción exacta de tu memoria.</p></div></div>${!introduced?`<div class="empty-note">Completa tu primera lección para activar tus tarjetas de repaso.</div>`:''}`;}
+function renderReviewSession(){const s=reviewSession;if(!s)return renderReview();if(!s.queue.length)return `<div class="lesson-wrap"><button class="back-link" data-action="nav" data-page="review">${icon('left',18)} Volver</button><div class="result-card"><div class="result-icon success">${icon('trophy',34)}</div><h1>¡Repaso terminado!</h1><p>Has practicado ${s.graded} respuestas. Vuelve mañana para afianzar lo aprendido.</p>${button('Volver al inicio','nav','btn-primary','data-page="home"')}</div></div>`;
+const item=s.queue[0];return `<div class="lesson-wrap"><button class="back-link" data-action="nav" data-page="review">${icon('left',18)} Terminar repaso</button><div class="lesson-top"><div>${eyebrow('REPETICIÓN ESPACIADA')}<h1>Recuerda sin mirar</h1></div><span>${s.queue.length} pendientes</span></div><div class="review-card"><span class="eyebrow">¿CÓMO SE DICE EN RUSO?</span><h2 class="review-question">${esc(item.kind==='letter'?item.es:item.es)}</h2><p>Piensa en la respuesta y pronúnciala en voz alta.</p>${s.revealed?`<div class="reveal"><div class="reveal-word">${esc(item.ru)}</div><button class="listen-btn" data-action="speak" data-value="${esc(item.speak)}">${icon('sound',18)} Escuchar</button><p>${esc(item.hint)}</p></div><div class="rate-title">¿Qué tan bien lo recordaste?</div><div class="rating-buttons"><button class="rating again" data-action="grade" data-value="again"><b>No lo recordé</b><small>Repasar otra vez</small></button><button class="rating hard" data-action="grade" data-value="hard"><b>Con esfuerzo</b><small>Revisar pronto</small></button><button class="rating easy" data-action="grade" data-value="easy"><b>Fácil</b><small>Espaciar más</small></button></div>`:button('Revelar respuesta','reveal-review','btn-primary')}</div></div>`;}
+function renderAlphabet(){return `<div class="page-heading">${eyebrow('TU GUÍA DE PRONUNCIACIÓN')}<h1>Las 33 letras rusas</h1><p>El cirílico es un sistema de escritura, no un obstáculo. Toca una letra para ver su sonido aproximado y oír una palabra real.</p></div><div class="alphabet-count">${icon('headphones',18)} Escucha los ejemplos y compara sonidos. Las guías en español son solo aproximaciones.</div><div class="alphabet-grid">${sortedAlphabet.map(a=>`<button class="alpha-tile ${expandedAlpha===ALPHABET.indexOf(a)?'selected':''}" data-action="expand-alpha" data-index="${ALPHABET.indexOf(a)}"><strong>${esc(a.upper)}<small>${esc(a.lower)}</small></strong><span>${esc(a.sound)}</span></button>`).join('')}</div>${expandedAlpha!==null?(()=>{const a=ALPHABET[expandedAlpha];return `<div class="alpha-detail"><div class="alpha-large">${esc(a.upper)} ${esc(a.lower)}</div><div><span class="eyebrow">SONIDO APROXIMADO</span><h2>${esc(a.sound)}</h2><p>${esc(a.note)}</p><div class="alpha-example"><strong>${esc(a.example)}</strong><span>${esc(a.meaning)}</span><button data-action="speak" data-value="${esc(a.speak)}">${icon('sound',19)} Oír ejemplo</button></div></div><button class="alpha-close" data-action="close-alpha" aria-label="Cerrar detalle">${icon('close',19)}</button></div>`;})():''}<div class="tip-banner spaced">${icon('info',20)}<div><strong>Atención a las vocales átonas</strong><p>En ruso, el acento importa: una misma letra puede sonar diferente según la palabra. La aplicación presenta una aproximación inicial, no una transcripción fonética completa.</p></div></div>`;}
+function oldRenderStats(){const n=completedCount(),pct=Math.round(n/LESSONS.length*100),reviews=Object.values(state.cards).reduce((a,c)=>a+(c.reviews||0),0),correct=Object.values(state.cards).reduce((a,c)=>a+(c.correct||0),0);return `<div class="page-heading">${eyebrow('TU ESFUERZO CUENTA')}<h1>Tu progreso</h1><p>Seguimiento local: nadie más recibe tus resultados.</p></div><div class="stats-summary"><div class="stats-ring" style="--pct:${pct}%"><div><b>${pct}%</b><span>DE LA RUTA</span></div></div><div class="stats-main"><span class="eyebrow">RUTA DE INICIACIÓN · A0</span><h2>${n===0?'Acabas de comenzar':n===LESSONS.length?'¡Terminaste el primer recorrido!':'Cada paso suma.'}</h2><p>Has completado ${n} de ${LESSONS.length} lecciones. El objetivo no es acumular puntos: es entender, recordar y usar lo aprendido.</p>${button('Continuar aprendiendo','next-lesson')}</div></div><div class="stat-grid stats-deep"><div class="stat-card"><div class="stat-icon mint">${icon('book',20)}</div><span>LECCIONES</span><strong>${n}</strong><p>Completadas</p></div><div class="stat-card"><div class="stat-icon peach">${icon('fire',20)}</div><span>ESTA SEMANA</span><strong>${weeklyDaysCount()}</strong><p>Días con misiones cortas</p></div><div class="stat-card"><div class="stat-icon lilac">${icon('spark',20)}</div><span>EXPERIENCIA</span><strong>${state.xp}</strong><p>Puntos ganados</p></div></div><section class="unit"><div class="unit-head"><div class="unit-mark violet">${icon('review',24)}</div><div><h2>Entrenamiento de memoria</h2><p>Aprender no es lo mismo que recordar.</p></div></div><div class="review-stats wide"><div><span>Respuestas repasadas</span><strong>${reviews}</strong></div><div><span>Respuestas recordadas</span><strong>${correct}</strong></div><div><span>Tarjetas consolidadas</span><strong>${masteredCount()}</strong></div></div></section>`;}
+function oldRenderSettings(){return `<div class="page-heading">${eyebrow('HAZLA TUYA')}<h1>Ajustes y datos</h1><p>Tu progreso se guarda en este navegador, sin cuenta ni suscripción.</p></div><section class="settings-panel"><h2>Duración orientativa para lecciones completas</h2><p>Esta preferencia solo sirve como referencia. No necesitas cumplirla a diario y las micro-misiones siguen disponibles.</p><div class="goal-picker">${[8,12,15,20].map(x=>`<button class="goal-choice ${x===state.dailyGoal?'active':''}" data-action="set-goal" data-value="${x}">${x} min</button>`).join('')}</div></section><section class="settings-panel"><h2>Copia de seguridad</h2><p>Guarda tu progreso como archivo JSON para recuperarlo en otro dispositivo o navegador. No se sincroniza automáticamente.</p><div class="settings-actions">${button(`${icon('download',17)} Exportar progreso`,'export','btn-outline')}${button(`${icon('upload',17)} Importar progreso`,'import','btn-outline')}</div><input type="file" id="import-file" accept=".json,application/json" hidden/></section><section class="settings-panel"><h2>Audio y privacidad</h2><p>Usamos las voces de tu navegador para leer ruso. La calidad y disponibilidad dependen del dispositivo. No usamos analíticas ni enviamos tus respuestas a un servidor.</p><button class="listen-btn" data-action="speak" data-value="Привет, как дела?">${icon('sound',18)} Probar audio ruso</button></section><section class="settings-panel danger"><h2>Restablecer progreso</h2><p>Borra solo los resultados guardados en este navegador. Es irreversible si no tienes una copia.</p>${button('Borrar mi progreso','reset','btn-danger')}</section>`;}
+function renderStats(){return oldRenderStats()+renderDailyStats()+renderMicroStats();}
+function renderSettings(){return oldRenderSettings()+renderMicroSettings()+renderDailySettings();}
+function render(){if(page==='lesson'&&!lessonSession)page='course';let content;if(page==='home')content=renderHome();else if(page==='course')content=renderCourse();else if(page==='lesson')content=renderLesson();else if(page==='review')content=renderReview();else if(page==='review-session')content=renderReviewSession();else if(page==='micro')content=renderMicroSession();else if(page==='daily')content=renderDailySession();else if(page==='alphabet')content=renderAlphabet();else if(page==='stats')content=renderStats();else content=renderSettings();APP.innerHTML=shell(content);document.title='СЛОВО — Ruso desde cero';}
+function speak(value){if(!('speechSynthesis' in window)){toast('Este navegador no admite síntesis de voz.');return;}const u=new SpeechSynthesisUtterance(value.replace(/…/g,''));u.lang='ru-RU';u.rate=.78;u.pitch=1;const voices=window.speechSynthesis.getVoices();const ru=voices.find(v=>v.lang.toLowerCase().startsWith('ru'));if(ru)u.voice=ru;u.onerror=()=>toast('El audio no está disponible. Instala una voz rusa en tu dispositivo.');window.speechSynthesis.cancel();window.speechSynthesis.speak(u);if(!ru)toast('Si la pronunciación suena extraña, instala una voz rusa en tu sistema.');}
+function exportProgress(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`slovo-progreso-${today()}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);}
+function importProgress(file){if(!file)return;if(file.size>1_000_000){toast('El archivo es demasiado grande.');return;}const reader=new FileReader();reader.onload=()=>{try{const value=JSON.parse(reader.result);if(!value||value.version!==1||typeof value.lessons!=='object'||typeof value.cards!=='object'||!Array.isArray(value.activityDates)||typeof value.xp!=='number')throw Error('Archivo inválido');state={...defaultState(),...value};save();page='stats';render();toast('Progreso importado correctamente.');}catch(e){toast('El archivo no es una copia válida de СЛОВО.');}};reader.readAsText(file);}
+APP.addEventListener('click',event=>{
+ const btn=event.target.closest('[data-action]');if(!btn||btn.disabled)return;
+ const action=btn.dataset.action;
+ if(['nav','start-micro','next-lesson','open-lesson'].includes(action))endDailyRecording();
+ if(action==='daily-start')startDaily(btn.dataset.task);
+ else if(action==='daily-answer')answerDaily(Number(btn.dataset.choice));
+ else if(action==='daily-reveal')revealDaily();
+ else if(action==='daily-next')nextDaily();
+ else if(action==='daily-speech')finishDailySpeech(btn.dataset.grade);
+ else if(action==='daily-record')toggleDailyRecording();
+ else if(action==='daily-play')playDailyRecording();
+ else if(action==='start-micro')startMicro(btn.dataset.mode||'tiny');
+ else if(action==='micro-next')advanceMicroExposure();
+ else if(action==='micro-answer')answerMicro(Number(btn.dataset.choice));
+ else if(action==='micro-advance')advanceMicroQuestion();
+ else if(action==='micro-finish')finishMicro(false);
+ else if(action==='micro-exit')finishMicro(true);
+ else if(action==='set-week-goal'){state.weeklyGoal=Number(btn.dataset.value);save();render();}
+ else if(action==='nav'){page=btn.dataset.page||'home';lessonSession=null;reviewSession=null;render();window.scrollTo({top:0,behavior:'instant'});}
+ else if(action==='next-lesson'){const l=nextLesson();if(l)startLesson(l.id);else{page='stats';render();}window.scrollTo(0,0);}
+ else if(action==='open-lesson')startLesson(btn.dataset.id);
+ else if(action==='next-study')nextStudy();
+ else if(action==='answer')answerQuiz(btn.dataset.value);
+ else if(action==='quiz-advance')quizAdvance();
+ else if(action==='retry-lesson')startLesson(lessonSession.id);
+ else if(action==='speak')speak(btn.dataset.value);
+ else if(action==='start-review')startReview(btn.dataset.free==='1');
+ else if(action==='reveal-review'){if(reviewSession){reviewSession.revealed=true;render();}}
+ else if(action==='grade')gradeCard(btn.dataset.value);
+ else if(action==='expand-alpha'){expandedAlpha=Number(btn.dataset.index);render();}
+ else if(action==='close-alpha'){expandedAlpha=null;render();}
+ else if(action==='set-goal'){state.dailyGoal=Number(btn.dataset.value);save();render();}
+ else if(action==='export')exportProgress();
+ else if(action==='import')document.getElementById('import-file').click();
+ else if(action==='reset'){if(confirm('¿Seguro que quieres borrar tu progreso en este navegador?')){state=defaultState();save();page='home';render();toast('Progreso restablecido.');}}
+});
+APP.addEventListener('change',event=>{if(event.target.id==='import-file')importProgress(event.target.files[0]);});
+if('serviceWorker' in navigator && /^https?:$/.test(location.protocol))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+render();
+
+</script>
+
+<style>
+:root{
+  --bg:#07111d;
+  --bg2:#0b1727;
+  --surface:rgba(15,24,39,.78);
+  --surface-strong:#111f34;
+  --line:rgba(152,177,212,.18);
+  --glow:0 24px 60px rgba(0,0,0,.30);
+  --soft-glow:0 12px 30px rgba(2,8,23,.24);
+  --mint:#88f5ca;
+  --mint2:#59d8b4;
+  --sky:#7ed4ff;
+  --violet:#bea7ff;
+  --amber:#ffd19b;
+  --text:#f4f7fb;
+  --muted:#a8b6ca;
+}
+body{
+  background:
+    radial-gradient(circle at 8% 10%, rgba(126,212,255,.12), transparent 24%),
+    radial-gradient(circle at 90% 8%, rgba(136,245,202,.14), transparent 28%),
+    radial-gradient(circle at 50% 120%, rgba(190,167,255,.10), transparent 35%),
+    linear-gradient(180deg,#091321 0%, #07111d 55%, #081420 100%);
+  color:var(--text);
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:42px 42px;mask-image:linear-gradient(180deg,rgba(0,0,0,.35),transparent 82%);opacity:.35;
+}
+.sidebar,.topbar,.stat-card,.next-lesson,.daily-plan,.tip-banner,.course-card,.lesson-panel,.result-card,.review-summary,.review-stats>div,.alpha-detail,.settings-panel,.sidebar-bottom,.momentum-progress-panel,.momentum-side-panel,.quest-card,.quest-head,.quest-phrase-teaser,.quest-goal-line,.daily-panel,.micro-panel,.micro-summary-card,.micro-card,.daily-stats-section,.micro-stats-section,.dialog-card,.dialog-stage,.dialog-hub-hero,.dialog-preview-home{
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:var(--soft-glow);
+}
+.sidebar{
+  background:linear-gradient(180deg,rgba(8,16,28,.92),rgba(10,20,36,.76));
+  border-right:1px solid rgba(255,255,255,.06);
+}
+.topbar{
+  background:linear-gradient(180deg,rgba(11,19,34,.62),rgba(11,19,34,.25));
+  backdrop-filter: blur(14px);
+  position:sticky; top:0; z-index:10;
+}
+.topbar-metrics>span, .sidebar-bottom,.stat-card,.daily-plan,.tip-banner,.course-card,.next-lesson,.quest-card,.quest-head,.quest-phrase-teaser,.quest-goal-line,.daily-panel,.micro-panel,.review-summary,.review-stats>div,.alpha-detail,.settings-panel,.momentum-progress-panel,.momentum-side-panel,.daily-stats-section,.micro-stats-section{
+  background:linear-gradient(180deg,rgba(17,28,46,.88),rgba(13,22,37,.82));
+  border-color:rgba(163,190,222,.14)!important;
+}
+.brand-symbol,.mobile-brand span,.unit-mark,.daily-main-audio,.quest-card-status,.mode-card.recommended .micro-pill,.dialog-preview-badge,.dialog-line-icon,.dialog-option small,.dialog-result-badge{
+  box-shadow:0 8px 24px rgba(136,245,202,.2);
+}
+.hero,.momentum-hero,.quest-head,.dialog-hub-hero{
+  position:relative;overflow:hidden;border-radius:28px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(126,212,255,.22), transparent 28%),
+    radial-gradient(circle at 10% 10%, rgba(136,245,202,.18), transparent 28%),
+    linear-gradient(135deg, rgba(13,31,52,.98), rgba(18,26,44,.95) 52%, rgba(12,36,39,.95));
+  border:1px solid rgba(162,197,240,.18);
+  box-shadow: var(--glow);
+}
+.hero::after,.momentum-hero::after,.quest-head::after,.dialog-hub-hero::after{
+  content:"";position:absolute;width:280px;height:280px;border-radius:50%;right:-80px;top:-80px;background:radial-gradient(circle, rgba(136,245,202,.18), transparent 68%);
+}
+.btn{border-radius:14px}
+.btn-primary{background:linear-gradient(135deg,var(--mint),#b3ffe3); color:#092017; box-shadow:0 14px 28px rgba(136,245,202,.24)}
+.btn-outline{background:rgba(255,255,255,.045)}
+.nav-item.active{background:linear-gradient(135deg,rgba(136,245,202,.16),rgba(89,216,180,.09));box-shadow:inset 0 0 0 1px rgba(136,245,202,.18)}
+.progress-track,.weekly-progress{background:rgba(255,255,255,.08)}
+.progress-track>div,.weekly-progress>span,.quest-track>div{background:linear-gradient(90deg,var(--mint),var(--sky));box-shadow:0 0 30px rgba(126,212,255,.18)}
+.momentum-hero{padding:42px 44px 44px; min-height: 340px}
+.momentum-glyph{background:linear-gradient(180deg,rgba(136,245,202,.15),rgba(126,212,255,.06)); border:1px solid rgba(136,245,202,.2); border-radius:24px; padding:20px 22px; box-shadow:var(--glow)}
+.mode-card,.quest-card,.course-card,.dialog-card,.dialog-option,.dialog-speaker,.dialog-coach,.dialog-summary{
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+.mode-card:hover,.quest-card:hover,.course-card:hover,.dialog-card:hover,.dialog-option:hover{transform:translateY(-2px);box-shadow:var(--glow)}
+.daily-main-audio,.listen-btn,.alpha-example button,.dialog-chip{border:1px solid rgba(136,245,202,.18);background:linear-gradient(135deg,rgba(45,88,82,.95),rgba(24,65,63,.95));color:#dffdf0}
+.daily-record-btn,.daily-play-btn{border:1px solid rgba(163,190,222,.18);background:rgba(255,255,255,.05);color:#eaf2ff;border-radius:12px;padding:12px 14px}
+.quest-card, .mode-card, .daily-panel, .micro-panel, .dialog-card, .dialog-stage, .dialog-preview-home{border:1px solid rgba(163,190,222,.14)}
+.quest-card-text small,.page-heading p,.settings-panel p,.daily-intro,.micro-stats-help,.dialog-subtitle,.dialog-coach p,.dialog-speaker p,.dialog-summary p,.dialog-preview-copy p{color:#b7c3d5}
+.quest-head-copy h1,.hero h1,.momentum-hero h1,.dialog-hub-copy h1{white-space:pre-line}
+.dialog-spotlight-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;margin:28px 0 6px}
+.dialog-preview-home{padding:26px;border-radius:22px;background:linear-gradient(180deg,rgba(18,30,49,.92),rgba(12,20,34,.88))}
+.dialog-preview-head{display:flex;justify-content:space-between;gap:14px;align-items:start;margin-bottom:18px}
+.dialog-preview-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(136,245,202,.12);border:1px solid rgba(136,245,202,.16);color:var(--mint);font-size:11px;font-weight:800;letter-spacing:1px}
+.dialog-preview-copy h2{font-size:28px;letter-spacing:-1px;margin:10px 0 8px}
+.dialog-preview-copy p{font-size:14px;max-width:570px}
+.dialog-chip-row{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 18px}
+.dialog-chip{display:inline-flex;align-items:center;gap:7px;padding:9px 12px;border-radius:999px;font-size:12px;color:#e7fff6}
+.dialog-mini-list{display:grid;gap:12px}
+.dialog-mini-card{padding:16px 18px;border-radius:18px;background:linear-gradient(180deg,rgba(17,28,46,.9),rgba(12,19,31,.88));border:1px solid rgba(163,190,222,.12)}
+.dialog-mini-card strong{display:block;font-size:16px;margin-bottom:5px}
+.dialog-mini-card span{display:block;color:#99a9bf;font-size:12px}
+.dialog-mini-card b{display:inline-block;margin-top:10px;font-size:20px;color:#fff}
+.dialog-page-heading{padding:6px 0 24px}
+.dialog-page-heading h1{font-size:clamp(30px,4vw,50px);letter-spacing:-1.5px;margin:12px 0 10px}
+.dialog-page-heading p{font-size:15px;color:#aebad0;max-width:750px}
+.dialog-hub-hero{padding:34px 36px;margin-bottom:26px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+.dialog-hub-copy p{font-size:14px;max-width:520px}
+.dialog-hub-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.dialog-hub-meta>div{padding:16px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08)}
+.dialog-hub-meta b{font-size:24px;display:block}
+.dialog-hub-art{display:grid;gap:14px}
+.dialog-line-card{padding:18px;border-radius:20px;background:linear-gradient(180deg,rgba(15,40,43,.92),rgba(14,21,35,.86));border:1px solid rgba(136,245,202,.16)}
+.dialog-line-card strong{display:block;font-size:22px;font-family:Georgia,serif;margin-bottom:5px}
+.dialog-line-card span{font-size:13px;color:#bfe1d7}
+.dialog-line-card small{display:block;color:#8ca5b8;margin-top:8px}
+.dialog-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.dialog-card{padding:22px;border-radius:22px;background:linear-gradient(180deg,rgba(18,29,48,.92),rgba(11,19,31,.88));text-align:left}
+.dialog-card:hover{border-color:rgba(136,245,202,.22)}
+.dialog-card-top{display:flex;justify-content:space-between;gap:12px;align-items:start}
+.dialog-tag{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:1.2px;border:1px solid rgba(255,255,255,.1);color:#c7d7eb;background:rgba(255,255,255,.04)}
+.dialog-level{font-size:12px;color:var(--mint);font-weight:800}
+.dialog-card h3{font-size:22px;letter-spacing:-.6px;margin:14px 0 7px}
+.dialog-card p{font-size:13px;color:#a8b7cb;min-height:42px}
+.dialog-preview-lines{display:grid;gap:10px;margin:15px 0 18px}
+.dialog-preview-line{display:flex;gap:10px;align-items:flex-start;padding:11px 12px;border-radius:14px;background:rgba(255,255,255,.04)}
+.dialog-line-icon{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;background:rgba(136,245,202,.12);color:var(--mint);font-size:11px;font-weight:800;flex:none}
+.dialog-preview-line b{display:block;font-size:15px;font-family:Georgia,serif}
+.dialog-preview-line span{font-size:12px;color:#9eb0c4}
+.dialog-card-footer{display:flex;justify-content:space-between;align-items:center;color:#bfd8cc;font-size:12px;margin-top:8px}
+.dialog-stage-wrap{max-width:840px;margin:0 auto}
+.dialog-stage{padding:26px;border-radius:26px;background:linear-gradient(180deg,rgba(18,30,49,.95),rgba(11,20,34,.9));box-shadow:var(--glow)}
+.dialog-stage-top{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-bottom:16px}
+.dialog-stage-pill{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border-radius:999px;background:rgba(136,245,202,.1);border:1px solid rgba(136,245,202,.15);font-size:11px;font-weight:800;color:var(--mint);letter-spacing:1px}
+.dialog-stage-progress{font-size:12px;color:#9bb0c7}
+.dialog-stage h1{font-size:34px;letter-spacing:-1px;margin:8px 0 9px}
+.dialog-subtitle{font-size:14px;margin-bottom:20px}
+.dialog-speaker{display:grid;grid-template-columns:58px 1fr;gap:16px;padding:18px;border-radius:22px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);margin-bottom:16px}
+.dialog-avatar{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(126,212,255,.2),rgba(136,245,202,.18));color:#fff;font-size:22px;font-weight:900}
+.dialog-speaker strong{display:block;font-size:28px;font-family:Georgia,serif;line-height:1.15;margin-bottom:6px}
+.dialog-speaker p{font-size:14px}
+.dialog-audio-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.dialog-option-grid{display:grid;gap:12px}
+.dialog-option{width:100%;text-align:left;padding:16px 18px;border-radius:18px;border:1px solid rgba(163,190,222,.14);background:rgba(255,255,255,.04);color:#f5f8fc}
+.dialog-option b{display:block;font-size:18px;font-family:Georgia,serif;margin-bottom:4px}
+.dialog-option small{display:inline-flex;padding:4px 8px;border-radius:999px;background:rgba(136,245,202,.12);color:#bbf7df;font-size:10px;font-weight:800;letter-spacing:1px}
+.dialog-option span{display:block;font-size:13px;color:#a8b7cb;margin-top:8px}
+.dialog-option.correct{border-color:rgba(136,245,202,.4);background:linear-gradient(180deg,rgba(42,87,70,.36),rgba(20,41,34,.42))}
+.dialog-option.incorrect{border-color:rgba(237,150,156,.34);background:linear-gradient(180deg,rgba(75,35,42,.38),rgba(35,17,21,.34))}
+.dialog-option.muted{opacity:.56}
+.dialog-coach{margin-top:18px;padding:18px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08)}
+.dialog-coach strong{display:block;font-size:16px;margin-bottom:6px}
+.dialog-coach b{font-size:20px;font-family:Georgia,serif;color:var(--mint)}
+.dialog-coach p{font-size:13px;margin-top:8px}
+.dialog-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.dialog-summary{padding:36px;border-radius:28px;text-align:center;background:linear-gradient(180deg,rgba(18,30,49,.95),rgba(11,20,34,.92));border:1px solid rgba(163,190,222,.14);box-shadow:var(--glow)}
+.dialog-result-badge{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:rgba(136,245,202,.14);border:1px solid rgba(136,245,202,.18);color:var(--mint);font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:14px}
+.dialog-summary h1{font-size:38px;letter-spacing:-1.3px;margin-bottom:10px}
+.dialog-summary p{font-size:14px;color:#afbdd1;max-width:520px;margin:0 auto 20px}
+.dialog-summary-score{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0 24px}
+.dialog-summary-score>div{padding:18px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08)}
+.dialog-summary-score b{display:block;font-size:28px}
+.dialog-summary-score span{font-size:12px;color:#9fb0c7}
+@media(max-width:1000px){.dialog-grid,.dialog-spotlight-grid,.dialog-hub-hero{grid-template-columns:1fr}.dialog-hub-art{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:850px){.dialog-grid,.dialog-summary-score,.dialog-hub-meta{grid-template-columns:1fr}.dialog-speaker{grid-template-columns:46px 1fr}.dialog-avatar{width:46px;height:46px;border-radius:15px;font-size:18px}.dialog-speaker strong{font-size:24px}.dialog-stage{padding:20px}.dialog-stage h1{font-size:28px}.dialog-preview-copy h2{font-size:24px}.dialog-page-heading p,.dialog-subtitle{font-size:14px}.dialog-card h3{font-size:20px}}
+</style>
+<script>
+(function(){
+  svg.chat='<path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4 4v-4H6.5A2.5 2.5 0 0 1 4 13.5z"/>';
+  const DIALOGUES=[
+    {id:'hello',tag:'SALUDOS',title:'Tu primer hola',subtitle:'Saludar, presentarte y responder con naturalidad.',goal:'Ser capaz de decir hola, presentarte y devolver un gusto en una charla breve.',level:'A0',lines:[
+      {speaker:'Анна',speakerEs:'Anna',ru:'Привет! Как тебя зовут?',es:'¡Hola! ¿Cómo te llamas?',choices:[{ru:'Меня зовут Фер.',es:'Me llamo Fer.',correct:true},{ru:'Я из Мексики.',es:'Soy de México.'},{ru:'Я не понимаю.',es:'No entiendo.'}],coach:'Cuando alguien te pregunta cómo te llamas, «Меня зовут…» es la respuesta más natural.'},
+      {speaker:'Анна',speakerEs:'Anna',ru:'Очень приятно!',es:'¡Mucho gusto!',choices:[{ru:'Мне тоже.',es:'Igualmente.',correct:true},{ru:'Спасибо.',es:'Gracias.'},{ru:'Где туалет?',es:'¿Dónde está el baño?'}],coach:'«Мне тоже» te sirve para responder de forma sencilla a «encantado».'},
+      {speaker:'Анна',speakerEs:'Anna',ru:'Как дела?',es:'¿Cómo estás?',choices:[{ru:'Хорошо, спасибо.',es:'Bien, gracias.',correct:true},{ru:'До свидания!',es:'¡Adiós!'},{ru:'Я учу русский.',es:'Estoy aprendiendo ruso.'}],coach:'Empieza con respuestas muy frecuentes. «Хорошо, спасибо» te abre mil conversaciones.'}
+    ]},
+    {id:'cafe',tag:'CAFÉ',title:'Pedir algo sencillo',subtitle:'Una microconversación útil para pedir agua o café.',goal:'Poder pedir algo con cortesía en un lugar público.',level:'A0',lines:[
+      {speaker:'Бариста',speakerEs:'Barista',ru:'Здравствуйте! Что вы хотите?',es:'¡Buenos días! ¿Qué desea?',choices:[{ru:'Я хочу кофе, пожалуйста.',es:'Quiero café, por favor.',correct:true},{ru:'Меня зовут Фер.',es:'Me llamo Fer.'},{ru:'Я не говорю по-русски.',es:'No hablo ruso.'}],coach:'«Я хочу… пожалуйста» es una estructura súper útil para pedir cosas.'},
+      {speaker:'Бариста',speakerEs:'Barista',ru:'Ещё что-нибудь?',es:'¿Algo más?',choices:[{ru:'Да, воду, пожалуйста.',es:'Sí, agua, por favor.',correct:true},{ru:'Меню, пожалуйста.',es:'El menú, por favor.'},{ru:'До свидания.',es:'Adiós.'}],coach:'«Ещё что-нибудь?» aparece a menudo. Responder con otra cosa corta te da soltura.'},
+      {speaker:'Бариста',speakerEs:'Barista',ru:'Спасибо!',es:'¡Gracias!',choices:[{ru:'Спасибо!',es:'¡Gracias!',correct:true},{ru:'Нет, медленно.',es:'No, despacio.'},{ru:'Я из Мексики.',es:'Soy de México.'}],coach:'Repetir «Спасибо» no es elegante en todos los idiomas, pero aquí te funciona y te afianza.'}
+    ]},
+    {id:'help',tag:'SUPERVIVENCIA',title:'Pedir ayuda',subtitle:'Frases para cuando no entiendes o necesitas que repitan.',goal:'Sobrevivir a un intercambio real aunque sepas muy poco.',level:'A0',lines:[
+      {speaker:'Иван',speakerEs:'Iván',ru:'Ты понимаешь по-русски?',es:'¿Entiendes ruso?',choices:[{ru:'Немного.',es:'Un poco.',correct:true},{ru:'Очень приятно.',es:'Mucho gusto.'},{ru:'Меню, пожалуйста.',es:'El menú, por favor.'}],coach:'«Немного» es cortísima y muy útil para ajustar expectativas.'},
+      {speaker:'Иван',speakerEs:'Iván',ru:'Хорошо. Повторить?',es:'Bien. ¿Repetir?',choices:[{ru:'Да, повторите, пожалуйста.',es:'Sí, repita, por favor.',correct:true},{ru:'Что это стоит?',es:'¿Qué cuesta esto?'},{ru:'Я хочу воды.',es:'Quiero agua.'}],coach:'Usa «повторите, пожалуйста» como fórmula fija; no hace falta analizarla al detalle.'},
+      {speaker:'Иван',speakerEs:'Iván',ru:'Понимаешь?',es:'¿Entiendes?',choices:[{ru:'Не очень. Медленно, пожалуйста.',es:'No mucho. Más despacio, por favor.',correct:true},{ru:'До свидания.',es:'Adiós.'},{ru:'Я из Мексики.',es:'Soy de México.'}],coach:'Combinar dos frases útiles te acerca a una interacción auténtica desde el principio.'}
+    ]},
+    {id:'origin',tag:'PRESENTACIÓN',title:'Decir quién eres',subtitle:'Practica tu mini presentación en ruso.',goal:'Poder decir tu nombre, de dónde eres y que estás aprendiendo ruso.',level:'A0',lines:[
+      {speaker:'Саша',speakerEs:'Sasha',ru:'Откуда ты?',es:'¿De dónde eres?',choices:[{ru:'Я из Мексики.',es:'Soy de México.',correct:true},{ru:'Я хочу воды.',es:'Quiero agua.'},{ru:'Спасибо.',es:'Gracias.'}],coach:'«Я из…» es una de las estructuras más rentables para principiantes.'},
+      {speaker:'Саша',speakerEs:'Sasha',ru:'Ты говоришь по-русски?',es:'¿Hablas ruso?',choices:[{ru:'Я немного говорю по-русски.',es:'Hablo un poco de ruso.',correct:true},{ru:'Что это?',es:'¿Qué es esto?'},{ru:'Повторите, пожалуйста.',es:'Repita, por favor.'}],coach:'Responder con modestia te permite conversar aunque sepas poco.'},
+      {speaker:'Саша',speakerEs:'Sasha',ru:'Почему ты учишь русский?',es:'¿Por qué estudias ruso?',choices:[{ru:'Я учу русский для разговора.',es:'Aprendo ruso para conversar.',correct:true},{ru:'Я не понимаю.',es:'No entiendo.'},{ru:'Да, кофе.',es:'Sí, café.'}],coach:'No hace falta que sea perfecto: lo importante es empezar a decir algo personal.'}
+    ]}
+  ];
+  let dialogueSession = null;
+  function ensureDialogueState(){
+    if(!state.dialogues || typeof state.dialogues!=='object') state.dialogues={completed:{},history:[],accuracy:0};
+    if(!state.dialogues.completed) state.dialogues.completed={};
+    if(!Array.isArray(state.dialogues.history)) state.dialogues.history=[];
+    if(typeof state.dialogues.accuracy!=='number') state.dialogues.accuracy=0;
+    return state.dialogues;
+  }
+  function dialogueStats(){
+    const s=ensureDialogueState();
+    const completed=Object.keys(s.completed).length;
+    const runs=s.history.length;
+    const totalCorrect=s.history.reduce((a,x)=>a+(x.correct||0),0);
+    return {completed,runs,totalCorrect};
+  }
+  function nextDialogue(){
+    const done=ensureDialogueState().completed;
+    return DIALOGUES.find(d=>!done[d.id]) || DIALOGUES[0];
+  }
+  function dialogueCard(d){
+    const ds=ensureDialogueState();
+    const done=!!ds.completed[d.id];
+    return `<button class="dialog-card" data-action="open-dialogue" data-id="${d.id}">
+      <div class="dialog-card-top"><span class="dialog-tag">${icon('chat',14)} ${esc(d.tag)}</span><span class="dialog-level">${done?'✓ completado':'A0 · '+d.lines.length+' turnos'}</span></div>
+      <h3>${esc(d.title)}</h3>
+      <p>${esc(d.subtitle)}</p>
+      <div class="dialog-preview-lines">${d.lines.slice(0,2).map((line,idx)=>`<div class="dialog-preview-line"><span class="dialog-line-icon">${idx+1}</span><div><b lang="ru">${esc(line.ru)}</b><span>${esc(line.es)}</span></div></div>`).join('')}</div>
+      <div class="dialog-card-footer"><span>${esc(d.goal)}</span><span>${icon('arrow',16)}</span></div>
+    </button>`;
+  }
+  function renderDialogueSpotlight(){
+    const d=nextDialogue(), stats=dialogueStats();
+    return `<section class="dialog-spotlight-grid">
+      <div class="dialog-preview-home">
+        <div class="dialog-preview-head"><div class="dialog-preview-copy">${eyebrow('PRÓXIMA PRIORIDAD · YA INTEGRADA')}<span class="dialog-preview-badge">${icon('chat',14)} MINICONVERSACIONES</span><h2>Habla desde el principio, no solo completes ejercicios.</h2><p>Empieza con diálogos cotidianos y muy cortos. Escucha una línea real, elige tu respuesta y después dilo tú en voz alta.</p></div></div>
+        <div class="dialog-chip-row"><span class="dialog-chip">${icon('sound',15)} audio ruso</span><span class="dialog-chip">${icon('review',15)} respuesta guiada</span><span class="dialog-chip">${icon('fire',15)} útil en 2–3 min</span></div>
+        <div class="dialog-mini-card"><strong>${esc(d.title)}</strong><span>${esc(d.subtitle)}</span><b lang="ru">${esc(d.lines[0].ru)}</b><span>${esc(d.lines[0].es)}</span></div>
+        <div class="dialog-actions"><button type="button" class="btn btn-primary" data-action="nav" data-page="dialogs">Abrir miniconversaciones ${icon('arrow',17)}</button><button type="button" class="btn btn-outline" data-action="open-dialogue" data-id="${d.id}">Empezar la siguiente</button></div>
+      </div>
+      <div class="dialog-preview-home">
+        ${eyebrow('LO QUE YA VAS A PODER HACER')}<div class="dialog-mini-list">
+          <div class="dialog-mini-card"><strong>Saludar y responder</strong><span>Decir «Привет», presentarte y contestar «Как дела?» sin pensarlo tanto.</span></div>
+          <div class="dialog-mini-card"><strong>Pedir algo sencillo</strong><span>Pedir café, agua o ayuda usando estructuras reutilizables desde el día uno.</span></div>
+          <div class="dialog-mini-card"><strong>Salir del apuro</strong><span>Decir «no entiendo», «más despacio» o «repita, por favor» antes de sentirte perdido.</span></div>
+        </div>
+        <div class="dialog-card-footer"><span>${stats.completed}/${DIALOGUES.length} miniconversaciones completadas</span><span>${stats.runs} prácticas hechas</span></div>
+      </div>
+    </section>`;
+  }
+  function renderDialogs(){
+    if(dialogueSession) return renderDialogSession();
+    const next=nextDialogue(), stats=dialogueStats();
+    return `<div class="dialog-page-heading">${eyebrow('RUSO PARA USARLO')}<h1>Miniconversaciones que sí te sirven</h1><p>Esta sección está pensada justo para lo que pediste: frases útiles, escucha, respuesta y práctica oral. No empieza con cosas raras; empieza con interacciones que realmente tendrías.</p></div>
+    <section class="dialog-hub-hero"><div class="dialog-hub-copy">${eyebrow('NUEVA PRIORIDAD INTEGRADA')}<h1>Pequeños diálogos.<br/>Progreso que se siente real.</h1><p>En lugar de memorizar frases aisladas, aquí practicas intercambios completos de 2–3 turnos. Escucha la línea, responde, oye la respuesta correcta y repítela.</p>
+      <div class="dialog-actions"><button type="button" class="btn btn-primary" data-action="open-dialogue" data-id="${next.id}">Empezar: ${esc(next.title)} ${icon('arrow',17)}</button><button type="button" class="btn btn-outline" data-action="nav" data-page="home">Volver al inicio</button></div>
+      <div class="dialog-hub-meta"><div><b>${stats.completed}</b><span>completadas</span></div><div><b>${stats.runs}</b><span>prácticas</span></div><div><b>${stats.totalCorrect}</b><span>respuestas correctas</span></div></div>
+    </div>
+    <div class="dialog-hub-art">
+      <div class="dialog-line-card"><strong lang="ru">Привет! Как тебя зовут?</strong><span>¡Hola! ¿Cómo te llamas?</span><small>Escúchalo, respóndelo y practícalo.</small></div>
+      <div class="dialog-line-card"><strong lang="ru">Я из Мексики.</strong><span>Soy de México.</span><small>Frases útiles y personales desde el inicio.</small></div>
+      <div class="dialog-line-card"><strong lang="ru">Повторите, пожалуйста.</strong><span>Repita, por favor.</span><small>Supervivencia real para cuando no entiendes.</small></div>
+    </div></section>
+    <div class="dialog-grid">${DIALOGUES.map(dialogueCard).join('')}</div>`;
+  }
+  function startDialogue(id){
+    const d=DIALOGUES.find(x=>x.id===id) || DIALOGUES[0];
+    dialogueSession={id:d.id,index:0,correct:0,answers:[],finished:false};
+    page='dialogs'; render(); window.scrollTo(0,0);
+  }
+  function currentDialogue(){ return DIALOGUES.find(x=>x.id===dialogueSession?.id) || DIALOGUES[0]; }
+  function answerDialogue(choice){
+    const s=dialogueSession; if(!s||s.finished||s.selected!==undefined) return;
+    const d=currentDialogue(); const line=d.lines[s.index]; const picked=line.choices[choice]; if(!picked) return;
+    s.selected=choice; s.correctNow=!!picked.correct; if(s.correctNow) s.correct++; s.answers.push({line:s.index,choice,correct:!!picked.correct}); render();
+  }
+  function nextDialogueStep(){
+    const s=dialogueSession; if(!s) return; const d=currentDialogue();
+    if(s.index < d.lines.length-1){ s.index++; delete s.selected; delete s.correctNow; render(); window.scrollTo(0,0); return; }
+    s.finished=true;
+    const ds=ensureDialogueState();
+    const firstCompletion=!ds.completed[d.id];
+    ds.completed[d.id]=today();
+    ds.accuracy += s.correct;
+    ds.history.unshift({date:today(),id:d.id,correct:s.correct,total:d.lines.length});
+    if(ds.history.length>60) ds.history.length=60;
+    s.reward=firstCompletion?18:4;
+    activity(s.reward);
+    save(); render(); window.scrollTo(0,0);
+  }
+  function renderDialogSession(){
+    const d=currentDialogue(), s=dialogueSession;
+    if(s.finished){
+      return `<div class="dialog-stage-wrap"><div class="dialog-summary"><span class="dialog-result-badge">${icon('chat',15)} MINICONVERSACIÓN COMPLETADA</span><h1>¡Completaste tu miniconversación!</h1><p>Acabas de practicar una simulación guiada de una situación útil. Repite las respuestas en voz alta y vuelve a practicar mañana para reforzar tu memoria.</p><div class="dialog-summary-score"><div><b>${s.correct}/${d.lines.length}</b><span>respuestas correctas</span></div><div><b>${s.reward||0}</b><span>XP ganados</span></div><div><b>${Object.keys(ensureDialogueState().completed).length}</b><span>diálogos dominados</span></div></div><div class="dialog-actions"><button type="button" class="btn btn-primary" data-action="dialog-restart" data-id="${d.id}">Practicar otra vez</button><button type="button" class="btn btn-outline" data-action="nav" data-page="dialogs">Ver más diálogos</button><button type="button" class="btn btn-outline" data-action="nav" data-page="home">Volver al inicio</button></div></div></div>`;
+    }
+    const line=d.lines[s.index];
+    return `<div class="dialog-stage-wrap"><button class="back-link" data-action="nav" data-page="dialogs">${icon('left',18)} Volver a miniconversaciones</button><div class="dialog-stage"><div class="dialog-stage-top"><span class="dialog-stage-pill">${icon('chat',15)} ${esc(d.tag)} · ${esc(d.title)}</span><span class="dialog-stage-progress">Turno ${s.index+1} de ${d.lines.length}</span></div><div class="weekly-progress" role="progressbar" aria-valuemin="0" aria-valuemax="${d.lines.length}" aria-valuenow="${s.index+1}"><span style="width:${((s.index+1)/d.lines.length)*100}%"></span></div><h1>${esc(d.title)}</h1><p class="dialog-subtitle">${esc(d.goal)}</p><div class="dialog-speaker"><div class="dialog-avatar">${esc(line.speaker[0])}</div><div><small class="eyebrow">${esc(line.speaker)} · ${esc(line.speakerEs)}</small><strong lang="ru">${esc(line.ru)}</strong><p>${esc(line.es)}</p></div></div><div class="dialog-audio-row"><button type="button" class="btn btn-outline" data-action="speak" data-value="${esc(line.ru)}">${icon('sound',17)} Escuchar la línea</button>${s.selected!==undefined && line.choices[s.selected]?.ru?`<button type="button" class="btn btn-outline" data-action="speak" data-value="${esc(line.choices[s.selected].ru)}">${icon('sound',17)} Oír mi respuesta</button>`:''}</div><div class="dialog-option-grid">${line.choices.map((choice,i)=>{const cls=s.selected===undefined?'':choice.correct?'correct':(s.selected===i?'incorrect':'muted'); return `<button type="button" class="dialog-option ${cls}" data-action="dialog-choice" data-choice="${i}" ${s.selected!==undefined?'disabled':''}><small>RESPUESTA</small><b lang="ru">${esc(choice.ru)}</b><span>${esc(choice.es)}</span></button>`;}).join('')}</div>${s.selected!==undefined?`<div class="dialog-coach"><strong>${s.correctNow?'¡Bien respondido!':'Esta era una mejor opción.'}</strong><p style='margin:0 0 9px'>Ahora di la respuesta en voz alta. Pulsa para escucharla otra vez.</p><b lang="ru">${esc(line.choices.find(c=>c.correct).ru)}</b><p>${esc(line.coach)}</p><div class="dialog-actions"><button type="button" class="btn btn-primary" data-action="dialog-next">${s.index===d.lines.length-1?'Terminar conversación':'Siguiente turno'} ${icon('arrow',17)}</button><button type="button" class="btn btn-outline" data-action="speak" data-value="${esc(line.choices.find(c=>c.correct).ru)}">${icon('sound',17)} Repetir respuesta ideal</button></div></div>`:''}</div></div>`;
+  }
+  function renderDialogueStats(){ const st=dialogueStats(); return `<section class="daily-stats-section"><div class="section-heading"><div>${eyebrow('MINICONVERSACIONES')}<h2>Ruso para usarlo</h2></div></div><div class="daily-stats-grid"><div><b>${st.completed}</b><span>diálogos completados</span></div><div><b>${st.runs}</b><span>prácticas totales</span></div><div><b>${st.totalCorrect}</b><span>respuestas correctas</span></div><div><b>${DIALOGUES.length}</b><span>situaciones disponibles</span></div></div><p>Estas conversaciones no sustituyen la práctica con personas reales, pero te ayudan a automatizar frases que sí usarías.</p></section>`; }
+  renderHome = function(){ return renderDailyHome()+renderDialogueSpotlight()+renderHomeMomentum(); };
+  shell = function(content){const n=completedCount(),p=Math.round(n/LESSONS.length*100);return `<div class="layout">
+    <aside class="sidebar">
+      <button class="brand" data-action="nav" data-page="home"><span class="brand-symbol">С</span><span class="brand-word">СЛОВО<span class="brand-dot">.</span><small>RETOS · VOZ · DIÁLOGOS</small></span></button>
+      <div class="side-caption">APRENDIZAJE</div>
+      <nav class="side-nav">${navButton('home','Inicio','home')}${navButton('dialogs','Diálogos','chat')}${navButton('course','Lecciones','course')}${navButton('review','Repasar','review')}${navButton('alphabet','Alfabeto','alphabet')}</nav>
+      <div class="side-caption second">TU ESPACIO</div>
+      <nav class="side-nav">${navButton('stats','Mi progreso','stats')}${navButton('settings','Ajustes','settings')}</nav>
+      <div class="sidebar-bottom"><div class="sidebar-progress-top"><span>Ruta principiante</span><b>${p}%</b></div><div class="progress-track"><div style="width:${p}%"></div></div><small>${n} de ${LESSONS.length} lecciones · ${dialogueStats().completed} diálogos hechos</small></div>
+    </aside>
+    <div class="main-shell"><header class="topbar"><button class="mobile-brand" data-action="nav" data-page="home"><span>С</span> СЛОВО.</button><span class="topbar-caption">RUSO ÚTIL · ESCUCHA, HABLA Y RESPONDE</span><div class="topbar-metrics"><span>${icon('fire',16)} ${streak()} días СЛОВО</span><span>${icon('spark',16)} ${state.xp} XP</span></div></header><main class="main-content">${content}</main></div>
+    <nav class="mobile-nav" aria-label="Menú principal">${navButton('home','Inicio','home')}${navButton('dialogs','Diálogos','chat')}${navButton('course','Cursos','course')}${navButton('review','Repasar','review')}${navButton('stats','Progreso','stats')}</nav>
+    <div id="toast" role="status" aria-live="polite" class="toast">${esc(toastMessage)}</div>
+  </div>`; };
+  renderStats = function(){ return oldRenderStats()+renderDialogueStats()+renderDailyStats()+renderMicroStats(); };
+  render = function(){ if(page==='lesson'&&!lessonSession) page='course'; let content; if(page==='home') content=renderHome(); else if(page==='dialogs') content=renderDialogs(); else if(page==='course') content=renderCourse(); else if(page==='lesson') content=renderLesson(); else if(page==='review') content=renderReview(); else if(page==='review-session') content=renderReviewSession(); else if(page==='micro') content=renderMicroSession(); else if(page==='daily') content=renderDailySession(); else if(page==='alphabet') content=renderAlphabet(); else if(page==='stats') content=renderStats(); else content=renderSettings(); APP.innerHTML=shell(content); document.title='СЛОВО — Ruso útil desde cero'; };
+  // Al volver a la lista desde un diálogo, cerrar la sesión actual.
+  APP.addEventListener('click',function(event){
+    const btn=event.target.closest('[data-action="nav"]');
+    if(btn) dialogueSession=null;
+  },true);
+  APP.addEventListener('click',function(event){
+    const btn=event.target.closest('[data-action]'); if(!btn||btn.disabled) return;
+    const action=btn.dataset.action;
+    if(action==='nav' && dialogueSession){ dialogueSession=null; render(); }
+    if(action==='open-dialogue'){ startDialogue(btn.dataset.id); }
+    else if(action==='dialog-choice'){ answerDialogue(Number(btn.dataset.choice)); }
+    else if(action==='dialog-next'){ nextDialogueStep(); }
+    else if(action==='dialog-restart'){ startDialogue(btn.dataset.id); }
+  });
+  render();
+})();
+</script>
+
+  <script src="./supabase-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="./cloud.js"></script>
+</body>
+</html>
