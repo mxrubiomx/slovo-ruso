@@ -9,6 +9,7 @@ const read=k=>{try{return JSON.parse(localStorage.getItem(k))}catch{return null}
 const put=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));return true}catch{return false}};
 const base=()=>defaultState();
 let account=null, email='', cloudRow=null, dirty=false,loading=false,syncing=false,modal=false,tab='login',notice='',error='',status='Modo local',conflict=null,timer=null;
+let passwordOpen=false,passwordBusy=false,passwordNotice='',passwordError='';
 
 /* СЛОВО 5 · identidad personal y perfil seguro */
 let profile=null,avatarUrl='',profileOpen=false,profileBusy=false,profileError='',profileFeedback='';
@@ -90,7 +91,7 @@ function toAccount(session){
  const next=session?.user?.id||null;
  if(account===next)return;
  if(timer)clearTimeout(timer);
- account=next;email=session?.user?.email||'';cloudRow=null;conflict=null;profile=null;avatarUrl='';profileOpen=false;prefs=read(profilePrefsKey(next))||{celebrations:true,sound:true};
+ account=next;email=session?.user?.email||'';cloudRow=null;conflict=null;profile=null;avatarUrl='';profileOpen=false;passwordOpen=false;passwordBusy=false;passwordNotice='';passwordError='';prefs=read(profilePrefsKey(next))||{celebrations:true,sound:true};
  if(next)void loadProfile(next);
  if(!account){state={...base(),...(read(guestKey)||{})};dirty=false;status='Sin sesión: progreso local';updated();return}
  const saved=read(key(account));const m=read(metaKey(account))||{};
@@ -156,7 +157,7 @@ function migrate(){
 function authModal(){
  if(!modal)return '';
  return '<div class="cloud-overlay" data-action="cloud-backdrop"><section class="cloud-modal" role="dialog" aria-modal="true" aria-label="Cuenta СЛОВО"><button class="cloud-close" data-action="cloud-close">×</button><span class="eyebrow">СЛОВО · CUENTAS</span><h2>'+(account?'Mi cuenta':'Tu ruso en todos tus dispositivos')+'</h2>'+
- (account?'<p>Sesión: <b>'+esc(email)+'</b></p><p class="cloud-status">'+esc(status)+'</p>'+(conflict?'<div class="cloud-warning"><strong>Hay dos progresos distintos.</strong><p>Guarda una copia JSON antes de elegir.</p><div class="cloud-actions"><button class="btn btn-outline" data-action="cloud-use-cloud">Usar nube</button><button class="btn btn-outline" data-action="cloud-use-local">Usar dispositivo</button></div></div>':'')+'<div class="cloud-actions"><button class="btn btn-primary" data-action="cloud-sync">Sincronizar</button><button class="btn btn-outline" data-action="cloud-migrate">Importar progreso de invitado</button><button class="btn btn-outline" data-action="export">Exportar JSON</button><button class="btn btn-outline" data-action="cloud-signout">Cerrar sesión</button></div>':
+ (account?'<p>Sesión: <b>'+esc(email)+'</b></p><p class="cloud-status">'+esc(status)+'</p>'+(conflict?'<div class="cloud-warning"><strong>Hay dos progresos distintos.</strong><p>Guarda una copia JSON antes de elegir.</p><div class="cloud-actions"><button class="btn btn-outline" data-action="cloud-use-cloud">Usar nube</button><button class="btn btn-outline" data-action="cloud-use-local">Usar dispositivo</button></div></div>':'')+'<section class="cloud-security"><h3>Formas de acceder</h3><p>Tu correo: <strong>'+esc(email)+'</strong>. Puedes seguir entrando con Google y añadir una contraseña a esta misma cuenta.</p><button type="button" class="btn btn-outline" data-action="cloud-password-open">'+(passwordOpen?'Ocultar formulario':'Configurar o cambiar contraseña')+'</button>'+(passwordOpen?'<form id="slovo-password-form" class="cloud-form"><label for="slovo-new-password">Nueva contraseña</label><input id="slovo-new-password" type="password" name="password" autocomplete="new-password" minlength="12" maxlength="128" required placeholder="12 caracteres o más"><label for="slovo-password-confirm">Repite la contraseña</label><input id="slovo-password-confirm" type="password" name="confirm_password" autocomplete="new-password" minlength="12" maxlength="128" required><button class="btn btn-primary" type="submit" '+(passwordBusy?'disabled':'')+'>Guardar contraseña</button><p class="cloud-note">No utilizaremos tu contraseña de Google. Elige otra segura y guarda una copia en tu gestor de contraseñas.</p></form>':'')+(passwordNotice?'<p class="cloud-status" role="status">'+esc(passwordNotice)+'</p>':'')+(passwordError?'<p class="cloud-warning" role="alert">'+esc(passwordError)+'</p>':'')+'</section><div class="cloud-actions"><button class="btn btn-primary" data-action="cloud-sync">Sincronizar</button><button class="btn btn-outline" data-action="cloud-migrate">Importar progreso de invitado</button><button class="btn btn-outline" data-action="export">Exportar JSON</button><button class="btn btn-outline" data-action="cloud-signout">Cerrar sesión</button></div>':
  '<div class="cloud-google-auth"><button type="button" class="cloud-google-button" data-action="cloud-google"><span class="cloud-google-g" aria-hidden="true">G</span><span>Continuar con Google</span></button><div class="cloud-auth-divider"><span>o usa tu correo</span></div></div><div class="cloud-tab-bar"><button data-action="cloud-tab" data-tab="login" class="'+(tab==='login'?'active':'')+'">Iniciar sesión</button><button data-action="cloud-tab" data-tab="signup" class="'+(tab==='signup'?'active':'')+'">Crear cuenta</button></div><form class="cloud-form" id="cloud-auth"><label>Correo</label><input type="email" name="email" autocomplete="email" required maxlength="254"><label>Contraseña</label><input type="password" name="password" minlength="6" required><button class="btn btn-primary" type="submit">'+(tab==='login'?'Entrar':'Registrarme')+'</button></form><div class="cloud-actions"><button class="btn btn-outline" data-action="cloud-recover">Recuperar contraseña</button></div><p class="cloud-note">Confirma tu correo si recibes un enlace de verificación. Las contraseñas las gestiona Supabase.</p>')+
  (notice?'<p class="cloud-status">'+esc(notice)+'</p>':'')+(error?'<p class="cloud-warning">'+esc(error)+'</p>':'')+'</section></div>'
 }
@@ -183,7 +184,8 @@ render=function(){
 APP.addEventListener('click',async e=>{
  const el=e.target.closest('[data-action]');if(!el)return;
  const a=el.dataset.action;
- if(a==='profile-open'){if(!account){modal=true;updated();return}modal=false;profileOpen=true;profileError='';updated()}
+ if(a==='cloud-password-open'){if(!account||!client)return;passwordOpen=!passwordOpen;passwordError='';passwordNotice='';updated()}
+ else if(a==='profile-open'){if(!account){modal=true;updated();return}modal=false;profileOpen=true;profileError='';updated()}
  else if(a==='profile-close'||(a==='profile-backdrop'&&e.target===el)){profileOpen=false;updated()}
  else if(a==='profile-photo'){APP.querySelector('#slovo-avatar-upload')?.click()}
  else if(a==='cloud-open'){modal=true;notice='';error='';updated()}
@@ -205,6 +207,24 @@ APP.addEventListener('click',async e=>{
  else if(a==='cloud-recover'){const mail=prompt('Correo electrónico para recuperar tu contraseña:');if(mail){const r=await client.auth.resetPasswordForEmail(mail,{redirectTo:location.origin+location.pathname});notice=r.error?'':'Revisa tu correo';error=r.error?.message||'';updated()}}
 });
 APP.addEventListener('submit',async e=>{
+ if(e.target.id==='slovo-password-form'){
+  e.preventDefault();
+  if(!account||!client||passwordBusy)return;
+  const form=e.target,pass=String(form.elements.password.value||''),confirmation=String(form.elements.confirm_password.value||'');
+  passwordError='';passwordNotice='';
+  if(pass.length<12){passwordError='La contraseña debe tener al menos 12 caracteres.';form.elements.password.focus();updated();return}
+  if(pass!==confirmation){passwordError='Las contraseñas no coinciden.';form.elements.confirm_password.focus();updated();return}
+  passwordBusy=true;updated();
+  try{
+   const {error:changeError}=await client.auth.updateUser({password:pass});
+   if(changeError)throw changeError;
+   passwordOpen=false;passwordNotice='Contraseña configurada. Ya puedes acceder usando este mismo correo o Google.';
+  }catch(changeError){
+   passwordError='No se pudo guardar la contraseña: '+(changeError?.message||'error inesperado')+'. Si Supabase solicita una nueva verificación, vuelve a iniciar sesión con Google antes de intentarlo.';
+   passwordOpen=true;
+  }finally{passwordBusy=false;updated()}
+  return;
+ }
  if(e.target.id==='slovo-profile-form'){e.preventDefault();await saveProfile(e.target.elements.display_name.value);return}
  if(e.target.id!=='cloud-auth')return;
  e.preventDefault();const f=e.target,el=f.querySelector('button[type=submit]'),email=f.elements.email.value.trim(),password=f.elements.password.value;
