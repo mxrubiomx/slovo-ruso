@@ -16,3 +16,20 @@
   .cloud-overlay{padding-top:max(env(safe-area-inset-top,0px),58px)}
   .cloud-modal{max-height:calc(100dvh - max(env(safe-area-inset-top,0px),58px) - max(env(safe-area-inset-bottom,0px),16px) - 16px)}
 }
+
+/* СЛОВО 5: perfil y profundidad interactiva */
+.slovo-welcome{display:flex;align-items:center;gap:13px;margin-bottom:19px;padding:15px 17px;border:1px solid rgba(136,245,202,.27);border-radius:17px;background:linear-gradient(125deg,rgba(30,68,64,.94),rgba(13,38,52,.95));box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 12px 28px rgba(0,0,0,.15)}
+.slovo-welcome>div{min-width:0;flex:1;display:flex;flex-direction:column;gap:3px}.slovo-welcome strong{font-size:17px;color:#f3fff9;overflow-wrap:anywhere}.slovo-welcome small{font-size:11px;color:#b9d4cd}.slovo-welcome .eyebrow{font-size:9px}
+.slovo-profile-thumb{width:52px;height:52px;flex:0 0 52px;border-radius:17px;overflow:hidden;border:2px solid #86efc8;background:#1a4d4a;display:grid;place-items:center;padding:0;box-shadow:0 5px 14px #0003}
+.slovo-avatar-img{display:block;width:100%;height:100%;object-fit:cover}.slovo-avatar-fallback{font-weight:850;color:#dfffee;font-size:20px;letter-spacing:1px}
+.slovo-edit-profile{background:transparent;color:#99f2cd;border:1px solid #4a8179;border-radius:10px;padding:8px 11px;font-size:11px;font-weight:750}
+.slovo-profile-photo{width:105px;height:105px;margin:10px auto 6px;border-radius:27px;display:grid;place-items:center;overflow:hidden;background:#20544b;border:3px solid #a3ffda;box-shadow:0 13px 34px #0007}.slovo-profile-photo .slovo-avatar-fallback{font-size:38px}
+.slovo-profile-hint{text-align:center;margin-bottom:8px}.slovo-photo-button{display:flex;margin:0 auto 18px}.slovo-profile-modal .cloud-form{margin-top:10px}
+.slovo-setting-row{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#0f2030;border-radius:12px;padding:13px 15px;margin-top:12px;font-size:13px;color:#c9e8de}.slovo-setting-row input{accent-color:#86efc8;width:20px;height:20px}
+.slovo-celebration{position:fixed;inset:0;z-index:150;pointer-events:none;overflow:hidden}.slovo-celebration i{position:absolute;left:var(--x);top:-20px;width:9px;height:16px;opacity:0;background:var(--c);border-radius:3px;animation:slovo-confetti 1.6s var(--d) ease-in forwards}
+@keyframes slovo-confetti{0%{opacity:0;transform:translateY(-30px) rotate(0deg)}12%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translateY(110vh) rotate(740deg)}}
+@media(prefers-reduced-motion:reduce){.slovo-celebration{display:none}}
+@media(max-width:650px){.slovo-welcome{padding:12px;gap:10px}.slovo-welcome strong{font-size:15px}.slovo-profile-thumb{width:46px;height:46px;flex-basis:46px;border-radius:14px}.slovo-welcome small{font-size:10px}.slovo-edit-profile{padding:7px 8px}}
+/* Efecto de profundidad sutil en los elementos interactivos; sin animación forzada */
+.time-first .mode-card,.quest-card,.dialog-card{box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 8px 0 rgba(0,0,0,.13),0 15px 28px rgba(0,0,0,.17)}
+.time-first .mode-card:active,.quest-card:active,.dialog-card:active{transform:translateY(3px);box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 3px 0 rgba(0,0,0,.12),0 8px 16px rgba(0,0,0,.17)}
