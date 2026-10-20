@@ -114,8 +114,10 @@ APP.addEventListener('submit',async e=>{
  catch(x){error=x.message||'No fue posible autenticar'}
  updated()
 });
-window.addEventListener('online',()=>{if(dirty)schedule()});
-document.addEventListener('visibilitychange',()=>{if(!document.hidden&&dirty)schedule()});
+window.addEventListener('online',()=>{if(dirty)schedule();else if(account&&!loading&&!syncing&&!conflict)void fetchRemote(account)});
+function refreshIfIdle(){if(!account||loading||syncing||conflict)return;if(dirty)schedule();else void fetchRemote(account)}
+window.addEventListener('focus',refreshIfIdle);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshIfIdle()});
 if(client)client.auth.onAuthStateChange((ev,session)=>{
  if(['INITIAL_SESSION','SIGNED_IN','SIGNED_OUT','USER_UPDATED'].includes(ev))setTimeout(()=>toAccount(session),0);
  if(ev==='PASSWORD_RECOVERY')setTimeout(async()=>{const password=prompt('Nueva contraseña (mínimo 6 caracteres):');if(password?.length>=6){const r=await client.auth.updateUser({password});notice=r.error?'':'Contraseña actualizada';error=r.error?.message||'';modal=true;updated()}},0);
