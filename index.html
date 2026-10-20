@@ -700,11 +700,6 @@ body{
     linear-gradient(180deg,#091321 0%, #07111d 55%, #081420 100%);
   color:var(--text);
 }
-body::before{
-  content:"";position:fixed;inset:0;pointer-events:none;
-  background-image:linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size:42px 42px;mask-image:linear-gradient(180deg,rgba(0,0,0,.35),transparent 82%);opacity:.35;
-}
 .sidebar,.topbar,.stat-card,.next-lesson,.daily-plan,.tip-banner,.course-card,.lesson-panel,.result-card,.review-summary,.review-stats>div,.alpha-detail,.settings-panel,.sidebar-bottom,.momentum-progress-panel,.momentum-side-panel,.quest-card,.quest-head,.quest-phrase-teaser,.quest-goal-line,.daily-panel,.micro-panel,.micro-summary-card,.micro-card,.daily-stats-section,.micro-stats-section,.dialog-card,.dialog-stage,.dialog-hub-hero,.dialog-preview-home{
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -852,6 +847,14 @@ body::before{
 .time-first-note{font-size:12px;line-height:1.55;color:#b2c7cd;margin:15px 2px 2px}
 .time-first-note strong{font-weight:650;color:#c3edda}
 @media(max-width:650px){.time-first{padding:20px 15px 17px;border-radius:19px;margin-bottom:18px}.time-first-title h1{font-size:32px}.time-first-title p{font-size:12px}.time-first-goal{padding:14px;align-items:stretch;flex-direction:column;gap:12px}.time-first-goal-copy strong{font-size:15px}.time-first-goal-action{width:100%}.time-first .mode-card{min-height:144px}.time-first-choose{margin:16px 0 10px;font-size:12px}.time-first-note{font-size:11px}}
+
+/* СЛОВО 4.5 · iOS PWA touch reliability.
+   Eliminada la antigua capa fixed body::before de pantalla completa:
+   en WebKit standalone puede interceptar hit-tests por encima del contenido. */
+#app .main-shell{position:relative;z-index:1}
+#app .main-content{position:relative;z-index:1}
+#app .main-content button,#app .topbar button{pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:rgba(136,245,202,.20)}
+#app .mobile-nav{z-index:30}
 </style>
 <script>
 (function(){
