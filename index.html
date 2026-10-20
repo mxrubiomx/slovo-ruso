@@ -224,18 +224,31 @@ function returnMessage(){
   if(days===0)return 'Ya practicamos hoy. Si te apetece, un minuto extra también cuenta.';
   return 'Un nuevo día, un paso ligero. Sin obligación de superar el de ayer.';
 }
+function renderHomeTimePicker(){
+ const record=dailyLog()[today()]||null,done=dailyCompletedCount(record),total=DAILY_CHALLENGES.length;
+ const next=DAILY_CHALLENGES.find(task=>!record?.tasks?.[task.id]);
+ return `<section class="time-first" aria-label="Comienza tu práctica de hoy">
+ <div class="time-first-title">
+   ${eyebrow("TU PRÁCTICA EMPIEZA AQUÍ")}
+   <h1>¿Cuánto te queda hoy?</h1>
+   <p>Elige una micro-misión de 1, 3 o 7 minutos. Tú decides cuánto practicar.</p>
+ </div>
+ <div class="time-first-goal" role="group" aria-label="Progreso del objetivo diario">
+   <div class="time-first-goal-copy"><span class="time-first-goal-label">OBJETIVO DIARIO · ~2–3 MIN</span>
+    <strong>${done===total?"✓ Meta diaria completada":"Escucha, habla y recuerda una frase útil"}</strong>
+    <span>${done}/${total} retos completados · ${done===total?"¡Terminaste por hoy!":`${total-done} ${total-done===1?"pendiente":"pendientes"}`}</span>
+    <div class="time-first-meter" role="progressbar" aria-label="Progreso de tu objetivo diario" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${done}"><span style="width:${Math.round(done/total*100)}%"></span></div>
+   </div>
+   <button type="button" class="time-first-goal-action" data-action="daily-start" data-task="${next?next.id:DAILY_CHALLENGES[0].id}">${next?"Hacer siguiente reto":"Repasar retos"} ${icon("arrow",16)}</button>
+ </div>
+ <div class="time-first-choose"><strong>¿Un poco más de práctica?</strong><span>Selecciona tu tiempo:</span></div>
+ <div class="mode-grid">${Object.entries(MICRO_MODES).map(([id,m])=>`<button class="mode-card ${m.color} ${id==='tiny'?'recommended':''}" data-action="start-micro" data-mode="${id}" aria-label="${m.title}, aproximadamente ${m.minutes} minutos"><span class="mode-card-top"><span>${id==='tiny'?'MÍNIMO VIABLE':id==='normal'?'POCO A POCO':'SI TENGO TIEMPO'}</span>${id==='tiny'?'<span class="micro-pill">RECOMENDADO</span>':''}</span><div class="mode-number">${m.marker}<small>min</small></div><strong>${m.title}</strong><p>${m.subtitle}</p><div class="mode-card-footer">${id==='tiny'?'1 novedad + 2 intentos':id==='normal'?'2 novedades + 4 intentos':'3 novedades + 7 intentos'}<span>${icon('arrow',18)}</span></div></button>`).join('')}</div>
+ <p class="time-first-note">Las micro-misiones son práctica adicional y ayudan a tu meta semanal. <strong>Para completar el objetivo diario, termina los tres retos de Escucha, Habla y Recuerda que aparecen abajo.</strong></p>
+ </section>`;
+}
 function renderHomeMomentum(){
  const next=nextLesson(),goal=Math.max(1,state.weeklyGoal||3),week=weeklyDaysCount(),pct=Math.min(100,Math.round(week/goal*100)),intro=(state.microIntroduced||[]).length,rec=state.microRecall||{correct:0,total:0},due=dueCards().length,nextItem=microNextItem();
- return `<section class="momentum-hero">
-   <div class="momentum-content">${eyebrow('СЛОВО · MODO IMPULSO')}<div class="momentum-kicker">NO MÁS «CUANDO TENGA TIEMPO»</div><h1>Hoy basta con<br/><em>un minuto.</em></h1>
-   <p>Haz un avance diminuto y real, incluso cuando tengas pocas ganas. Escucha, descubre y recuerda. Sin presión por cumplirlo todo.</p>
-   <div class="momentum-hero-actions">${button(`Empezar en 60 segundos ${icon('arrow',19)}`,'start-micro','btn-primary','data-mode="tiny"')}
-    <span class="momentum-caption">Sin registro · Sin anuncios · Puedes parar cuando quieras</span></div>
-   </div><div class="momentum-glyph" aria-hidden="true"><span>П</span><i>привет</i><b>una palabra nueva</b></div>
- </section>
- <div class="momentum-welcome"><span class="welcome-icon">✦</span><span>${esc(returnMessage())}</span></div>
- <div class="momentum-heading"><div>${eyebrow('ELIGE SEGÚN TU ENERGÍA')}<h2>¿Cuánto te queda hoy?</h2></div><span class="momentum-hint">No hay opción incorrecta.</span></div>
- <div class="mode-grid">${Object.entries(MICRO_MODES).map(([id,m])=>`<button class="mode-card ${m.color} ${id==='tiny'?'recommended':''}" data-action="start-micro" data-mode="${id}" aria-label="${m.title}, aproximadamente ${m.minutes} minutos"><span class="mode-card-top"><span>${id==='tiny'?'MÍNIMO VIABLE':id==='normal'?'POCO A POCO':'SI TENGO TIEMPO'}</span>${id==='tiny'?'<span class="micro-pill">RECOMENDADO</span>':''}</span><div class="mode-number">${m.marker}<small>min</small></div><strong>${m.title}</strong><p>${m.subtitle}</p><div class="mode-card-footer">${id==='tiny'?'1 novedad + 2 intentos':id==='normal'?'2 novedades + 4 intentos':'3 novedades + 7 intentos'}<span>${icon('arrow',18)}</span></div></button>`).join('')}</div>
+ return `
  <section class="momentum-lower"><div class="momentum-progress-panel"><div class="momentum-section-head">${eyebrow('CONSISTENCIA AMABLE')}<h2>Tu semana, a tu ritmo</h2></div>
  <div class="weekly-line"><strong>${week} <small>/ ${goal} días</small></strong><span>${week>=goal?'¡Objetivo flexible alcanzado!':'No tienen que ser días consecutivos.'}</span></div>
  <div class="weekly-progress" role="progressbar" aria-valuemin="0" aria-valuemax="${goal}" aria-valuenow="${Math.min(week,goal)}"><span style="width:${pct}%"></span></div>
@@ -386,12 +399,12 @@ function renderDailyHome(){
  const complete=dailyCompletedCount(record), total=DAILY_CHALLENGES.length;
  const target=dailyTarget();
  return `<section class="quest-head">
-  <div class="quest-head-top"><span class="quest-tag">✦ DESAFÍO DEL DÍA</span><span class="quest-streak">${icon('fire',17)} ${streak()} ${streak()===1?'día':'días'} de racha en СЛОВО</span></div>
-  <div class="quest-head-copy"><div><h1>${complete===total?'¡Tu desafío está completo!':'Tres pequeños logros.\nUna frase que sí usarás.'}</h1><p>Como en tu rutina de Duolingo: entra, cumple desafíos breves y avanza. Hoy vas a entrenar el oído, hablar y recordar.</p></div><div class="quest-score"><strong>${complete}<small>/ ${total}</small></strong><span>RETOS DE HOY</span></div></div>
+  <div class="quest-head-top"><span class="quest-tag">✦ OBJETIVO DEL DÍA</span><span class="quest-streak">${icon('fire',17)} ${streak()} ${streak()===1?'día':'días'} de racha en СЛОВО</span></div>
+  <div class="quest-head-copy"><div><h1>${complete===total?'¡Tu desafío está completo!':'Tu meta de hoy: 3 retos breves'}</h1><p>Completa estos tres pasos: ① Escucha una frase real, ② Dila en voz alta y ③ Recuérdala. Al terminar los tres, habrás conseguido tu objetivo diario.</p></div><div class="quest-score"><strong>${complete}<small>/ ${total}</small></strong><span>RETOS DE HOY</span></div></div>
   <div class="quest-track" role="progressbar" aria-label="Desafíos del día" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${complete}"><div style="width:${Math.round(complete/total*100)}%"></div></div>
   <div class="quest-goal-line"><span>~2–3 min en total · una frase útil al día</span><span>${complete===total?'✓ ¡Objetivo conseguido!':`${total-complete} ${total-complete===1?'reto restante':'retos restantes'}`}</span></div>
  </section>
- <section class="quest-section"><div class="quest-section-title"><div>${eyebrow('ESCUCHA · HABLA · RECUERDA')}<h2>Tu lista de hoy</h2></div><span class="quest-date">${new Date().toLocaleDateString('es-MX',{weekday:'long',day:'numeric',month:'long'})}</span></div>
+ <section class="quest-section"><div class="quest-section-title"><div>${eyebrow('ESCUCHA · HABLA · RECUERDA')}<h2>Tus tres retos de hoy</h2></div><span class="quest-date">${new Date().toLocaleDateString('es-MX',{weekday:'long',day:'numeric',month:'long'})}</span></div>
  <div class="quest-cards">${DAILY_CHALLENGES.map(task=>{
    const done=!!record?.tasks?.[task.id];
    return `<button class="quest-card ${done?'quest-done':''}" data-action="daily-start" data-task="${task.id}">
@@ -817,6 +830,28 @@ body::before{
 .dialog-summary-score span{font-size:12px;color:#9fb0c7}
 @media(max-width:1000px){.dialog-grid,.dialog-spotlight-grid,.dialog-hub-hero{grid-template-columns:1fr}.dialog-hub-art{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:850px){.dialog-grid,.dialog-summary-score,.dialog-hub-meta{grid-template-columns:1fr}.dialog-speaker{grid-template-columns:46px 1fr}.dialog-avatar{width:46px;height:46px;border-radius:15px;font-size:18px}.dialog-speaker strong{font-size:24px}.dialog-stage{padding:20px}.dialog-stage h1{font-size:28px}.dialog-preview-copy h2{font-size:24px}.dialog-page-heading p,.dialog-subtitle{font-size:14px}.dialog-card h3{font-size:20px}}
+
+/* СЛОВО 4.4 · Inicio centrado en tiempo disponible y objetivo inequívoco */
+.time-first{background:linear-gradient(135deg,rgba(23,53,58,.92),rgba(12,27,47,.95));border:1px solid rgba(136,245,202,.28);border-radius:24px;padding:26px 28px 20px;margin-bottom:26px;box-shadow:0 20px 48px rgba(0,0,0,.2)}
+.time-first-title .eyebrow{display:block;margin-bottom:9px}
+.time-first-title h1{font-size:clamp(31px,4vw,48px);font-weight:850;letter-spacing:-1.5px;line-height:1.1;margin:0 0 8px;color:#f4fcfa}
+.time-first-title p{font-size:13px;color:#bdcecf;margin:0 0 19px}
+.time-first-goal{display:flex;align-items:center;justify-content:space-between;gap:20px;background:rgba(7,24,32,.72);border:1px solid rgba(136,245,202,.35);border-radius:16px;padding:17px 20px}
+.time-first-goal-copy{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
+.time-first-goal-label{font-size:10px;letter-spacing:1.2px;font-weight:850;color:#8febc2}
+.time-first-goal-copy strong{font-size:17px;line-height:1.28;color:#f2fcf7}
+.time-first-goal-copy>span:not(.time-first-goal-label){font-size:12px;color:#bcd2d0}
+.time-first-meter{height:6px;background:#2e4c51;border-radius:99px;margin-top:5px;overflow:hidden;max-width:340px}
+.time-first-meter span{display:block;height:100%;background:linear-gradient(90deg,#8febc2,#7ed4ff);border-radius:99px;transition:width .2s}
+.time-first-goal-action{display:flex;align-items:center;justify-content:center;gap:8px;min-height:42px;white-space:nowrap;border:0;border-radius:11px;padding:10px 15px;background:#8febc2;color:#102820;font-size:12px;font-weight:850;cursor:pointer}
+.time-first-goal-action:hover{background:#b3ffe0}
+.time-first-choose{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:20px 0 13px;font-size:13px}
+.time-first-choose strong{color:#e8fdf1}.time-first-choose span{color:#adbfca}
+.time-first .mode-grid{margin-top:0}
+.time-first .mode-card{min-height:205px}
+.time-first-note{font-size:12px;line-height:1.55;color:#b2c7cd;margin:15px 2px 2px}
+.time-first-note strong{font-weight:650;color:#c3edda}
+@media(max-width:650px){.time-first{padding:20px 15px 17px;border-radius:19px;margin-bottom:18px}.time-first-title h1{font-size:32px}.time-first-title p{font-size:12px}.time-first-goal{padding:14px;align-items:stretch;flex-direction:column;gap:12px}.time-first-goal-copy strong{font-size:15px}.time-first-goal-action{width:100%}.time-first .mode-card{min-height:144px}.time-first-choose{margin:16px 0 10px;font-size:12px}.time-first-note{font-size:11px}}
 </style>
 <script>
 (function(){
@@ -941,7 +976,7 @@ body::before{
     return `<div class="dialog-stage-wrap"><button class="back-link" data-action="nav" data-page="dialogs">${icon('left',18)} Volver a miniconversaciones</button><div class="dialog-stage"><div class="dialog-stage-top"><span class="dialog-stage-pill">${icon('chat',15)} ${esc(d.tag)} · ${esc(d.title)}</span><span class="dialog-stage-progress">Turno ${s.index+1} de ${d.lines.length}</span></div><div class="weekly-progress" role="progressbar" aria-valuemin="0" aria-valuemax="${d.lines.length}" aria-valuenow="${s.index+1}"><span style="width:${((s.index+1)/d.lines.length)*100}%"></span></div><h1>${esc(d.title)}</h1><p class="dialog-subtitle">${esc(d.goal)}</p><div class="dialog-speaker"><div class="dialog-avatar">${esc(line.speaker[0])}</div><div><small class="eyebrow">${esc(line.speaker)} · ${esc(line.speakerEs)}</small><strong lang="ru">${esc(line.ru)}</strong><p>${esc(line.es)}</p></div></div><div class="dialog-audio-row"><button type="button" class="btn btn-outline" data-action="speak" data-value="${esc(line.ru)}">${icon('sound',17)} Escuchar la línea</button>${s.selected!==undefined && line.choices[s.selected]?.ru?`<button type="button" class="btn btn-outline" data-action="speak" data-value="${esc(line.choices[s.selected].ru)}">${icon('sound',17)} Oír mi respuesta</button>`:''}</div><div class="dialog-option-grid">${line.choices.map((choice,i)=>{const cls=s.selected===undefined?'':choice.correct?'correct':(s.selected===i?'incorrect':'muted'); return `<button type="button" class="dialog-option ${cls}" data-action="dialog-choice" data-choice="${i}" ${s.selected!==undefined?'disabled':''}><small>RESPUESTA</small><b lang="ru">${esc(choice.ru)}</b><span>${esc(choice.es)}</span></button>`;}).join('')}</div>${s.selected!==undefined?`<div class="dialog-coach"><strong>${s.correctNow?'¡Bien respondido!':'Esta era una mejor opción.'}</strong><p style='margin:0 0 9px'>Ahora di la respuesta en voz alta. Pulsa para escucharla otra vez.</p><b lang="ru">${esc(line.choices.find(c=>c.correct).ru)}</b><p>${esc(line.coach)}</p><div class="dialog-actions"><button type="button" class="btn btn-primary" data-action="dialog-next">${s.index===d.lines.length-1?'Terminar conversación':'Siguiente turno'} ${icon('arrow',17)}</button><button type="button" class="btn btn-outline" data-action="speak" data-value="${esc(line.choices.find(c=>c.correct).ru)}">${icon('sound',17)} Repetir respuesta ideal</button></div></div>`:''}</div></div>`;
   }
   function renderDialogueStats(){ const st=dialogueStats(); return `<section class="daily-stats-section"><div class="section-heading"><div>${eyebrow('MINICONVERSACIONES')}<h2>Ruso para usarlo</h2></div></div><div class="daily-stats-grid"><div><b>${st.completed}</b><span>diálogos completados</span></div><div><b>${st.runs}</b><span>prácticas totales</span></div><div><b>${st.totalCorrect}</b><span>respuestas correctas</span></div><div><b>${DIALOGUES.length}</b><span>situaciones disponibles</span></div></div><p>Estas conversaciones no sustituyen la práctica con personas reales, pero te ayudan a automatizar frases que sí usarías.</p></section>`; }
-  renderHome = function(){ return renderDailyHome()+renderDialogueSpotlight()+renderHomeMomentum(); };
+  renderHome = function(){ return renderHomeTimePicker()+renderDailyHome()+renderDialogueSpotlight()+renderHomeMomentum(); };
   shell = function(content){const n=completedCount(),p=Math.round(n/LESSONS.length*100);return `<div class="layout">
     <aside class="sidebar">
       <button class="brand" data-action="nav" data-page="home"><span class="brand-symbol">С</span><span class="brand-word">СЛОВО<span class="brand-dot">.</span><small>RETOS · VOZ · DIÁLOGOS</small></span></button>
