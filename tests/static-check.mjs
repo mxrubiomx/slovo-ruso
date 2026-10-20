@@ -31,6 +31,34 @@ assert.ok(cloud.includes('cloud-home-entry'),'Falta entrada de perfil');
 assert.ok(cloud.includes('slovo-profile-form'),'Falta formulario de perfil');
 assert.ok(cloud.includes('slovo-celebration'),'Falta celebrar avances');
 assert.ok(readFileSync('cloud.css','utf8').includes('.slovo-profile-thumb'),'Faltan estilos de avatar');
+
+// Prueba funcional sin conectarse a cuentas reales:
+// Google y contraseña comparten la misma sesión; nunca signUp para añadir clave.
+assert.ok(cloud.includes('slovo-password-form'),'No está el formulario de contraseña');
+assert.ok(cloud.includes('client.auth.updateUser({password:pass})'),'Falta vincular la contraseña al usuario autenticado');
+assert.ok(cloud.includes('data-action="cloud-password-open"'),'Falta abrir configuración de contraseña');
+const submitStart=cloud.indexOf("APP.addEventListener('submit',async e=>{");
+const submitEnd=cloud.indexOf("APP.addEventListener('change'",submitStart);
+assert.ok(submitStart>=0&&submitEnd>submitStart,'Falta manejador de formularios');
+const submitted=[];
+const sandbox={
+ APP:{addEventListener:(type,cb)=>{if(type==='submit')sandbox.submit=cb}},
+ client:{auth:{updateUser:async attrs=>{submitted.push(attrs);return {error:null}}}},
+ account:'usuario-google-de-prueba',passwordBusy:false,passwordOpen:true,
+ passwordError:'',passwordNotice:'',updated:()=>{}
+};
+vm.runInNewContext(cloud.slice(submitStart,submitEnd),sandbox,{filename:'slovo-password-handler.js'});
+const form=(password,confirmation)=>({id:'slovo-password-form',elements:{
+ password:{value:password,focus:()=>{}},confirm_password:{value:confirmation,focus:()=>{}}
+}});
+await sandbox.submit({target:form('clave-fuerte-de-prueba!','otra-clave'),preventDefault:()=>{}});
+assert.equal(submitted.length,0,'No se debe enviar una contraseña distinta de su confirmación');
+assert.ok(sandbox.passwordError.includes('no coinciden'));
+await sandbox.submit({target:form('clave-fuerte-de-prueba!','clave-fuerte-de-prueba!'),preventDefault:()=>{}});
+assert.equal(submitted.length,1,'La clave debe enviarse una sola vez al usuario existente');
+assert.equal(submitted[0].password,'clave-fuerte-de-prueba!');
+assert.equal(sandbox.account,'usuario-google-de-prueba','No se debe cambiar el identificador de usuario');
+assert.equal(sandbox.passwordOpen,false,'El formulario se debe cerrar tras actualizar');
 const config=readFileSync('supabase-config.js','utf8');
 assert.ok(config.includes('sb_publishable_'),'Falta clave pública de Supabase');
 assert.ok(!config.includes('sb_secret_')&&!config.includes('service_role'),'No subas credenciales privadas');
