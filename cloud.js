@@ -88,7 +88,7 @@ render=function(){
  const top=APP.querySelector('.topbar-metrics');
  if(top)top.insertAdjacentHTML('beforeend','<button class="cloud-trigger" data-action="cloud-open">'+(account?'Mi cuenta':'Iniciar sesión')+'</button>');
  const main=APP.querySelector('.main-content');
- if(main&&page==='home')main.insertAdjacentHTML('afterbegin','<div class="cloud-account-strip"><div><b>'+(account?'✓ Mi progreso':'☁ Tu progreso en todos tus dispositivos')+'</b><span> · '+esc(status)+'</span></div><button data-action="cloud-open">'+(account?'Gestionar cuenta':'Crear cuenta')+' →</button></div>');
+ if(main&&page==='home'){const anchor=main.querySelector('.quest-section')||main.querySelector('.time-first');(anchor||main).insertAdjacentHTML(anchor?'afterend':'afterbegin','<div class="cloud-account-strip"><div><b>'+(account?'✓ Mi progreso':'☁ Tu progreso en todos tus dispositivos')+'</b><span> · '+esc(status)+'</span></div><button data-action="cloud-open">'+(account?'Gestionar cuenta':'Crear cuenta')+' →</button></div>');}
  if(main&&page==='settings')main.insertAdjacentHTML('beforeend','<section class="settings-panel"><h2>Cuenta y nube</h2><p>'+esc(status)+'</p><button class="btn btn-primary" data-action="cloud-open">Administrar cuenta</button></section>');
  if(modal)APP.insertAdjacentHTML('beforeend',authModal())
 };
