@@ -1,0 +1,69 @@
+import {readFileSync} from 'node:fs';
+import vm from 'node:vm';
+import assert from 'node:assert/strict';
+
+const index=readFileSync('index.html','utf8');
+const cloud=readFileSync('cloud.js','utf8');
+const css=readFileSync('v6.css','utf8');
+const js=readFileSync('v6.js','utf8');
+const sw=readFileSync('sw.js','utf8');
+const manifest=JSON.parse(readFileSync('manifest.webmanifest','utf8'));
+new vm.Script(js,{filename:'v6.js'});
+assert.ok(index.includes('<link rel="stylesheet" href="./v6.css"'),'Faltan estilos V6');
+assert.ok(index.indexOf('src="./v6.js"')>index.indexOf('src="./cloud.js"'),'V6 debe cargar después de autenticación');
+assert.ok(cloud.includes('window.SLOVO_PROFILE_VIEW'),'V6 necesita nombre y foto del perfil autenticado');
+assert.ok(sw.includes('v6.css')&&sw.includes('v6.js'),'V6 debe funcionar desde la caché PWA');
+assert.equal(manifest.display,'standalone');
+assert.ok(index.includes('safe-area-inset-top'),'Respetar Dynamic Island del iPhone');
+assert.ok(css.includes('prefers-reduced-motion:reduce'),'Respetar reducción de movimiento');
+assert.ok(js.includes("data-action=\"daily-start\"")&&js.includes("data-action=\"start-micro\""),'V6 debe preservar las acciones existentes');
+assert.ok(!js.includes('.from(')&&!js.includes('updateUser('),'La capa V6 no debe escribir en Supabase');
+
+const finalCall=/\nrender\(\);\s*\}\)\(\);\s*$/;
+assert.ok(finalCall.test(js),'Formato inesperado del boot V6');
+const modified=js.replace(finalCall,"\nglobalThis.__V6_TEST__={home,identity,navMarkup};\n})();");
+const saved=new Map(),events={};
+const ctx={
+ localStorage:{getItem:k=>saved.get(k)||null,setItem:(k,v)=>saved.set(k,v)},
+ window:{SLOVO_PROFILE_VIEW:()=>({name:'Маша',avatarUrl:'',loggedIn:true})},
+ document:{documentElement:{dataset:{}},querySelector:()=>null},
+ APP:{querySelector:()=>null,querySelectorAll:()=>[],addEventListener:(type,cb)=>events[type]=cb},
+ render(){},page:'home',
+ state:{xp:42,dailyTasks:{},lessons:{},cards:{},dialogues:{}},
+ DAILY_CHALLENGES:[
+  {id:'listen',label:'Escucha',icon:'sound'},
+  {id:'speak',label:'Habla',icon:'chat'},
+  {id:'recall',label:'Recuerda',icon:'review'}
+ ],
+ today:()=> '2026-10-21',
+ dailyCompletedCount:r=>r?Object.values(r.tasks||{}).filter(Boolean).length:0,
+ dailyTarget:()=>({ru:'Привет',es:'Hola',speak:'Привет'}),
+ nextLesson:()=>({title:'Mi primera lección'}),
+ dueCards:()=>[],
+ streak:()=>1,
+ icon:name=>'<svg data-icon="'+name+'"></svg>',
+ esc:str=>String(str).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;'),
+};
+vm.runInNewContext(modified,ctx,{filename:'v6-integration.js'});
+const view=ctx.__V6_TEST__;
+assert.ok(view);
+let markup=view.home();
+assert.ok(markup.includes('Привет, Маша')&&markup.includes('0 de 3'));
+assert.ok(markup.includes('¿Cuánto te queda hoy?'));
+assert.ok(markup.includes('data-action="cloud-open"')===false,'Usuario con Google ya conectado no debe parecer invitado');
+assert.ok(markup.includes('data-action="profile-open"'));
+assert.ok(markup.includes('data-action="daily-start" data-task="listen"'));
+assert.ok(markup.includes('data-action="start-micro" data-mode="normal"'));
+assert.ok(markup.includes('1 <small>min</small>')&&markup.includes('7 <small>min</small>'));
+ctx.state.dailyTasks['2026-10-21']={tasks:{listen:true,speak:true}};
+markup=view.home();
+assert.ok(markup.includes('2 de 3')&&markup.includes('Continuar: Recuerda'));
+assert.ok(markup.includes('lang="ru">Привет'));
+ctx.state.dailyTasks['2026-10-21'].tasks.recall=true;
+markup=view.home();
+assert.ok(markup.includes('3 de 3')&&markup.includes('Repetir: Escucha'));
+ctx.window.SLOVO_PROFILE_VIEW=()=>({name:'<Masha>',avatarUrl:'',loggedIn:false});
+assert.ok(view.home().includes('&lt;Masha&gt;'),'El nombre debe estar protegido contra HTML');
+assert.ok(view.home().includes('data-action="cloud-open"'));
+assert.equal(saved.size,0,'La vista V6 no debe alterar localStorage de 5.1');
+console.log('✓ СЛОВО 6.0: flujo real de retos, perfil, seguridad y PWA verificados');

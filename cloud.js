@@ -18,6 +18,8 @@ let prefs=read(profilePrefsKey(null))||{celebrations:true,sound:true};
 const safeName=s=>String(s||'').replace(/[<>&"'\x00-\x1f]/g,'').trim().slice(0,40);
 const preferredName=()=>safeName(profile?.display_name)||safeName(email.split('@')[0])||'explorador';
 const initials=()=>[...preferredName()].slice(0,2).join('').toUpperCase();
+// Vista de perfil de solo lectura para el nuevo diseño, nunca expone tokens ni contraseñas.
+window.SLOVO_PROFILE_VIEW=()=>({name:preferredName(),avatarUrl,loggedIn:!!account});
 function personalAchievement(){const lessons=Object.values(state.lessons||{}).filter(x=>x?.completed).length;const dialogs=Object.keys(state.dialogues?.completed||{}).length;const xp=state.xp||0;if(lessons>=3)return '🏅 '+lessons+' lecciones superadas';if(dialogs>=1)return '💬 Primer diálogo completado';if(xp>=100)return '✨ Ya alcanzaste 100 XP';if(xp>=10)return '🌱 Has empezado a crecer';return '🎯 Tu próxima conquista comienza hoy'}
 
 const avatarMark=(extra='')=>avatarUrl?'<img class="slovo-avatar-img" src="'+avatarUrl+'" alt="Tu foto de perfil" '+extra+'>':'<span class="slovo-avatar-fallback" aria-hidden="true">'+esc(initials())+'</span>';
