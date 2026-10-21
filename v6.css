@@ -204,3 +204,38 @@ html body .cloud-google-button{box-shadow:0 3px 0 #0002}
  html body *,html body *:before,html body *:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
 html[data-v6-reduce="true"] body *,html[data-v6-reduce="true"] body *:before,html[data-v6-reduce="true"] body *:after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+
+/* Contraste de pantallas heredadas: tema claro sin textos blancos en tarjetas claras. */
+:root{
+ color-scheme:light;
+ --bg:var(--v6-bg);--bg2:var(--v6-bg);--surface:var(--v6-paper);
+ --surface-strong:var(--v6-paper);--line:var(--v6-line);--text:var(--v6-text);
+ --muted:var(--v6-muted);--sky:var(--v6-sky);--violet:var(--v6-lav);
+ --soft-glow:0 9px 24px rgba(49,70,48,.09)
+}
+html[data-v6-theme="dark"]{
+ --bg:var(--v6-bg);--bg2:var(--v6-bg);--surface:var(--v6-paper);
+ --surface-strong:var(--v6-paper);--line:var(--v6-line);--text:var(--v6-text);
+ --muted:var(--v6-muted)
+}
+html body .dialog-hub-hero,html body .dialog-preview-home,html body .dialog-mini-card,
+html body .dialog-hub-copy,html body .mini-quiz,html body .mini-learning-card,
+html body .micro-panel,html body .daily-panel,html body .review-stats>div,
+html body .stats-main,html body .settings-panel,html body .dialog-scenario,
+html body .dialog-speaker,html body .dialog-option{
+ background:var(--v6-paper);border-color:var(--v6-line);color:var(--v6-text)
+}
+html body .dialog-mini-card{background:var(--v6-soft)}
+html body .dialog-mini-card span,html body .dialog-mini-card p,
+html body .dialog-preview-copy p,html body .dialog-speaker p,
+html body .dialog-option span,html body .review-stats>div small,
+html body .settings-panel p{color:var(--v6-muted)}
+html body .dialog-hub-hero h1,html body .dialog-preview-copy h2,
+html body .dialog-mini-card strong,html body .dialog-mini-card b,
+html body .daily-panel h1,html body .mini-quiz h2{color:var(--v6-text)}
+html body .page-heading,html body .dialog-page-heading,html body .unit-head{color:var(--v6-text)}
+html body .dialog-mini-list,html body .dialog-preview-lines{color:var(--v6-text)}
+html body .dialog-chip{background:var(--v6-soft);border-color:var(--v6-line);color:var(--v6-mint-d)}
+html body .dialog-tag,html body .dialog-level{color:var(--v6-mint-d)}
+html body .daily-main-audio,html body .listen-btn{background:var(--v6-soft);border-color:var(--v6-line);color:var(--v6-text)}
+html body .daily-record-btn,html body .daily-play-btn{background:var(--v6-paper);border-color:var(--v6-line);color:var(--v6-text)}
