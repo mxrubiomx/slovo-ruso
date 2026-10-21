@@ -239,3 +239,132 @@ html body .dialog-chip{background:var(--v6-soft);border-color:var(--v6-line);col
 html body .dialog-tag,html body .dialog-level{color:var(--v6-mint-d)}
 html body .daily-main-audio,html body .listen-btn{background:var(--v6-soft);border-color:var(--v6-line);color:var(--v6-text)}
 html body .daily-record-btn,html body .daily-play-btn{background:var(--v6-paper);border-color:var(--v6-line);color:var(--v6-text)}
+
+
+/* СЛОВО 6.0.1 · Encabezado iOS y Logros de tema completo.
+   Las antiguas reglas #app .topbar y varios gradientes oscuros de v5
+   tenían prioridad sobre el tema cálido. Mantener también Noche menta. */
+
+/* La cabecera móvil estaba fijada en #0b1423 por un selector con ID de v5. */
+@media(max-width:850px){
+ html body #app .topbar{
+   background:var(--v6-paper);
+   color:var(--v6-text);
+   border-bottom:1px solid var(--v6-line);
+ }
+ html body #app .topbar .mobile-brand{color:var(--v6-text)}
+ html body #app .topbar .topbar-metrics>span{
+   background:var(--v6-soft);color:var(--v6-text);border-color:var(--v6-line)
+ }
+ html body #app .topbar .cloud-trigger,
+ html body #app .topbar .v6-theme-toggle{
+   background:var(--v6-paper);color:var(--v6-text);
+   border-color:var(--v6-line)
+ }
+}
+/* La PWA ya instalada usa black-translucent: iOS dibuja texto blanco
+   sobre el contenido. Un acento verde únicamente en el safe area ofrece
+   contraste sin convertir el encabezado claro en un panel oscuro.
+   Nunca ocupa el área táctil del encabezado. */
+@media(display-mode:standalone) and (max-width:850px){
+ html[data-v6-theme="light"]::before{
+   content:"";position:fixed;top:0;left:0;right:0;
+   height:max(env(safe-area-inset-top,0px),54px);
+   background:#286449;pointer-events:none;z-index:10
+ }
+}
+
+/* Logros: sustituir las superficies oscuras heredadas sin tocar cálculos. */
+html body .stats-summary{
+ background:linear-gradient(125deg,var(--v6-paper),var(--v6-soft));
+ border:1.5px solid var(--v6-line)!important;
+ border-radius:26px;color:var(--v6-text);box-shadow:var(--v6-shadow)
+}
+html body .stats-ring{
+ background:conic-gradient(var(--v6-mint) var(--pct),var(--v6-line) var(--pct))
+}
+html body .stats-ring>div{
+ background:var(--v6-paper);color:var(--v6-text)
+}
+html body .stats-ring b,html body .stats-main h2,
+html body .stat-card strong{color:var(--v6-text)}
+html body .stats-ring span,html body .stats-main p{
+ color:var(--v6-muted)
+}
+html body .stat-grid .stat-card{
+ background:var(--v6-paper);border:1.5px solid var(--v6-line)!important;
+ border-radius:22px;color:var(--v6-text);box-shadow:0 4px 0 rgba(75,84,69,.08)
+}
+html body .stat-card>span,html body .stat-card p,
+html body .unit-head p{color:var(--v6-muted)}
+html body .stat-icon.mint{color:#26734b;background:#c8f4d6}
+html body .stat-icon.peach{color:#8c4b31;background:var(--v6-peach)}
+html body .stat-icon.lilac{color:#4c3f7f;background:var(--v6-lav)}
+html body .review-stats,
+html body .review-stats.wide{
+ background:var(--v6-line);
+ border:1px solid var(--v6-line)!important;
+ border-radius:20px;overflow:hidden
+}
+html body .review-stats>div,
+html body .review-stats.wide>div{
+ background:var(--v6-paper)!important;
+ border-color:var(--v6-line)!important;color:var(--v6-text)
+}
+html body .review-stats span{color:var(--v6-muted)}
+html body .review-stats strong{color:var(--v6-text)}
+html body .daily-stats-section,html body .micro-stats-section{
+ background:var(--v6-paper)!important;
+ color:var(--v6-text);
+ border:1.5px solid var(--v6-line)!important;
+ border-radius:25px;
+ padding:24px;
+ box-shadow:0 8px 27px rgba(39,51,39,.07)
+}
+html body .daily-stats-section h2,html body .micro-stats-section h2,
+html body .micro-stats-section h3{
+ color:var(--v6-text)
+}
+html body .daily-stats-section>p,
+html body .micro-stats-help{color:var(--v6-muted)}
+html body .daily-stats-grid{
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;
+ margin:15px 0 16px
+}
+html body .daily-stats-grid>div,
+html body .micro-stats-box>div{
+ background:var(--v6-soft);
+ border:1px solid var(--v6-line)!important;
+ border-radius:17px;padding:19px 15px;
+ color:var(--v6-text)
+}
+html body .daily-stats-grid>div{
+ display:flex;flex-direction:column;gap:8px;
+}
+html body .daily-stats-grid b,
+html body .micro-stats-box b{
+ color:var(--v6-mint-d);font-size:27px
+}
+html body .daily-stats-grid span,
+html body .micro-stats-box span{color:var(--v6-muted);font-size:11px}
+html body .micro-log{border:1px solid var(--v6-line)}
+html body .micro-log>div{
+ background:var(--v6-paper);border-color:var(--v6-line);color:var(--v6-text)
+}
+html body .micro-log>div:nth-child(even){background:var(--v6-soft)}
+html body .micro-log span{color:var(--v6-muted)}
+html body .micro-log b{color:var(--v6-text)}
+@media(max-width:760px){
+ html body .daily-stats-section,html body .micro-stats-section{
+   padding:20px 16px
+ }
+ html body .daily-stats-grid{
+   grid-template-columns:repeat(2,minmax(0,1fr));gap:8px
+ }
+ html body .daily-stats-grid>div,
+ html body .micro-stats-box>div{padding:15px 11px}
+}
+@media(max-width:370px){
+ html body .stats-summary{flex-direction:column;text-align:center}
+ html body .micro-stats-box{grid-template-columns:1fr}
+}

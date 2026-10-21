@@ -16,6 +16,15 @@ assert.ok(sw.includes('v6.css')&&sw.includes('v6.js'),'V6 debe funcionar desde l
 assert.equal(manifest.display,'standalone');
 assert.ok(index.includes('safe-area-inset-top'),'Respetar Dynamic Island del iPhone');
 assert.ok(css.includes('prefers-reduced-motion:reduce'),'Respetar reducción de movimiento');
+
+assert.ok(css.includes('html body #app .topbar{'),'iPhone: la cabecera V6 debe vencer la regla oscura con #app de V5');
+assert.ok(css.includes('html[data-v6-theme="light"]::before'),'PWA: el status bar translúcido necesita contraste');
+assert.ok(css.includes('pointer-events:none;z-index:10'),'Zona segura debe ser decorativa, sin capturar toques');
+assert.ok(css.includes('background:var(--v6-paper)!important;'),'Logros: eliminar gradientes oscuros heredados');
+for(const selector of ['.stats-summary','.stats-ring>div','.review-stats.wide>div','.daily-stats-section','.daily-stats-grid>div','.micro-stats-section','.micro-stats-box>div','.micro-log>div']){
+ assert.ok(css.includes(selector),'Falta tematizar componente de Logros: '+selector);
+}
+
 assert.ok(js.includes("data-action=\"daily-start\"")&&js.includes("data-action=\"start-micro\""),'V6 debe preservar las acciones existentes');
 assert.ok(!js.includes('.from(')&&!js.includes('updateUser('),'La capa V6 no debe escribir en Supabase');
 
