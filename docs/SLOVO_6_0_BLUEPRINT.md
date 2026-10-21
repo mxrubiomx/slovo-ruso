@@ -234,3 +234,25 @@ La reversión de datos de Supabase no está cubierta por este procedimiento. Par
 4. ¿Mantener sesión gratuita 1/3/7 como acceso prioritario de Inicio? (requisito heredado: sí).
 
 **Próximo entregable tras aprobar este blueprint:** prototipo de alta fidelidad de Inicio + pantalla de reto + Perfil en claro y oscuro, antes de implementar sobre la app en producción.
+
+---
+
+## 12. Prototipo interactivo listo para evaluación (21 oct 2026)
+
+**Archivo:** [prototypes/slovo-6/index.html](../prototypes/slovo-6/index.html)  
+**Rama exclusiva:** `design/v6-ux-blueprint`; **la app en `main` no se modificó**.  
+**Versión estable recuperable:** `backup/v5.1-stable-2026-10-21`.
+
+La maqueta es una página HTML independiente. Estática, sin Supabase, sin acceso a Google ni a contraseñas reales. Funciona con datos de demostración guardados bajo la clave local `slovo_v6_demo_only` del navegador donde se abre, separados del progreso de СЛОВО 5.1.
+
+**Pantallas desarrolladas en el prototipo:**
+- **Hoy:** portada personal, elección interactiva 1/3/7 minutos, itinerario Escucha/Habla/Recuerda y siguiente acción.
+- **Ejercicio:** avance por preguntas, pronunciación opcional del dispositivo, feedback y recompensa al completar.
+- **Perfil:** nombre, foto de demostración, tema cálido / noche menta, controles de movimiento, sonido e Искра.
+- **Ruta / Practicar / Logros:** pantallas conceptuales; aún no recrean el contenido real.
+
+**Pruebas de lógica y eventos efectuadas:** script válido; navegación, selección de 7 min, flujo micro-misión, feedback correcto, siguiente pregunta, cambio de tema, edición de nombre y avance 1/3 del objetivo diario. **Pendiente:** revisión visual y táctil en Safari/iPhone, accesibilidad con VoiceOver y pruebas de rendimiento.
+
+**Cómo probar localmente:** descargar `prototypes/slovo-6/index.html` desde GitHub y abrirlo en un navegador. No reemplazar el `index.html` de producción; no ingresar contraseñas en un visor externo del prototipo.
+
+**Decisiones pendientes:** composición móvil, tema por defecto, el personaje Искра y el tratamiento de la pantalla «Reto terminado».
