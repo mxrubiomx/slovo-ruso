@@ -29,12 +29,14 @@ function navMarkup(entries){
  return entries.map(([id,label,glyph])=>'<button type="button" class="nav-item '+(active===id?'active':'')+'" data-action="nav" data-page="'+id+'" aria-label="'+label+'" '+(active===id?'aria-current="page"':'')+'>'+icon(glyph,20)+'<span>'+label+'</span></button>').join('');
 }
 function identity(){
+ const cloud=typeof window.SLOVO_PROFILE_VIEW==='function'?window.SLOVO_PROFILE_VIEW():null;
  const greeting=APP.querySelector('.slovo-welcome strong');
- const loggedIn=!!greeting;
+ const loggedIn=cloud?cloud.loggedIn:!!greeting;
  const raw=greeting?.textContent||'¡Привет, explorador!';
- const name=raw.replace(/^¡Привет,\s*/,'').replace(/!$/,'').trim().slice(0,40)||'explorador';
- const markup=APP.querySelector('.slovo-profile-thumb')?.innerHTML||'<span>'+esc([...name][0]?.toUpperCase()||'С')+'</span>';
- return {name:esc(name),avatar:markup,accountAction:loggedIn?'profile-open':'cloud-open'};
+ const fallback=raw.replace(/^¡Привет,\s*/,'').replace(/!$/,'').trim();
+ const name=String(cloud?.name||fallback||'explorador').slice(0,40);
+ const avatar=cloud?.avatarUrl?'<img src="'+esc(cloud.avatarUrl)+'" alt="">':'<span>'+esc([...name][0]?.toUpperCase()||'С')+'</span>';
+ return {name:esc(name),avatar,accountAction:loggedIn?'profile-open':'cloud-open'};
 }
 function iskra(){
  if(!showIskra)return '';
