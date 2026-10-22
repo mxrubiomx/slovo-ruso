@@ -20,7 +20,7 @@ Estado: **backend seguro desplegado; frontend en rama de desarrollo; llamadas a 
    - `AZURE_SPEECH_REGION=<región de Azure>`
    - `AZURE_SPEECH_KEY=<clave secreta>`
    - `AZURE_SPEECH_ENABLED=true` **solo tras comprobar F0 y presupuesto**.
-   - `SUPABASE_DB_URL`: conexión PostgreSQL **solo servidor**, cuando no esté incluida automáticamente. Usar cadena de conexión de Supabase; nunca en frontend ni GitHub.
+   - `SUPABASE_DB_URL`: **no añadirlo manualmente**: Supabase inyecta este valor automáticamente al ejecutar la Edge Function.
 5. Solicitar una prueba con cuenta real y una grabación corta. Verificar respuesta 200 y puntuación por palabra, con la aplicación en iPhone Safari y en la PWA instalada.
 
 ## Implantación
