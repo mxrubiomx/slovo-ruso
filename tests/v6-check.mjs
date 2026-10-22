@@ -85,6 +85,8 @@ assert.ok(sw.includes('pronunciation.js')&&sw.includes('pronunciation.css'),'PWA
 assert.ok(cloud.includes('SLOVO_SPEECH_CLIENT'),'Cliente autenticado no está disponible');
 assert.ok(backend.includes('AZURE_SPEECH_TIER')&&backend.includes('=== "F0"'),'Bloquear cualquier nivel que no sea F0');
 assert.ok(backend.includes('reserve_pronunciation'),'Reservar cuota antes de enviar audio');
+assert.ok(backend.includes('monthlyBudgetSeconds:16200'),'El backend debe anunciar exactamente 4 h 30 min');
+assert.ok(!backend.includes('monthlyBudgetSeconds:14400'),'No debe conservarse cuota mensual antigua');
 assert.ok(backend.includes('PHRASES[phraseId]'),'Solo frases permitidas en el servidor');
 assert.ok(backend.includes('Authorization')||backend.includes('authorization'),'Requiere autenticar usuario');
 assert.ok(backend.includes('SUPABASE_DB_URL'),'La cuota exige Postgres en servidor');
