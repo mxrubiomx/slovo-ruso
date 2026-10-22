@@ -83,7 +83,7 @@ Deno.serve(async req=>{
   try {
     const userId=await identifyUser(req);
     if(!userId)return respond(401,{error:"Inicia sesión para evaluar tu pronunciación"});
-    if(req.method==="GET")return respond(200,{available:ready(),locale:"ru-RU",maxSeconds:12,monthlyBudgetSeconds:14400});
+    if(req.method==="GET")return respond(200,{available:ready(),locale:"ru-RU",maxSeconds:12,monthlyBudgetSeconds:16200});
     if(!ready())return respond(503,{error:"La evaluación Azure F0 todavía no está activada. Puedes seguir practicando con escucha y grabación local.",code:"not_configured"});
     const length=Number(req.headers.get("content-length")||0);
     if(length>750000)return respond(413,{error:"Grabación demasiado grande"});
