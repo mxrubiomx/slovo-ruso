@@ -3,6 +3,7 @@
 const cfg=window.SLOVO_SUPABASE_CONFIG||{};
 const client=window.supabase?.createClient&&cfg.url&&cfg.publishableKey?window.supabase.createClient(cfg.url,cfg.publishableKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}}):null;
 const originalSave=save,originalRender=render;
+window.SLOVO_SPEECH_CLIENT=client;
 const guestKey='slovo_progress_v1';
 const key=id=>'slovo_user_'+id,metaKey=id=>'slovo_meta_'+id;
 const read=k=>{try{return JSON.parse(localStorage.getItem(k))}catch{return null}};

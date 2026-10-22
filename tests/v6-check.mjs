@@ -75,4 +75,22 @@ ctx.window.SLOVO_PROFILE_VIEW=()=>({name:'<Masha>',avatarUrl:'',loggedIn:false})
 assert.ok(view.home().includes('&lt;Masha&gt;'),'El nombre debe estar protegido contra HTML');
 assert.ok(view.home().includes('data-action="cloud-open"'));
 assert.equal(saved.size,0,'La vista V6 no debe alterar localStorage de 5.1');
+const pronunciation=readFileSync('pronunciation.js','utf8');
+const pronunciationCss=readFileSync('pronunciation.css','utf8');
+const backend=readFileSync('supabase/functions/pronunciation-assess/index.ts','utf8');
+new vm.Script(pronunciation,{filename:'pronunciation.js'});
+assert.ok(index.includes('src="./pronunciation.js"')&&index.includes('href="./pronunciation.css"'),'No se cargó el módulo de voz');
+assert.ok(index.indexOf('src="./v6.js"')<index.indexOf('src="./pronunciation.js"'),'Pronunciación debe cargar tras el tema 6');
+assert.ok(sw.includes('pronunciation.js')&&sw.includes('pronunciation.css'),'PWA necesita audio y estilos offline');
+assert.ok(cloud.includes('SLOVO_SPEECH_CLIENT'),'Cliente autenticado no está disponible');
+assert.ok(backend.includes('AZURE_SPEECH_TIER')&&backend.includes('=== "F0"'),'Bloquear cualquier nivel que no sea F0');
+assert.ok(backend.includes('reserve_pronunciation'),'Reservar cuota antes de enviar audio');
+assert.ok(backend.includes('monthlyBudgetSeconds:16200'),'El backend debe anunciar exactamente 4 h 30 min');
+assert.ok(!backend.includes('monthlyBudgetSeconds:14400'),'No debe conservarse cuota mensual antigua');
+assert.ok(backend.includes('PHRASES[phraseId]'),'Solo frases permitidas en el servidor');
+assert.ok(backend.includes('Authorization')||backend.includes('authorization'),'Requiere autenticar usuario');
+assert.ok(backend.includes('SUPABASE_DB_URL'),'La cuota exige Postgres en servidor');
+assert.ok(!pronunciation.includes('AZURE_SPEECH_KEY'),'No exponer secreto de Microsoft al navegador');
+assert.ok(pronunciationCss.includes('var(--v6-paper)'),'Mantener tema claro y oscuro');
+
 console.log('✓ СЛОВО 6.0: flujo real de retos, perfil, seguridad y PWA verificados');

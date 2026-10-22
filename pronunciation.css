@@ -1,0 +1,29 @@
+/* СЛОВО · voz y pronunciación 6.2 */
+.pron-entry{display:flex;justify-content:space-between;gap:12px;align-items:center;width:100%;min-height:62px;margin:0 0 18px;padding:15px 19px;background:var(--v6-soft);border:1.5px solid var(--v6-line);border-radius:20px;color:var(--v6-text);font-weight:800;text-align:left;box-shadow:0 4px 0 #0001;cursor:pointer}
+.pron-entry:active{transform:translateY(3px)}
+.pron-shell{max-width:780px;margin:auto;animation:v6-rise .22s ease both}
+.pron-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:10px 0 22px}
+.pron-shell h1{font-size:clamp(27px,5vw,36px);margin:8px 0;color:var(--v6-text)}
+.pron-intro{font-size:14px;color:var(--v6-muted);margin-bottom:20px;line-height:1.6}
+.pron-card,.pron-result{background:var(--v6-paper);border:1px solid var(--v6-line);padding:22px;border-radius:25px;box-shadow:var(--v6-shadow);margin-bottom:24px}
+.pron-pills{display:flex;flex-wrap:wrap;gap:9px;margin:15px 0 21px}
+.pron-pill{padding:11px 13px;border-radius:13px;background:var(--v6-bg);color:var(--v6-text);border:1px solid var(--v6-line);min-height:43px;font-size:13px}
+.pron-pill.selected{background:var(--v6-mint);color:#173F2D;border-color:#5DAE85;font-weight:750}
+.pron-sentence{display:flex;flex-direction:column;gap:9px;padding:24px 14px;background:var(--v6-soft);border-radius:19px;text-align:center}
+.pron-sentence span{font-size:clamp(25px,5vw,33px);font-weight:800;line-height:1.25}
+.pron-sentence small{font-size:13px;color:var(--v6-muted)}
+.pron-controls{display:flex;gap:11px;margin:20px 0}
+.pron-quiet,.pron-record{min-height:48px;border:1.5px solid var(--v6-line);border-radius:14px;padding:11px 17px;background:var(--v6-paper);color:var(--v6-text);font-size:13px;font-weight:750}
+.pron-record{background:var(--v6-mint);color:#174A31;border-color:#5EB688;flex:1}
+.pron-status,.pron-privacy,.pron-disclaimer{font-size:12px;line-height:1.65;color:var(--v6-muted)}
+.pron-message{margin:10px 0;background:var(--v6-soft);padding:13px;border-radius:14px;font-size:13px;color:var(--v6-text)}
+.pron-result-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.pron-result-top strong{font-size:28px;color:var(--v6-mint-d)}
+.pron-scores{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:16px 0}
+.pron-scores>div{background:var(--v6-soft);padding:14px 10px;text-align:center;border-radius:15px}
+.pron-scores b{font-size:23px;display:block;color:var(--v6-text)}
+.pron-scores small{font-size:11px;color:var(--v6-muted)}
+.pron-words{display:flex;flex-wrap:wrap;gap:9px;margin:15px 0}
+.pron-words>span{background:var(--v6-soft);padding:9px;border-radius:11px;font-size:12px}
+.pron-words>span.needs-work{background:var(--v6-peach)}
+@media(max-width:550px){.pron-top{align-items:flex-start;flex-direction:column}.pron-card,.pron-result{padding:16px}.pron-controls{flex-direction:column}.pron-scores{gap:6px}.pron-scores>div{padding:12px 6px}}
