@@ -368,3 +368,29 @@ html body .micro-log b{color:var(--v6-text)}
  html body .stats-summary{flex-direction:column;text-align:center}
  html body .micro-stats-box{grid-template-columns:1fr}
 }
+
+/* AP1-001 · Respuestas de Escucha/Recuerda: contraste dependiente del tema. */
+html body .daily-option{
+  background:var(--v6-paper);
+  border-color:var(--v6-line);
+  color:var(--v6-text)
+}
+html body .daily-option:not(:disabled):hover{
+  background:var(--v6-soft);
+  border-color:var(--v6-mint-d)
+}
+html body .daily-option.good{
+  background:var(--v6-soft);
+  border-color:var(--v6-mint-d);
+  color:var(--v6-text)
+}
+html body .daily-option.bad{
+  background:#FCE9EB;
+  border-color:#B65D66;
+  color:#753036
+}
+html[data-v6-theme="dark"] body .daily-option.bad{
+  background:#4B3543;
+  border-color:#D7979B;
+  color:#FFCCD1
+}
