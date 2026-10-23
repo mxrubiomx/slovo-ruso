@@ -838,3 +838,13 @@ html[data-v6-theme="light"] body .stats-ring{
 
 /* AP1-001 | iOS: v4.6 fija el fondo del elemento html en oscuro a <=850px. */
 html[data-v6-theme="light"]{background:var(--v6-bg)}
+
+/* AP1-001 | textos pequeños sobre superficies menta claras (AA >= 4.5:1). */
+html[data-v6-theme="light"] body .dialog-coach p,
+html[data-v6-theme="light"] body .slovo-welcome small,
+html[data-v6-theme="light"] body .daily-stats-grid span,
+html[data-v6-theme="light"] body .micro-stats-box span,
+html[data-v6-theme="light"] body .micro-stats-help,
+html[data-v6-theme="light"] body .quest-head p{
+  color:#52675B
+}
