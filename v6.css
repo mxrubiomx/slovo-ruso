@@ -394,3 +394,331 @@ html[data-v6-theme="dark"] body .daily-option.bad{
   border-color:#D7979B;
   color:#FFCCD1
 }
+
+/* AP1-001 | auditoría integral de modo claro.
+   Adaptaciones de superficies heredadas v1-v5. Solo se aplican con tema claro:
+   mantener intacto el diseño de Noche menta y la lógica de ejercicios. */
+
+/* Ruta: tarjetas, lecciones, preguntas y estados de respuesta */
+html[data-v6-theme="light"] body .course-card:not(:disabled):hover,
+html[data-v6-theme="light"] body .course-card:not(:disabled):focus-visible{
+  background:var(--v6-soft);color:var(--v6-text)
+}
+html[data-v6-theme="light"] body .course-number,
+html[data-v6-theme="light"] body .lesson-art,
+html[data-v6-theme="light"] body .alpha-large{
+  background:var(--v6-soft);border-color:var(--v6-line);color:var(--v6-mint-d)
+}
+html[data-v6-theme="light"] body .course-card.locked .course-number{
+  background:var(--v6-bg);border-color:var(--v6-line);color:var(--v6-muted)
+}
+html[data-v6-theme="light"] body .course-main p,
+html[data-v6-theme="light"] body .course-card.locked .course-state,
+html[data-v6-theme="light"] body .lesson-top>span,
+html[data-v6-theme="light"] body .study-hint,
+html[data-v6-theme="light"] body .study-example span,
+html[data-v6-theme="light"] body .foot-note,
+html[data-v6-theme="light"] body .quiz-prompt,
+html[data-v6-theme="light"] body .study-overline,
+html[data-v6-theme="light"] body .quiz-type,
+html[data-v6-theme="light"] body .result-card>p,
+html[data-v6-theme="light"] body .result-score span,
+html[data-v6-theme="light"] body .review-summary>p,
+html[data-v6-theme="light"] body .review-card>p,
+html[data-v6-theme="light"] body .reveal p,
+html[data-v6-theme="light"] body .rate-title,
+html[data-v6-theme="light"] body .rating small,
+html[data-v6-theme="light"] body .alpha-detail p,
+html[data-v6-theme="light"] body .alpha-tile>span,
+html[data-v6-theme="light"] body .alpha-tile strong small,
+html[data-v6-theme="light"] body .alpha-example>span,
+html[data-v6-theme="light"] body .review-stats span{
+  color:var(--v6-muted)
+}
+html[data-v6-theme="light"] body .course-state,
+html[data-v6-theme="light"] body .result-score strong,
+html[data-v6-theme="light"] body .reveal-word,
+html[data-v6-theme="light"] body .sound-inline,
+html[data-v6-theme="light"] body .foot-note svg,
+html[data-v6-theme="light"] body .back-link{
+  color:var(--v6-mint-d)
+}
+html[data-v6-theme="light"] body .study-card,
+html[data-v6-theme="light"] body .quiz-card,
+html[data-v6-theme="light"] body .alpha-detail,
+html[data-v6-theme="light"] body .alpha-tile{
+  background:var(--v6-paper);border-color:var(--v6-line);color:var(--v6-text)
+}
+html[data-v6-theme="light"] body .study-divider,
+html[data-v6-theme="light"] body .reveal{border-color:var(--v6-line)}
+html[data-v6-theme="light"] body .study-divider{background:var(--v6-line)}
+html[data-v6-theme="light"] body .study-example{
+  background:var(--v6-soft);border-color:var(--v6-line);color:var(--v6-text)
+}
+html[data-v6-theme="light"] body .option,
+html[data-v6-theme="light"] body .rating{
+  background:var(--v6-paper);border-color:var(--v6-line);color:var(--v6-text)
+}
+html[data-v6-theme="light"] body .option:not(:disabled):hover,
+html[data-v6-theme="light"] body .alpha-tile:hover,
+html[data-v6-theme="light"] body .alpha-tile.selected{
+  background:var(--v6-soft);border-color:var(--v6-mint-d);color:var(--v6-text)
+}
+html[data-v6-theme="light"] body .option-letter{
+  border-color:var(--v6-line);color:var(--v6-muted);background:var(--v6-soft)
+}
+html[data-v6-theme="light"] body .option.correct,
+html[data-v6-theme="light"] body .feedback.good{
+  background:#E2F5E9;border-color:#4D996D;color:#1A623D
+}
+html[data-v6-theme="light"] body .option.incorrect,
+html[data-v6-theme="light"] body .feedback.bad{
+  background:#FBE6E9;border-color:#BE6573;color:#88323C
+}
+html[data-v6-theme="light"] body .option.muted{opacity:.85;color:var(--v6-muted)}
+html[data-v6-theme="light"] body .rating.again{
+  background:#FBE6E9;border-color:#BE6573;color:#88323C
+}
+html[data-v6-theme="light"] body .rating.hard{
+  background:#FFF0D5;border-color:#D29D4C;color:#805516
+}
+html[data-v6-theme="light"] body .rating.easy{
+  background:#E2F5E9;border-color:#4D996D;color:#1A623D
+}
+html[data-v6-theme="light"] body .rating small{color:inherit}
+html[data-v6-theme="light"] body .result-icon.success{
+  background:#E2F5E9;color:#1A623D
+}
+html[data-v6-theme="light"] body .result-icon.retry{
+  background:#FFF0D5;color:#805516
+}
+html[data-v6-theme="light"] body .alpha-example button{
+  background:var(--v6-soft);border:1px solid var(--v6-line);color:var(--v6-mint-d)
+}
+
+/* Práctica rápida (micro), desafíos y Escucha/Habla/Recuerda */
+html[data-v6-theme="light"] body .mini-result,
+html[data-v6-theme="light"] body .mini-learning-card,
+html[data-v6-theme="light"] body .mini-quiz,
+html[data-v6-theme="light"] body .mini-choice,
+html[data-v6-theme="light"] body .daily-feedback,
+html[data-v6-theme="light"] body .mini-feedback{
+  background:var(--v6-paper);border-color:var(--v6-line);color:var(--v6-text)
+}
+html[data-v6-theme="light"] body .mini-choice:not(:disabled):hover{
+  background:var(--v6-soft);border-color:var(--v6-mint-d)
+}
+html[data-v6-theme="light"] body .mini-choice.right,
+html[data-v6-theme="light"] body .mini-feedback:not(.is-wrong){
+  background:#E2F5E9;border-color:#4D996D;color:#1A623D
+}
+html[data-v6-theme="light"] body .mini-choice.wrong,
+html[data-v6-theme="light"] body .mini-feedback.is-wrong,
+html[data-v6-theme="light"] body .daily-feedback.needs-practice{
+  background:#FBE6E9;border-color:#BE6573;color:#88323C
+}
+html[data-v6-theme="light"] body .mini-choice.dim{opacity:.85;color:var(--v6-muted)}
+html[data-v6-theme="light"] body .mini-result-grid>div{
+  background:var(--v6-soft);border-color:var(--v6-line);color:var(--v6-text)
+}
+html[data-v6-theme="light"] body .mini-quiz-label,
+html[data-v6-theme="light"] body .mini-type,
+html[data-v6-theme="light"] body .mini-learning-card p,
+html[data-v6-theme="light"] body .mini-footer>span,
+html[data-v6-theme="light"] body .mini-session-head>span,
+html[data-v6-theme="light"] body .mini-stage-heading p,
+html[data-v6-theme="light"] body .mini-feedback p,
+html[data-v6-theme="light"] body .mini-result>p,
+html[data-v6-theme="light"] body .mini-result-grid span,
+html[data-v6-theme="light"] body .mini-select-note,
+html[data-v6-theme="light"] body .mini-congrats,
+html[data-v6-theme="light"] body .daily-intro,
+html[data-v6-theme="light"] body .daily-step,
+html[data-v6-theme="light"] body .daily-question,
+html[data-v6-theme="light"] body .daily-translation,
+html[data-v6-theme="light"] body .daily-record-caption,
+html[data-v6-theme="light"] body .daily-feedback p,
+html[data-v6-theme="light"] body .daily-privacy{
+  color:var(--v6-muted)
+}
+html[data-v6-theme="light"] body .daily-reveal{color:var(--v6-mint-d)}
+html[data-v6-theme="light"] body .daily-audio-glyph,
+html[data-v6-theme="light"] body .mini-sound{
+  background:var(--v6-soft);border-color:var(--v6-line);color:var(--v6-mint-d)
+}
+html[data-v6-theme="light"] body .daily-record-btn,
+html[data-v6-theme="light"] body .daily-play-btn{
+  background:var(--v6-paper);border-color:var(--v6-line);color:var(--v6-text)
+}
+html[data-v6-theme="light"] body .mini-progress,
+html[data-v6-theme="light"] body .progress-track{background:var(--v6-line)}
+
+/* Diálogos: tarjetas, conversación, elección, corrección y resultado */
+html[data-v6-theme="light"] body .dialog-hub-hero{
+  background:linear-gradient(135deg,var(--v6-soft),var(--v6-paper));
+  border-color:var(--v6-line);color:var(--v6-text);box-shadow:var(--v6-shadow)
+}
+html[data-v6-theme="light"] body .dialog-line-card,
+html[data-v6-theme="light"] body .dialog-hub-meta>div,
+html[data-v6-theme="light"] body .dialog-preview-line,
+html[data-v6-theme="light"] body .dialog-summary-score>div,
+html[data-v6-theme="light"] body .dialog-coach{
+  background:var(--v6-soft);border-color:var(--v6-line);color:var(--v6-text)
+}
+html[data-v6-theme="light"] body .dialog-card p,
+html[data-v6-theme="light"] body .dialog-line-card span,
+html[data-v6-theme="light"] body .dialog-line-card small,
+html[data-v6-theme="light"] body .dialog-preview-line span,
+html[data-v6-theme="light"] body .dialog-card-footer,
+html[data-v6-theme="light"] body .dialog-stage-progress,
+html[data-v6-theme="light"] body .dialog-coach p,
+html[data-v6-theme="light"] body .dialog-summary p,
+html[data-v6-theme="light"] body .dialog-summary-score span{
+  color:var(--v6-muted)
+}
+html[data-v6-theme="light"] body .dialog-option.correct{
+  background:#E2F5E9;border-color:#4D996D;color:#1A623D
+}
+html[data-v6-theme="light"] body .dialog-option.incorrect{
+  background:#FBE6E9;border-color:#BE6573;color:#88323C
+}
+html[data-v6-theme="light"] body .dialog-option.muted{opacity:.85}
+html[data-v6-theme="light"] body .dialog-option small,
+html[data-v6-theme="light"] body .dialog-preview-badge,
+html[data-v6-theme="light"] body .dialog-stage-pill,
+html[data-v6-theme="light"] body .dialog-result-badge,
+html[data-v6-theme="light"] body .dialog-line-icon{
+  background:var(--v6-soft);border-color:var(--v6-line);color:var(--v6-mint-d)
+}
+html[data-v6-theme="light"] body .dialog-avatar{
+  color:var(--v6-mint-d);background:var(--v6-soft)
+}
+
+/* Cuenta, perfil y alertas */
+html[data-v6-theme="light"] body .cloud-account-strip span,
+html[data-v6-theme="light"] body .cloud-auth-divider,
+html[data-v6-theme="light"] body .cloud-note{
+  color:var(--v6-muted)!important
+}
+html[data-v6-theme="light"] body .cloud-status{
+  background:#E2F5E9;color:#1A623D
+}
+html[data-v6-theme="light"] body .cloud-warning{
+  background:#FBE6E9;color:#88323C
+}
+html[data-v6-theme="light"] body .slovo-welcome,
+html[data-v6-theme="light"] body .cloud-home-entry{
+  background:var(--v6-soft);border-color:var(--v6-line);color:var(--v6-text)
+}
+html[data-v6-theme="light"] body .slovo-welcome strong,
+html[data-v6-theme="light"] body .slovo-avatar-fallback{
+  color:var(--v6-text)
+}
+html[data-v6-theme="light"] body .slovo-welcome small{
+  color:var(--v6-muted)
+}
+html[data-v6-theme="light"] body .slovo-edit-profile,
+html[data-v6-theme="light"] body .cloud-home-entry strong{
+  color:var(--v6-mint-d);border-color:var(--v6-line)
+}
+
+/* Portada anterior y superficies reutilizadas: evitar regresiones */
+html[data-v6-theme="light"] body .hero,
+html[data-v6-theme="light"] body .momentum-hero,
+html[data-v6-theme="light"] body .quest-head,
+html[data-v6-theme="light"] body .time-first{
+  background:linear-gradient(135deg,var(--v6-soft),var(--v6-paper));
+  border-color:var(--v6-line);color:var(--v6-text);box-shadow:var(--v6-shadow)
+}
+html[data-v6-theme="light"] body .hero h1,
+html[data-v6-theme="light"] body .momentum-hero h1,
+html[data-v6-theme="light"] body .quest-head h1,
+html[data-v6-theme="light"] body .time-first-title h1{
+  color:var(--v6-text)
+}
+html[data-v6-theme="light"] body .next-lesson,
+html[data-v6-theme="light"] body .daily-plan,
+html[data-v6-theme="light"] body .tip-banner,
+html[data-v6-theme="light"] body .course-intro,
+html[data-v6-theme="light"] body .alphabet-count,
+html[data-v6-theme="light"] body .momentum-welcome,
+html[data-v6-theme="light"] body .momentum-progress-panel,
+html[data-v6-theme="light"] body .momentum-side-panel,
+html[data-v6-theme="light"] body .momentum-bridge,
+html[data-v6-theme="light"] body .quest-card,
+html[data-v6-theme="light"] body .quest-phrase-teaser,
+html[data-v6-theme="light"] body .quest-goal-line,
+html[data-v6-theme="light"] body .time-first-goal,
+html[data-v6-theme="light"] body .mode-card,
+html[data-v6-theme="light"] body .time-first .mode-card,
+html[data-v6-theme="light"] body .mode-card.recommended,
+html[data-v6-theme="light"] body .mode-card.lilac,
+html[data-v6-theme="light"] body .mode-card.peach{
+  background:var(--v6-paper);border-color:var(--v6-line);color:var(--v6-text)
+}
+html[data-v6-theme="light"] body .quest-card:hover,
+html[data-v6-theme="light"] body .time-first .mode-card:hover,
+html[data-v6-theme="light"] body .mode-card:hover{
+  background:var(--v6-soft);border-color:var(--v6-mint-d)
+}
+html[data-v6-theme="light"] body .quest-card.quest-done{
+  background:var(--v6-soft);border-color:#4D996D
+}
+html[data-v6-theme="light"] body .hero-copy>p,
+html[data-v6-theme="light"] body .momentum-content p,
+html[data-v6-theme="light"] body .momentum-caption,
+html[data-v6-theme="light"] body .momentum-hint,
+html[data-v6-theme="light"] body .momentum-progress-panel>p,
+html[data-v6-theme="light"] body .momentum-side-panel>p,
+html[data-v6-theme="light"] body .momentum-bridge p,
+html[data-v6-theme="light"] body .mode-card p,
+html[data-v6-theme="light"] body .mode-card-top,
+html[data-v6-theme="light"] body .mode-card-footer,
+html[data-v6-theme="light"] body .mode-number small,
+html[data-v6-theme="light"] body .quest-head p,
+html[data-v6-theme="light"] body .quest-goal-line,
+html[data-v6-theme="light"] body .quest-card-text small,
+html[data-v6-theme="light"] body .quest-phrase-teaser>p,
+html[data-v6-theme="light"] body .quest-today-phrase span,
+html[data-v6-theme="light"] body .time-first-title p,
+html[data-v6-theme="light"] body .time-first-goal-copy>span,
+html[data-v6-theme="light"] body .time-first-choose span,
+html[data-v6-theme="light"] body .time-first-note,
+html[data-v6-theme="light"] body .next-description p,
+html[data-v6-theme="light"] body .plan-line span,
+html[data-v6-theme="light"] body .tip-banner p{
+  color:var(--v6-muted)
+}
+html[data-v6-theme="light"] body .quest-card-status,
+html[data-v6-theme="light"] body .quest-done .quest-card-status,
+html[data-v6-theme="light"] body .quest-phrase-teaser>span,
+html[data-v6-theme="light"] body .mode-card-footer>span,
+html[data-v6-theme="light"] body .time-first-goal-label,
+html[data-v6-theme="light"] body .time-first-choose strong,
+html[data-v6-theme="light"] body .time-first-note strong,
+html[data-v6-theme="light"] body .quest-tag,
+html[data-v6-theme="light"] body .quest-score strong{
+  color:var(--v6-mint-d)
+}
+html[data-v6-theme="light"] body .quest-score,
+html[data-v6-theme="light"] body .quest-streak{
+  background:var(--v6-soft);border-color:var(--v6-line);color:var(--v6-text)
+}
+html[data-v6-theme="light"] body .quest-score small,
+html[data-v6-theme="light"] body .quest-score span{color:var(--v6-muted)}
+html[data-v6-theme="light"] body .quest-card-icon{
+  background:var(--v6-soft);color:var(--v6-mint-d)
+}
+html[data-v6-theme="light"] body .quest-today-phrase{
+  border-color:var(--v6-line)
+}
+html[data-v6-theme="light"] body .quest-today-phrase button{
+  background:var(--v6-soft);border-color:var(--v6-line);color:var(--v6-mint-d)
+}
+html[data-v6-theme="light"] body .time-first-goal-copy strong,
+html[data-v6-theme="light"] body .time-first-goal-action{
+  color:var(--v6-text)
+}
+html[data-v6-theme="light"] body .plan-line,
+html[data-v6-theme="light"] body .study-divider{border-color:var(--v6-line)}
+
