@@ -785,3 +785,32 @@ html[data-v6-theme="light"] body .cloud-account-strip span,
 html[data-v6-theme="light"] body .option-letter{
   color:#52675B
 }
+
+/* AP1-001 | cascada: el tema heredado fija bordes con !important.
+   Equipararlos al tema claro y asegurar foco visible por teclado. */
+html[data-v6-theme="light"] body .topbar-metrics>span,
+html[data-v6-theme="light"] body .sidebar-bottom,
+html[data-v6-theme="light"] body .stat-card,
+html[data-v6-theme="light"] body .daily-plan,
+html[data-v6-theme="light"] body .tip-banner,
+html[data-v6-theme="light"] body .course-card,
+html[data-v6-theme="light"] body .next-lesson,
+html[data-v6-theme="light"] body .quest-card,
+html[data-v6-theme="light"] body .quest-head,
+html[data-v6-theme="light"] body .quest-phrase-teaser,
+html[data-v6-theme="light"] body .quest-goal-line,
+html[data-v6-theme="light"] body .daily-panel,
+html[data-v6-theme="light"] body .micro-panel,
+html[data-v6-theme="light"] body .review-summary,
+html[data-v6-theme="light"] body .review-stats>div,
+html[data-v6-theme="light"] body .alpha-detail,
+html[data-v6-theme="light"] body .settings-panel,
+html[data-v6-theme="light"] body .momentum-progress-panel,
+html[data-v6-theme="light"] body .momentum-side-panel,
+html[data-v6-theme="light"] body .daily-stats-section,
+html[data-v6-theme="light"] body .micro-stats-section{
+  border-color:var(--v6-line)!important
+}
+html[data-v6-theme="light"] body button:focus-visible{
+  outline:3px solid var(--v6-mint-d);outline-offset:3px
+}
