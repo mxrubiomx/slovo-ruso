@@ -814,3 +814,12 @@ html[data-v6-theme="light"] body .micro-stats-section{
 html[data-v6-theme="light"] body button:focus-visible{
   outline:3px solid var(--v6-mint-d);outline-offset:3px
 }
+
+/* AP1-001 | mantener significados de completado y panel de peligro. */
+html[data-v6-theme="light"] body .course-card.done,
+html[data-v6-theme="light"] body .quest-card.quest-done{
+  border-color:#4D996D!important
+}
+html[data-v6-theme="light"] body .settings-panel.danger{
+  border-color:#BE6573!important
+}
