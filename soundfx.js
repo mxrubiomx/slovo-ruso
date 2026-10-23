@@ -39,7 +39,7 @@ function play(name,{preview=false}={}){
    for(const note of preset[name]){
     const oscillator=context.createOscillator(),gain=context.createGain();
     const t=start+(note.at||0)/1000,end=t+note.ms/1000;
-    const strength=.048*(volume/100)*note.g;
+    const strength=.11*(volume/100)*note.g;
     oscillator.type=note.type||'sine';
     oscillator.frequency.setValueAtTime(note.f,t);
     if(note.to)oscillator.frequency.exponentialRampToValueAtTime(note.to,end);
@@ -97,8 +97,9 @@ function classify(action,btn){
    const f=APP.querySelector('.daily-feedback');
    if(!f)return null;
    const tasks=state.dailyTasks?.[today()]?.tasks||{};
+   if(f.classList.contains('needs-practice'))return 'incorrect';
    if(['listen','speak','recall'].every(k=>tasks[k]))return 'complete';
-   return f.classList.contains('needs-practice')?'incorrect':'correct';
+   return 'correct';
  }
  if(action==='daily-speech') {
    const tasks=state.dailyTasks?.[today()]?.tasks||{};
