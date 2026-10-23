@@ -18,6 +18,7 @@ assert.ok(css.includes('var(--v6-paper)')&&css.includes('var(--v6-text)'),'Panel
 assert.ok(!source.includes('fetch(')&&!source.includes('new Audio('),'Los efectos deben sintetizarse sin red ni archivos');
 
 const listeners={},saved=new Map(),sounds=[];
+let clock=0;
 let isEnabled=true,speaking=false,feedback='good';
 const main={querySelector:()=>null,insertAdjacentHTML(){}};
 const APP={
@@ -46,7 +47,7 @@ const fake={
  window:{AudioContext:AudioContextStub,speechSynthesis:{get speaking(){return speaking},pending:false},SLOVO_SOUND_PREFS:{get:()=>isEnabled,set:value=>{isEnabled=value}}},
  addEventListener(){},
  },
- Date,Math,
+ Date:{now:()=>{clock+=150;return clock}},Math,
 };
 vm.runInNewContext(source,fake,{filename:'soundfx.js'});
 assert.equal(typeof fake.window.SLOVO_SFX.play,'function');
