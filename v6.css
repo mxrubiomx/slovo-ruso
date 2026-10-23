@@ -835,3 +835,6 @@ html[data-v6-theme="light"] body .time-first-meter span{
 html[data-v6-theme="light"] body .stats-ring{
   background:conic-gradient(var(--v6-mint-d) var(--pct),var(--v6-line) var(--pct))
 }
+
+/* AP1-001 | iOS: v4.6 fija el fondo del elemento html en oscuro a <=850px. */
+html[data-v6-theme="light"]{background:var(--v6-bg)}
