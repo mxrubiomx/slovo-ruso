@@ -44,8 +44,8 @@ const fake={
  state:{dailyTasks:{}},today:()=> '2026-10-23',
  localStorage:{getItem:key=>saved.has(key)?saved.get(key):null,setItem:(key,val)=>saved.set(key,val)},
  document:{hidden:false,getElementById:()=>null},
- window:{AudioContext:AudioContextStub,speechSynthesis:{get speaking(){return speaking},pending:false},SLOVO_SOUND_PREFS:{get:()=>isEnabled,set:value=>{isEnabled=value}}},
- addEventListener(){},
+ window:{AudioContext:AudioContextStub,speechSynthesis:{get speaking(){return speaking},pending:false},SLOVO_SOUND_PREFS:{get:()=>isEnabled,set:value=>{isEnabled=value}},
+ addEventListener(){}
  },
  Date:{now:()=>{clock+=150;return clock}},Math,
 };
