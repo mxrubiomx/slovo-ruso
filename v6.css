@@ -823,3 +823,15 @@ html[data-v6-theme="light"] body .quest-card.quest-done{
 html[data-v6-theme="light"] body .settings-panel.danger{
   border-color:#BE6573!important
 }
+
+/* AP1-001 | indicadores de progreso: no usar menta clara sobre riel claro. */
+html[data-v6-theme="light"] body .progress-track>div,
+html[data-v6-theme="light"] body .weekly-progress>span,
+html[data-v6-theme="light"] body .quest-track div,
+html[data-v6-theme="light"] body .mini-progress span,
+html[data-v6-theme="light"] body .time-first-meter span{
+  background:var(--v6-mint-d)
+}
+html[data-v6-theme="light"] body .stats-ring{
+  background:conic-gradient(var(--v6-mint-d) var(--pct),var(--v6-line) var(--pct))
+}
