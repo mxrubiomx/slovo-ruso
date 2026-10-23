@@ -24,6 +24,7 @@ function personalAchievement(){const lessons=Object.values(state.lessons||{}).fi
 
 const avatarMark=(extra='')=>avatarUrl?'<img class="slovo-avatar-img" src="'+avatarUrl+'" alt="Tu foto de perfil" '+extra+'>':'<span class="slovo-avatar-fallback" aria-hidden="true">'+esc(initials())+'</span>';
 function setPrefs(k,value){prefs={...prefs,[k]:!!value};put(profilePrefsKey(account),prefs);updated()}
+window.SLOVO_SOUND_PREFS={get:()=>prefs.sound!==false,set:value=>setPrefs('sound',!!value)};
 async function loadProfile(id){
  if(!client||!id)return;
  try{
@@ -83,7 +84,8 @@ function celebration(){
  for(let i=0;i<26;i++){const el=document.createElement('i');el.style.setProperty('--x',(Math.random()*100)+'%');el.style.setProperty('--d',(Math.random()*0.7)+'s');el.style.setProperty('--c',colors[i%colors.length]);wrap.appendChild(el)}
  document.body.appendChild(wrap);
  setTimeout(()=>wrap.remove(),1900);
- if(prefs.sound)try{const C=window.AudioContext||window.webkitAudioContext;if(C){const ctx=new C();[660,880,1100].forEach((freq,i)=>{const osc=ctx.createOscillator(),gain=ctx.createGain(),start=ctx.currentTime+i*.1;osc.type='sine';osc.frequency.value=freq;gain.gain.setValueAtTime(.0001,start);gain.gain.exponentialRampToValueAtTime(.045,start+.015);gain.gain.exponentialRampToValueAtTime(.0001,start+.19);osc.connect(gain).connect(ctx.destination);osc.start(start);osc.stop(start+.2)});setTimeout(()=>ctx.close(),800)}}catch(e){}
+
+ // El sonido de los retos lo gestiona soundfx.js según el resultado; evitar doble audio.
 }
 const coreDailyMarkDone=dailyMarkDone;
 dailyMarkDone=function(...args){const before=dailyCompletedCount(dailyLog()[today()]||null);const result=coreDailyMarkDone(...args);const after=dailyCompletedCount(dailyLog()[today()]||null);if(after>before)celebration();return result};
@@ -177,7 +179,7 @@ render=function(){
  if(account&&main){
   const hero=main.querySelector('.time-first-title');
   if(page==='home'&&hero)hero.insertAdjacentHTML('afterbegin','<div class="slovo-welcome"><button class="slovo-profile-thumb" type="button" data-action="profile-open" aria-label="Personalizar perfil">'+avatarMark()+'</button><div><span class="eyebrow">ТВОЙ ПУТЬ · TU CAMINO</span><strong>¡Привет, '+esc(preferredName())+'!</strong><small>'+((state.xp||0)>0?'Ya llevas '+(state.xp||0)+' XP. Sigue a tu ritmo.':'Tu primera frase en ruso te espera.')+' · '+esc(personalAchievement())+'</small></div><button class="slovo-edit-profile" data-action="profile-open" type="button">Editar</button></div>');
-  if(page==='settings')main.insertAdjacentHTML('beforeend','<section class="settings-panel slovo-personal-settings"><h2>Tu experiencia</h2><p>Personaliza tu perfil y elige cómo celebrar tus avances.</p><button type="button" class="btn btn-outline" data-action="profile-open">Editar nombre y fotografía</button><label class="slovo-setting-row"><span>Celebraciones animadas</span><input type="checkbox" data-action="profile-celebrations" '+(prefs.celebrations?'checked':'')+'></label><label class="slovo-setting-row"><span>Sonido de recompensas</span><input type="checkbox" data-action="profile-sound" '+(prefs.sound?'checked':'')+'></label></section>');
+  if(page==='settings')main.insertAdjacentHTML('beforeend','<section class="settings-panel slovo-personal-settings"><h2>Tu experiencia</h2><p>Personaliza tu perfil y elige cómo celebrar tus avances.</p><button type="button" class="btn btn-outline" data-action="profile-open">Editar nombre y fotografía</button><label class="slovo-setting-row"><span>Celebraciones animadas</span><input type="checkbox" data-action="profile-celebrations" '+(prefs.celebrations?'checked':'')+'></label><label class="slovo-setting-row"><span>Efectos de sonido</span><input type="checkbox" data-action="profile-sound" '+(prefs.sound?'checked':'')+'></label></section>');
  }
  if(account&&modal){const box=APP.querySelector('.cloud-modal .cloud-actions');if(box)box.insertAdjacentHTML('afterbegin','<button type="button" class="btn btn-primary" data-action="profile-open">Personalizar perfil</button>')}
  if(profileOpen)APP.insertAdjacentHTML('beforeend',profileDialog());
